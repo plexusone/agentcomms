@@ -7,3 +7,7 @@ coverage.txt
 debug.test
 main
 main.zip
+
+# Build artifacts
+agentcall
+agentcomms
