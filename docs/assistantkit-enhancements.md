@@ -1,6 +1,6 @@
 # Proposed assistantkit Enhancements
 
-Enhancements to make tool-specific code unnecessary in projects like agentcall.
+Enhancements to make tool-specific code unnecessary in projects like agentcomms.
 
 ## 1. Unified Plugin Bundle Type
 
@@ -41,8 +41,8 @@ func (b *Bundle) Generate(tool, outputDir string) error
 func (b *Bundle) GenerateAll(outputDir string) error
 
 // Example usage:
-bundle := bundle.New("agentcall", "0.1.0", "Voice calling for Claude Code")
-bundle.Plugin.Author = "agentplexus"
+bundle := bundle.New("agentcomms", "0.2.0", "Voice calls and chat messaging for AI assistants")
+bundle.Plugin.Author = "plexusone"
 bundle.AddSkill(phoneSkill)
 bundle.AddCommand(callCommand)
 bundle.SetHooks(hooksConfig)
@@ -59,9 +59,9 @@ bundle.GenerateAll("./plugins")
 Ensure MCP servers are properly written to manifests:
 
 ```go
-// Currently in agentcall:
-plugin.AddMCPServer("agentcall", plugins.MCPServer{
-    Command: "./agentcall",
+// Currently in agentcomms:
+plugin.AddMCPServer("agentcomms", plugins.MCPServer{
+    Command: "./agentcomms",
     Args:    []string{},
     Env:     map[string]string{...},
 })
@@ -92,27 +92,29 @@ Support YAML/JSON bundle definition:
 
 ```yaml
 # bundle.yaml
-name: agentcall
-version: 0.1.0
-description: Voice calling for Claude Code
-author: agentplexus
+name: agentcomms
+version: 0.2.0
+description: Voice calls and chat messaging for AI assistants
+author: plexusone
 
 mcp_servers:
-  agentcall:
-    command: ./agentcall
+  agentcomms:
+    command: ./agentcomms
     env:
       NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
 
 skills:
   - path: skills/phone-input.yaml
+  - path: skills/chat-messaging.yaml
 
 commands:
   - path: commands/call.yaml
+  - path: commands/message.yaml
 
 hooks:
   on_stop:
     - type: prompt
-      prompt: "Consider calling the user..."
+      prompt: "Consider calling or messaging the user..."
 ```
 
 Then generate with CLI:
@@ -174,32 +176,34 @@ skill := skills.NewSkillFromTemplate("phone-input", &SkillTemplateData{
 | Tool Detection | Low | Nice-to-have |
 | Templates | Low | Reduces boilerplate |
 
-## Resulting agentcall Code
+## Resulting agentcomms Code
 
-With these enhancements, agentcall's generator becomes:
+With these enhancements, agentcomms's generator becomes:
 
 ```go
 package main
 
 import (
     "log"
-    "github.com/agentplexus/assistantkit/bundle"
+    "github.com/plexusone/assistantkit/bundle"
 )
 
 func main() {
-    b := bundle.New("agentcall", "0.1.0", "Voice calling for Claude Code")
-    b.Plugin.Author = "agentplexus"
-    b.Plugin.Repository = "https://github.com/agentplexus/agentcall"
+    b := bundle.New("agentcomms", "0.2.0", "Voice calls and chat messaging for AI assistants")
+    b.Plugin.Author = "plexusone"
+    b.Plugin.Repository = "https://github.com/plexusone/agentcomms"
 
-    b.Plugin.AddMCPServer("agentcall", bundle.MCPServer{
-        Command: "./agentcall",
+    b.Plugin.AddMCPServer("agentcomms", bundle.MCPServer{
+        Command: "./agentcomms",
         Env: map[string]string{
             "NGROK_AUTHTOKEN": "${NGROK_AUTHTOKEN}",
         },
     })
 
     b.AddSkill(createPhoneSkill())
+    b.AddSkill(createChatSkill())
     b.AddCommand(createCallCommand())
+    b.AddCommand(createMessageCommand())
     b.SetHooks(createHooks())
 
     // No Claude-specific code!
@@ -212,5 +216,5 @@ func main() {
 Or even simpler with declarative:
 
 ```bash
-assistantkit generate --bundle agentcall.yaml --tool claude
+assistantkit generate --bundle agentcomms.yaml --tool claude
 ```
