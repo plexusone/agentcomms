@@ -1,30 +1,69 @@
 {
-  "ir_version": "1.0",
-  "project": "agentcall",
-  "repository": "https://github.com/agentplexus/agentcall",
+  "irVersion": "1.0",
+  "project": "agentcomms",
+  "repository": "https://github.com/plexusone/agentcomms",
   "versioning": "semver",
-  "commit_convention": "conventional",
-  "unreleased": {
-    "added": [
-      { "description": "Configurable voice providers - TTS and STT can each be set to ElevenLabs or Deepgram independently" },
-      { "description": "`AGENTCALL_TTS_PROVIDER` environment variable to select TTS provider (`elevenlabs` or `deepgram`)" },
-      { "description": "`AGENTCALL_STT_PROVIDER` environment variable to select STT provider (`elevenlabs` or `deepgram`)" },
-      { "description": "ElevenLabs STT provider support via go-elevenlabs omnivoice integration" },
-      { "description": "Deepgram TTS provider support via omnivoice-deepgram integration" }
-    ],
-    "changed": [
-      { "description": "API keys now only required for selected providers (ElevenLabs key only needed if using ElevenLabs, Deepgram key only needed if using Deepgram)" },
-      { "description": "Default configuration: ElevenLabs for TTS, Deepgram for STT (unchanged behavior)" },
-      { "description": "Migrate logging from `log` to `log/slog` for structured logging" }
-    ],
-    "documentation": [
-      { "description": "README updated with provider selection configuration and cost comparison table" }
-    ],
-    "chore": [
-      { "description": "Add `.envrc` to `.gitignore`" }
-    ]
-  },
+  "commitConvention": "conventional",
   "releases": [
+    {
+      "version": "v0.2.0",
+      "date": "2026-03-07",
+      "highlights": [
+        { "description": "Renamed from agentcall to agentcomms with expanded scope: voice calls AND chat messaging for AI assistants" },
+        { "description": "Added chat messaging support via Discord, Telegram, and WhatsApp using the omnichat stack" },
+        { "description": "Simplified imports with omnivoice v0.6.0 re-exported types" }
+      ],
+      "breaking": [
+        { "description": "Module renamed from `github.com/agentplexus/agentcall` to `github.com/plexusone/agentcomms`", "commit": "7dbcdc8" },
+        { "description": "Environment variable prefix changed from `AGENTCALL_*` to `AGENTCOMMS_*` (legacy prefix still supported)", "commit": "7dbcdc8" }
+      ],
+      "upgradeGuide": [
+        { "description": "Update import paths from `github.com/agentplexus/agentcall` to `github.com/plexusone/agentcomms`" },
+        { "description": "Rename environment variables from `AGENTCALL_*` to `AGENTCOMMS_*` (optional, legacy prefix still works)" }
+      ],
+      "added": [
+        { "description": "Chat messaging support via omnichat integration (Discord, Telegram, WhatsApp)", "commit": "7dbcdc8" },
+        { "description": "`send_message` MCP tool - send message via Discord, Telegram, or WhatsApp", "commit": "7dbcdc8" },
+        { "description": "`list_channels` MCP tool - list available chat providers and their status", "commit": "7dbcdc8" },
+        { "description": "`get_messages` MCP tool - retrieve conversation history from a chat channel", "commit": "7dbcdc8" },
+        { "description": "`pkg/chat` package with chat manager for multi-provider routing", "commit": "7dbcdc8" },
+        { "description": "Configurable voice providers - TTS and STT can each be set to ElevenLabs, Deepgram, or OpenAI independently", "commit": "05daa1e" },
+        { "description": "`AGENTCOMMS_TTS_PROVIDER` environment variable to select TTS provider", "commit": "05daa1e" },
+        { "description": "`AGENTCOMMS_STT_PROVIDER` environment variable to select STT provider", "commit": "05daa1e" },
+        { "description": "OpenAI voice provider support via omnivoice-openai integration", "commit": "7dbcdc8" }
+      ],
+      "changed": [
+        { "description": "Module renamed from agentcall to agentcomms", "commit": "7dbcdc8" },
+        { "description": "Package `pkg/callmanager` renamed to `pkg/voice`", "commit": "7dbcdc8" },
+        { "description": "Use omnivoice v0.6.0 with re-exported callsystem types for simpler imports", "commit": "ff89e42" },
+        { "description": "Migrate logging from `log` to `log/slog` for structured logging", "commit": "e2f2187" },
+        { "description": "API keys now only required for selected providers", "commit": "05daa1e" }
+      ],
+      "security": [
+        { "description": "Fix potential log injection vulnerability in user input handling", "commit": "4bfa155" }
+      ],
+      "documentation": [
+        { "description": "README updated with chat messaging documentation and architecture diagram", "commit": "7dbcdc8" },
+        { "description": "Add UTF-8 emoji icons to Features section", "commit": "c214139" },
+        { "description": "Update Go version requirement to 1.25+", "commit": "c214139" },
+        { "description": "Update shields and formatting", "commit": "16db421" },
+        { "description": "Add provider selection configuration and cost comparison table", "commit": "d2cb74f" }
+      ],
+      "chore": [
+        { "description": "Remove compiled binary from git and update .gitignore", "commit": "c98bf22" },
+        { "description": "Update changelog and gitignore", "commit": "7152339" }
+      ],
+      "ci": [
+        { "description": "Update to shared CI/CD pipelines", "commit": "ba11d1a" }
+      ],
+      "dependencies": [
+        { "description": "Update omnivoice to v0.6.0 (re-exports callsystem types)", "commit": "ff89e42" },
+        { "description": "Add omnichat v0.3.0 for chat messaging", "commit": "7dbcdc8" },
+        { "description": "Update modelcontextprotocol/go-sdk to v1.4.0", "commit": "d2aca7e" },
+        { "description": "Update assistantkit to v0.11.0", "commit": "7dbcdc8" },
+        { "description": "Update mcpkit to v0.4.0", "commit": "7dbcdc8" }
+      ]
+    },
     {
       "version": "v0.1.0",
       "date": "2026-01-19",
