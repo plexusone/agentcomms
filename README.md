@@ -16,11 +16,11 @@ An MCP plugin that enables voice calls and chat messaging for AI coding assistan
 
 ## Features
 
-- **Phone Calls**: Real voice calls to your phone via Twilio
-- **Chat Messaging**: Send messages via Discord, Telegram, or WhatsApp
-- **Multi-turn Conversations**: Back-and-forth discussions, not just one-way notifications
-- **Smart Triggers**: Hooks that suggest calling/messaging when you're stuck or done with work
-- **Mix and Match**: Use voice, chat, or both based on your needs
+- 📞 **Phone Calls**: Real voice calls to your phone via Twilio
+- 💬 **Chat Messaging**: Send messages via Discord, Telegram, or WhatsApp
+- 🔄 **Multi-turn Conversations**: Back-and-forth discussions, not just one-way notifications
+- ⚡ **Smart Triggers**: Hooks that suggest calling/messaging when you're stuck or done with work
+- 🔀 **Mix and Match**: Use voice, chat, or both based on your needs
 
 ## Architecture
 
@@ -81,7 +81,7 @@ This project demonstrates the plexusone voice and chat AI stack:
 
 ### Prerequisites
 
-- Go 1.24+
+- Go 1.25+
 - For voice: Twilio account + ngrok account
 - For chat: Discord/Telegram bot token (optional)
 
