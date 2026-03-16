@@ -46,6 +46,7 @@ var (
 		{Name: "timestamp", Type: field.TypeTime},
 		{Name: "payload", Type: field.TypeJSON},
 		{Name: "status", Type: field.TypeEnum, Enums: []string{"new", "delivered", "failed"}, Default: "new"},
+		{Name: "source_agent_id", Type: field.TypeString, Nullable: true, Default: ""},
 	}
 	// EventsTable holds the schema information for the "events" table.
 	EventsTable = &schema.Table{

@@ -132,6 +132,26 @@ func (_u *EventUpdate) SetNillableStatus(v *event.Status) *EventUpdate {
 	return _u
 }
 
+// SetSourceAgentID sets the "source_agent_id" field.
+func (_u *EventUpdate) SetSourceAgentID(v string) *EventUpdate {
+	_u.mutation.SetSourceAgentID(v)
+	return _u
+}
+
+// SetNillableSourceAgentID sets the "source_agent_id" field if the given value is not nil.
+func (_u *EventUpdate) SetNillableSourceAgentID(v *string) *EventUpdate {
+	if v != nil {
+		_u.SetSourceAgentID(*v)
+	}
+	return _u
+}
+
+// ClearSourceAgentID clears the value of the "source_agent_id" field.
+func (_u *EventUpdate) ClearSourceAgentID() *EventUpdate {
+	_u.mutation.ClearSourceAgentID()
+	return _u
+}
+
 // Mutation returns the EventMutation object of the builder.
 func (_u *EventUpdate) Mutation() *EventMutation {
 	return _u.mutation
@@ -219,6 +239,12 @@ func (_u *EventUpdate) sqlSave(ctx context.Context) (_node int, err error) {
 	}
 	if value, ok := _u.mutation.Status(); ok {
 		_spec.SetField(event.FieldStatus, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.SourceAgentID(); ok {
+		_spec.SetField(event.FieldSourceAgentID, field.TypeString, value)
+	}
+	if _u.mutation.SourceAgentIDCleared() {
+		_spec.ClearField(event.FieldSourceAgentID, field.TypeString)
 	}
 	if _node, err = sqlgraph.UpdateNodes(ctx, _u.driver, _spec); err != nil {
 		if _, ok := err.(*sqlgraph.NotFoundError); ok {
@@ -344,6 +370,26 @@ func (_u *EventUpdateOne) SetNillableStatus(v *event.Status) *EventUpdateOne {
 	return _u
 }
 
+// SetSourceAgentID sets the "source_agent_id" field.
+func (_u *EventUpdateOne) SetSourceAgentID(v string) *EventUpdateOne {
+	_u.mutation.SetSourceAgentID(v)
+	return _u
+}
+
+// SetNillableSourceAgentID sets the "source_agent_id" field if the given value is not nil.
+func (_u *EventUpdateOne) SetNillableSourceAgentID(v *string) *EventUpdateOne {
+	if v != nil {
+		_u.SetSourceAgentID(*v)
+	}
+	return _u
+}
+
+// ClearSourceAgentID clears the value of the "source_agent_id" field.
+func (_u *EventUpdateOne) ClearSourceAgentID() *EventUpdateOne {
+	_u.mutation.ClearSourceAgentID()
+	return _u
+}
+
 // Mutation returns the EventMutation object of the builder.
 func (_u *EventUpdateOne) Mutation() *EventMutation {
 	return _u.mutation
@@ -461,6 +507,12 @@ func (_u *EventUpdateOne) sqlSave(ctx context.Context) (_node *Event, err error)
 	}
 	if value, ok := _u.mutation.Status(); ok {
 		_spec.SetField(event.FieldStatus, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.SourceAgentID(); ok {
+		_spec.SetField(event.FieldSourceAgentID, field.TypeString, value)
+	}
+	if _u.mutation.SourceAgentIDCleared() {
+		_spec.ClearField(event.FieldSourceAgentID, field.TypeString)
 	}
 	_node = &Event{config: _u.config}
 	_spec.Assign = _node.assignValues

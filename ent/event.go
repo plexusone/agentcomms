@@ -34,8 +34,10 @@ type Event struct {
 	// Event payload (text, metadata, etc.)
 	Payload map[string]interface{} `json:"payload,omitempty"`
 	// Delivery status
-	Status       event.Status `json:"status,omitempty"`
-	selectValues sql.SelectValues
+	Status event.Status `json:"status,omitempty"`
+	// Source agent ID for agent-to-agent messages (empty for human messages)
+	SourceAgentID string `json:"source_agent_id,omitempty"`
+	selectValues  sql.SelectValues
 }
 
 // scanValues returns the types for scanning values from sql.Rows.
@@ -45,7 +47,7 @@ func (*Event) scanValues(columns []string) ([]any, error) {
 		switch columns[i] {
 		case event.FieldPayload:
 			values[i] = new([]byte)
-		case event.FieldID, event.FieldTenantID, event.FieldAgentID, event.FieldChannelID, event.FieldType, event.FieldRole, event.FieldStatus:
+		case event.FieldID, event.FieldTenantID, event.FieldAgentID, event.FieldChannelID, event.FieldType, event.FieldRole, event.FieldStatus, event.FieldSourceAgentID:
 			values[i] = new(sql.NullString)
 		case event.FieldTimestamp:
 			values[i] = new(sql.NullTime)
@@ -120,6 +122,12 @@ func (_m *Event) assignValues(columns []string, values []any) error {
 			} else if value.Valid {
 				_m.Status = event.Status(value.String)
 			}
+		case event.FieldSourceAgentID:
+			if value, ok := values[i].(*sql.NullString); !ok {
+				return fmt.Errorf("unexpected type %T for field source_agent_id", values[i])
+			} else if value.Valid {
+				_m.SourceAgentID = value.String
+			}
 		default:
 			_m.selectValues.Set(columns[i], values[i])
 		}
@@ -179,6 +187,9 @@ func (_m *Event) String() string {
 	builder.WriteString(", ")
 	builder.WriteString("status=")
 	builder.WriteString(fmt.Sprintf("%v", _m.Status))
+	builder.WriteString(", ")
+	builder.WriteString("source_agent_id=")
+	builder.WriteString(_m.SourceAgentID)
 	builder.WriteByte(')')
 	return builder.String()
 }

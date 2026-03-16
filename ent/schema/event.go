@@ -44,6 +44,10 @@ func (Event) Fields() []ent.Field {
 			Values("new", "delivered", "failed").
 			Default("new").
 			Comment("Delivery status"),
+		field.String("source_agent_id").
+			Optional().
+			Default("").
+			Comment("Source agent ID for agent-to-agent messages (empty for human messages)"),
 	}
 }
 

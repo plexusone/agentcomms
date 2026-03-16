@@ -92,6 +92,20 @@ func (_c *EventCreate) SetNillableStatus(v *event.Status) *EventCreate {
 	return _c
 }
 
+// SetSourceAgentID sets the "source_agent_id" field.
+func (_c *EventCreate) SetSourceAgentID(v string) *EventCreate {
+	_c.mutation.SetSourceAgentID(v)
+	return _c
+}
+
+// SetNillableSourceAgentID sets the "source_agent_id" field if the given value is not nil.
+func (_c *EventCreate) SetNillableSourceAgentID(v *string) *EventCreate {
+	if v != nil {
+		_c.SetSourceAgentID(*v)
+	}
+	return _c
+}
+
 // SetID sets the "id" field.
 func (_c *EventCreate) SetID(v string) *EventCreate {
 	_c.mutation.SetID(v)
@@ -144,6 +158,10 @@ func (_c *EventCreate) defaults() {
 	if _, ok := _c.mutation.Status(); !ok {
 		v := event.DefaultStatus
 		_c.mutation.SetStatus(v)
+	}
+	if _, ok := _c.mutation.SourceAgentID(); !ok {
+		v := event.DefaultSourceAgentID
+		_c.mutation.SetSourceAgentID(v)
 	}
 }
 
@@ -254,6 +272,10 @@ func (_c *EventCreate) createSpec() (*Event, *sqlgraph.CreateSpec) {
 	if value, ok := _c.mutation.Status(); ok {
 		_spec.SetField(event.FieldStatus, field.TypeEnum, value)
 		_node.Status = value
+	}
+	if value, ok := _c.mutation.SourceAgentID(); ok {
+		_spec.SetField(event.FieldSourceAgentID, field.TypeString, value)
+		_node.SourceAgentID = value
 	}
 	return _node, _spec
 }

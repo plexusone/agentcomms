@@ -30,4 +30,8 @@ func init() {
 	eventDescTimestamp := eventFields[6].Descriptor()
 	// event.DefaultTimestamp holds the default value on creation for the timestamp field.
 	event.DefaultTimestamp = eventDescTimestamp.Default.(func() time.Time)
+	// eventDescSourceAgentID is the schema descriptor for source_agent_id field.
+	eventDescSourceAgentID := eventFields[9].Descriptor()
+	// event.DefaultSourceAgentID holds the default value on creation for the source_agent_id field.
+	event.DefaultSourceAgentID = eventDescSourceAgentID.Default.(string)
 }

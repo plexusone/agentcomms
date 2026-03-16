@@ -30,6 +30,8 @@ const (
 	FieldPayload = "payload"
 	// FieldStatus holds the string denoting the status field in the database.
 	FieldStatus = "status"
+	// FieldSourceAgentID holds the string denoting the source_agent_id field in the database.
+	FieldSourceAgentID = "source_agent_id"
 	// Table holds the table name of the event in the database.
 	Table = "events"
 )
@@ -45,6 +47,7 @@ var Columns = []string{
 	FieldTimestamp,
 	FieldPayload,
 	FieldStatus,
+	FieldSourceAgentID,
 }
 
 // ValidColumn reports if the column name is valid (part of the table columns).
@@ -62,6 +65,8 @@ var (
 	DefaultTenantID string
 	// DefaultTimestamp holds the default value on creation for the "timestamp" field.
 	DefaultTimestamp func() time.Time
+	// DefaultSourceAgentID holds the default value on creation for the "source_agent_id" field.
+	DefaultSourceAgentID string
 )
 
 // Type defines the type for the "type" enum field.
@@ -181,4 +186,9 @@ func ByTimestamp(opts ...sql.OrderTermOption) OrderOption {
 // ByStatus orders the results by the status field.
 func ByStatus(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldStatus, opts...).ToFunc()
+}
+
+// BySourceAgentID orders the results by the source_agent_id field.
+func BySourceAgentID(opts ...sql.OrderTermOption) OrderOption {
+	return sql.OrderByField(FieldSourceAgentID, opts...).ToFunc()
 }

@@ -580,21 +580,22 @@ func (m *AgentMutation) ResetEdge(name string) error {
 // EventMutation represents an operation that mutates the Event nodes in the graph.
 type EventMutation struct {
 	config
-	op            Op
-	typ           string
-	id            *string
-	tenant_id     *string
-	agent_id      *string
-	channel_id    *string
-	_type         *event.Type
-	role          *event.Role
-	timestamp     *time.Time
-	payload       *map[string]interface{}
-	status        *event.Status
-	clearedFields map[string]struct{}
-	done          bool
-	oldValue      func(context.Context) (*Event, error)
-	predicates    []predicate.Event
+	op              Op
+	typ             string
+	id              *string
+	tenant_id       *string
+	agent_id        *string
+	channel_id      *string
+	_type           *event.Type
+	role            *event.Role
+	timestamp       *time.Time
+	payload         *map[string]interface{}
+	status          *event.Status
+	source_agent_id *string
+	clearedFields   map[string]struct{}
+	done            bool
+	oldValue        func(context.Context) (*Event, error)
+	predicates      []predicate.Event
 }
 
 var _ ent.Mutation = (*EventMutation)(nil)
@@ -989,6 +990,55 @@ func (m *EventMutation) ResetStatus() {
 	m.status = nil
 }
 
+// SetSourceAgentID sets the "source_agent_id" field.
+func (m *EventMutation) SetSourceAgentID(s string) {
+	m.source_agent_id = &s
+}
+
+// SourceAgentID returns the value of the "source_agent_id" field in the mutation.
+func (m *EventMutation) SourceAgentID() (r string, exists bool) {
+	v := m.source_agent_id
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldSourceAgentID returns the old "source_agent_id" field's value of the Event entity.
+// If the Event object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *EventMutation) OldSourceAgentID(ctx context.Context) (v string, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldSourceAgentID is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldSourceAgentID requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldSourceAgentID: %w", err)
+	}
+	return oldValue.SourceAgentID, nil
+}
+
+// ClearSourceAgentID clears the value of the "source_agent_id" field.
+func (m *EventMutation) ClearSourceAgentID() {
+	m.source_agent_id = nil
+	m.clearedFields[event.FieldSourceAgentID] = struct{}{}
+}
+
+// SourceAgentIDCleared returns if the "source_agent_id" field was cleared in this mutation.
+func (m *EventMutation) SourceAgentIDCleared() bool {
+	_, ok := m.clearedFields[event.FieldSourceAgentID]
+	return ok
+}
+
+// ResetSourceAgentID resets all changes to the "source_agent_id" field.
+func (m *EventMutation) ResetSourceAgentID() {
+	m.source_agent_id = nil
+	delete(m.clearedFields, event.FieldSourceAgentID)
+}
+
 // Where appends a list predicates to the EventMutation builder.
 func (m *EventMutation) Where(ps ...predicate.Event) {
 	m.predicates = append(m.predicates, ps...)
@@ -1023,7 +1073,7 @@ func (m *EventMutation) Type() string {
 // order to get all numeric fields that were incremented/decremented, call
 // AddedFields().
 func (m *EventMutation) Fields() []string {
-	fields := make([]string, 0, 8)
+	fields := make([]string, 0, 9)
 	if m.tenant_id != nil {
 		fields = append(fields, event.FieldTenantID)
 	}
@@ -1047,6 +1097,9 @@ func (m *EventMutation) Fields() []string {
 	}
 	if m.status != nil {
 		fields = append(fields, event.FieldStatus)
+	}
+	if m.source_agent_id != nil {
+		fields = append(fields, event.FieldSourceAgentID)
 	}
 	return fields
 }
@@ -1072,6 +1125,8 @@ func (m *EventMutation) Field(name string) (ent.Value, bool) {
 		return m.Payload()
 	case event.FieldStatus:
 		return m.Status()
+	case event.FieldSourceAgentID:
+		return m.SourceAgentID()
 	}
 	return nil, false
 }
@@ -1097,6 +1152,8 @@ func (m *EventMutation) OldField(ctx context.Context, name string) (ent.Value, e
 		return m.OldPayload(ctx)
 	case event.FieldStatus:
 		return m.OldStatus(ctx)
+	case event.FieldSourceAgentID:
+		return m.OldSourceAgentID(ctx)
 	}
 	return nil, fmt.Errorf("unknown Event field %s", name)
 }
@@ -1162,6 +1219,13 @@ func (m *EventMutation) SetField(name string, value ent.Value) error {
 		}
 		m.SetStatus(v)
 		return nil
+	case event.FieldSourceAgentID:
+		v, ok := value.(string)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetSourceAgentID(v)
+		return nil
 	}
 	return fmt.Errorf("unknown Event field %s", name)
 }
@@ -1191,7 +1255,11 @@ func (m *EventMutation) AddField(name string, value ent.Value) error {
 // ClearedFields returns all nullable fields that were cleared during this
 // mutation.
 func (m *EventMutation) ClearedFields() []string {
-	return nil
+	var fields []string
+	if m.FieldCleared(event.FieldSourceAgentID) {
+		fields = append(fields, event.FieldSourceAgentID)
+	}
+	return fields
 }
 
 // FieldCleared returns a boolean indicating if a field with the given name was
@@ -1204,6 +1272,11 @@ func (m *EventMutation) FieldCleared(name string) bool {
 // ClearField clears the value of the field with the given name. It returns an
 // error if the field is not defined in the schema.
 func (m *EventMutation) ClearField(name string) error {
+	switch name {
+	case event.FieldSourceAgentID:
+		m.ClearSourceAgentID()
+		return nil
+	}
 	return fmt.Errorf("unknown Event nullable field %s", name)
 }
 
@@ -1234,6 +1307,9 @@ func (m *EventMutation) ResetField(name string) error {
 		return nil
 	case event.FieldStatus:
 		m.ResetStatus()
+		return nil
+	case event.FieldSourceAgentID:
+		m.ResetSourceAgentID()
 		return nil
 	}
 	return fmt.Errorf("unknown Event field %s", name)
