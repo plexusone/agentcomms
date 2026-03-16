@@ -1,0 +1,66 @@
+{
+  "version": "1",
+  "server": {
+    "port": 3333,
+    "data_dir": "${HOME}/.agentcomms"
+  },
+  "logging": {
+    "level": "info"
+  },
+  "agents": [
+    {
+      "id": "claude",
+      "type": "tmux",
+      "tmux_session": "claude-code",
+      "tmux_pane": "0"
+    }
+  ],
+  "voice": {
+    "phone": {
+      "provider": "twilio",
+      "account_sid": "${TWILIO_ACCOUNT_SID}",
+      "auth_token": "${TWILIO_AUTH_TOKEN}",
+      "number": "+15551234567",
+      "user_number": "+15559876543"
+    },
+    "tts": {
+      "provider": "elevenlabs",
+      "api_key": "${ELEVENLABS_API_KEY}",
+      "voice": "Rachel",
+      "model": "eleven_turbo_v2_5"
+    },
+    "stt": {
+      "provider": "deepgram",
+      "api_key": "${DEEPGRAM_API_KEY}",
+      "model": "nova-2",
+      "language": "en-US",
+      "silence_duration_ms": 800
+    },
+    "ngrok": {
+      "auth_token": "${NGROK_AUTHTOKEN}",
+      "domain": ""
+    },
+    "transcript_timeout_ms": 180000
+  },
+  "chat": {
+    "discord": {
+      "enabled": true,
+      "token": "${DISCORD_TOKEN}",
+      "guild_id": ""
+    },
+    "telegram": {
+      "enabled": false,
+      "token": "${TELEGRAM_BOT_TOKEN}"
+    },
+    "whatsapp": {
+      "enabled": false,
+      "db_path": "${HOME}/.agentcomms/whatsapp.db"
+    },
+    "channels": [
+      {
+        "channel_id": "discord:YOUR_CHANNEL_ID",
+        "agent_id": "claude"
+      }
+    ]
+  }
+}
