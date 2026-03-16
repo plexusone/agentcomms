@@ -8,6 +8,8 @@
 [![Visualization][viz-svg]][viz-url]
 [![License][license-svg]][license-url]
 
+**[Documentation](https://plexusone.github.io/agentcomms/)** | **[Getting Started](https://plexusone.github.io/agentcomms/getting-started/)** | **[MCP Tools](https://plexusone.github.io/agentcomms/mcp-tools/)**
+
 An MCP plugin that enables voice calls and chat messaging for AI coding assistants. Start a task, walk away. Your phone rings when the AI is done, stuck, or needs a decision. Or get notified via Discord, Telegram, or WhatsApp.
 
 **Supports:** Claude Code, AWS Kiro CLI, Gemini CLI
@@ -25,20 +27,47 @@ An MCP plugin that enables voice calls and chat messaging for AI coding assistan
 
 ## How It Works
 
+AgentComms provides **bidirectional communication** between humans and AI agents:
+
 ```
-┌─────────────┐      ┌─────────────┐      ┌─────────────┐      ┌─────────────┐
-│   AI Agent  │ ───▶ │ AgentComms  │ ───▶ │   Twilio/   │ ───▶ │    You      │
-│  Claude /   │      │ MCP Server  │      │  Discord/   │      │  (phone or  │
-│  Kiro / etc │ ◀─── │             │ ◀─── │  Telegram   │ ◀─── │   chat)     │
-└─────────────┘      └─────────────┘      └─────────────┘      └─────────────┘
-       │                                                              │
-       │    While you think, AI keeps working on the task...          │
-       └──────────────────────────────────────────────────────────────┘
+                           AgentComms
+                    ┌──────────────────────┐
+                    │                      │
+  ┌──────────┐      │   ┌────────────┐     │      ┌──────────┐
+  │ AI Agent │ ────▶│   │ MCP Server │     │◀──── │  Human   │
+  │ Claude / │      │   │ (OUTBOUND) │     │      │ (Discord │
+  │ Codex    │ ◀────│   └────────────┘     │────▶ │  Phone)  │
+  └──────────┘      │                      │      └──────────┘
+                    │   ┌────────────┐     │
+                    │   │   Daemon   │     │
+                    │   │ (INBOUND)  │     │
+                    │   └────────────┘     │
+                    │         │            │
+                    │    ┌────┴────┐       │
+                    │    │  tmux   │       │
+                    │    │  pane   │       │
+                    │    └─────────┘       │
+                    └──────────────────────┘
 ```
+
+**Two communication modes:**
+
+| Mode | Direction | Use Case |
+|------|-----------|----------|
+| **OUTBOUND** | Agent → Human | AI needs input, reports completion, escalates blockers |
+| **INBOUND** | Human → Agent | Interrupt agent, send instructions, coordinate multiple agents |
+
+### OUTBOUND (MCP Server)
 
 1. **AI needs input** → Calls your phone or sends a chat message
 2. **You respond** → Voice is transcribed, chat is read directly
 3. **AI continues** → Uses your input to complete the task
+
+### INBOUND (Daemon) - Preview
+
+1. **You send a message** → Type in Discord channel or send SMS
+2. **Daemon receives** → Routes to the correct agent via tmux
+3. **Agent sees it** → Message appears in agent's terminal
 
 ## Architecture
 
@@ -46,38 +75,27 @@ An MCP plugin that enables voice calls and chat messaging for AI coding assistan
 ┌───────────────────────────────────────────────────────────────────────────┐
 │                           agentcomms                                      │
 ├───────────────────────────────────────────────────────────────────────────┤
-│  MCP Tools (via mcpkit)                                                   │
-│  ├── Voice Tools                                                          │
-│  │   ├── initiate_call  - Start a new call to the user                    │
-│  │   ├── continue_call  - Continue conversation on active call            │
-│  │   ├── speak_to_user  - Speak without waiting for response              │
-│  │   └── end_call       - End the call with optional goodbye              │
-│  └── Chat Tools                                                           │
-│      ├── send_message   - Send message via Discord/Telegram/WhatsApp      │
-│      ├── list_channels  - List available chat channels                    │
-│      └── get_messages   - Get recent messages from a channel              │
+│  OUTBOUND (MCP Server) - Agent → Human                                    │
+│  ├── Voice Tools: initiate_call, continue_call, speak_to_user, end_call   │
+│  ├── Chat Tools:  send_message, list_channels, get_messages               │
+│  ├── Voice Manager - Orchestrates calls via omnivoice                     │
+│  └── Chat Manager  - Routes messages via omnichat                         │
 ├───────────────────────────────────────────────────────────────────────────┤
-│  Managers                                                                 │
-│  ├── Voice Manager - Orchestrates calls, TTS, STT                         │
-│  └── Chat Manager  - Routes messages across chat providers                │
+│  INBOUND (Daemon) - Human → Agent                                         │
+│  ├── Router       - Actor-style event dispatcher (goroutine per agent)    │
+│  ├── AgentBridge  - Adapters for tmux, process, etc.                      │
+│  ├── Event Store  - SQLite database via Ent ORM                           │
+│  └── Transports   - Discord, Twilio (receives human messages)             │
 ├───────────────────────────────────────────────────────────────────────────┤
-│  omnivoice (voice abstraction layer)                                      │
-│  ├── tts.Provider       - Text-to-Speech interface                        │
-│  ├── stt.Provider       - Speech-to-Text interface                        │
-│  ├── transport.Transport - Audio streaming interface                      │
-│  └── callsystem.CallSystem - Phone call management interface              │
-├───────────────────────────────────────────────────────────────────────────┤
-│  omnichat (chat abstraction layer)                                        │
-│  ├── provider.Provider  - Chat provider interface                         │
-│  └── provider.Router    - Message routing and handling                    │
+│  Shared Infrastructure                                                    │
+│  ├── omnivoice    - Voice abstraction (TTS, STT, Transport, CallSystem)   │
+│  ├── omnichat     - Chat abstraction (Discord, Telegram, WhatsApp)        │
+│  ├── mcpkit       - MCP server with ngrok integration                     │
+│  └── Ent          - Database ORM with SQLite/PostgreSQL support           │
 ├───────────────────────────────────────────────────────────────────────────┤
 │  Provider Implementations                                                 │
 │  ├── Voice: ElevenLabs, Deepgram, OpenAI, Twilio                          │
 │  └── Chat:  Discord, Telegram, WhatsApp                                   │
-├───────────────────────────────────────────────────────────────────────────┤
-│  mcpkit                                                                   │
-│  - MCP server with HTTP/SSE transport                                     │
-│  - Built-in ngrok integration for public webhooks                         │
 └───────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -168,10 +186,24 @@ For backwards compatibility, `AGENTCALL_*` variables are also supported with `AG
 
 ## Usage
 
-### Running the Server
+### Commands
+
+AgentComms provides two main commands:
 
 ```bash
-./agentcomms
+# Run MCP server (OUTBOUND - spawned by AI assistant)
+./agentcomms serve
+
+# Run daemon (INBOUND - background service for human messages)
+./agentcomms daemon
+```
+
+Running `./agentcomms` without a subcommand defaults to `serve` for backwards compatibility.
+
+### Running the MCP Server (OUTBOUND)
+
+```bash
+./agentcomms serve
 ```
 
 Output:
@@ -187,6 +219,107 @@ Chat providers: [discord telegram]
 MCP server ready
   Local:  http://localhost:3333/mcp
   Public: https://abc123.ngrok.io/mcp
+```
+
+### Running the Daemon (INBOUND) - Preview
+
+The daemon enables human-to-agent communication. It runs as a background service and routes messages from Discord/Twilio to agents running in tmux.
+
+```bash
+./agentcomms daemon
+```
+
+Output:
+
+```
+INFO starting daemon data_dir=/Users/you/.agentcomms socket=/Users/you/.agentcomms/daemon.sock
+INFO database initialized path=/Users/you/.agentcomms/data.db
+INFO router initialized
+INFO daemon started
+```
+
+**Data storage:** `~/.agentcomms/`
+
+- `data.db` - SQLite database (events, agents)
+- `daemon.sock` - Unix socket for CLI/API
+- `config.yaml` - Daemon configuration
+
+### Daemon CLI Commands
+
+Once the daemon is running, use these CLI commands to interact with it:
+
+```bash
+# Check daemon status
+./agentcomms status
+
+# List configured agents
+./agentcomms agents
+
+# Send a message to an agent (appears in tmux pane)
+./agentcomms send <agent-id> "Your message here"
+
+# Send an interrupt (Ctrl-C) to an agent
+./agentcomms interrupt <agent-id>
+
+# View recent events for an agent
+./agentcomms events <agent-id> --limit 20
+
+# Send a reply to a chat channel (outbound from agent)
+./agentcomms reply discord:123456789 "Task completed!"
+
+# List configured chat channels
+./agentcomms channels
+
+# Validate configuration
+./agentcomms config validate
+
+# Show current configuration
+./agentcomms config show
+```
+
+### Daemon Configuration
+
+Create `~/.agentcomms/config.yaml`:
+
+```yaml
+# Logging level: debug, info, warn, error
+log_level: info
+
+# Agent definitions
+agents:
+  - id: claude
+    type: tmux
+    tmux_session: claude-code  # Your tmux session name
+    tmux_pane: "0"             # Pane number (default: 0)
+
+# Chat configuration (via omnichat)
+chat:
+  # Discord (optional)
+  discord:
+    token: "${DISCORD_TOKEN}"
+    guild_id: "YOUR_GUILD_ID"  # Optional filter
+
+  # Telegram (optional)
+  # telegram:
+  #   token: "${TELEGRAM_BOT_TOKEN}"
+
+  # WhatsApp (optional)
+  # whatsapp:
+  #   db_path: "${HOME}/.agentcomms/whatsapp.db"
+
+  # Map chat channels to agents
+  channels:
+    - channel_id: "discord:YOUR_CHANNEL_ID"
+      agent_id: claude
+```
+
+Copy the example config:
+
+```bash
+mkdir -p ~/.agentcomms
+cp examples/config.yaml ~/.agentcomms/config.yaml
+# Edit with your settings
+./agentcomms config validate
 ```
 
 ### Multi-Tool Support
@@ -344,6 +477,71 @@ Get recent messages from a chat conversation.
 }
 ```
 
+### Inbound Tools
+
+These tools allow Claude Code to poll for messages sent by humans via the daemon.
+
+#### check_messages
+
+Check for new messages sent to this agent from humans via chat.
+
+```json
+{
+  "agent_id": "claude",
+  "limit": 10
+}
+```
+
+Returns:
+
+```json
+{
+  "messages": [
+    {
+      "id": "evt_01ABC123",
+      "channel_id": "discord:123456789",
+      "provider": "discord",
+      "text": "Hey, can you also add unit tests?",
+      "timestamp": "2024-01-15T10:30:00Z",
+      "type": "human_message"
+    }
+  ],
+  "agent_id": "claude",
+  "has_more": false
+}
+```
+
+#### get_agent_events
+
+Get all recent events for an agent (messages, interrupts, status changes).
+
+```json
+{
+  "agent_id": "claude",
+  "since_id": "evt_01ABC123",
+  "limit": 20
+}
+```
+
+#### daemon_status
+
+Check if the agentcomms daemon is running.
+
+```json
+{}
+```
+
+Returns:
+
+```json
+{
+  "running": true,
+  "started_at": "2024-01-15T09:00:00Z",
+  "agents": 1,
+  "providers": ["discord", "telegram"]
+}
+```
+
 ## Use Cases
 
 **Phone calls are ideal for:**
@@ -368,13 +566,31 @@ Get recent messages from a chat conversation.
 ```
 agentcomms/
 ├── cmd/
-│   ├── agentcomms/
-│   │   └── main.go          # Entry point
-│   ├── generate-plugin/
-│   │   └── main.go          # Plugin generator
-│   └── publish/
-│       └── main.go          # Marketplace publisher
-├── pkg/
+│   └── agentcomms/
+│       ├── main.go          # CLI entry point (serve, daemon)
+│       └── commands.go      # CLI commands (send, interrupt, reply, etc.)
+├── internal/                # INBOUND infrastructure
+│   ├── daemon/
+│   │   ├── daemon.go        # Background daemon service
+│   │   ├── server.go        # Unix socket server
+│   │   ├── client.go        # Client library for IPC
+│   │   ├── protocol.go      # JSON-RPC style protocol
+│   │   └── config.go        # Daemon configuration (YAML)
+│   ├── router/
+│   │   ├── router.go        # Event dispatcher
+│   │   └── actor.go         # Per-agent actor (goroutine)
+│   ├── bridge/
+│   │   ├── adapter.go       # Agent adapter interface
+│   │   └── tmux.go          # tmux adapter
+│   ├── transport/
+│   │   └── chat.go          # Chat transport (omnichat)
+│   └── events/
+│       └── id.go            # Event ID generation
+├── ent/                     # Database schema (Ent ORM)
+│   └── schema/
+│       ├── event.go         # Event entity
+│       └── agent.go         # Agent entity
+├── pkg/                     # OUTBOUND infrastructure
 │   ├── voice/
 │   │   └── manager.go       # Voice call orchestration
 │   ├── chat/
@@ -383,6 +599,13 @@ agentcomms/
 │   │   └── config.go        # Configuration
 │   └── tools/
 │       └── tools.go         # MCP tool definitions
+├── examples/
+│   └── config.yaml          # Example daemon configuration
+├── docs/
+│   └── design/              # Architecture documentation
+│       ├── FEAT_INBOUND_PRD.md
+│       ├── FEAT_INBOUND_TRD.md
+│       └── FEAT_INBOUND_PLAN.md
 ├── go.mod
 └── README.md
 ```
@@ -394,6 +617,8 @@ agentcomms/
 - `github.com/plexusone/omnivoice-twilio` - Twilio transport and call system
 - `github.com/plexusone/mcpkit` - MCP server runtime
 - `github.com/modelcontextprotocol/go-sdk` - MCP protocol SDK
+- `entgo.io/ent` - Entity framework for Go (database ORM)
+- `modernc.org/sqlite` - Pure Go SQLite driver
 
 ## Cost Estimate
 
