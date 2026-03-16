@@ -8,6 +8,23 @@
 [![Visualization][viz-svg]][viz-url]
 [![License][license-svg]][license-url]
 
+ [go-ci-svg]: https://github.com/plexusone/agentcomms/actions/workflows/go-ci.yaml/badge.svg?branch=main
+ [go-ci-url]: https://github.com/plexusone/agentcomms/actions/workflows/go-ci.yaml
+ [go-lint-svg]: https://github.com/plexusone/agentcomms/actions/workflows/go-lint.yaml/badge.svg?branch=main
+ [go-lint-url]: https://github.com/plexusone/agentcomms/actions/workflows/go-lint.yaml
+ [go-sast-svg]: https://github.com/plexusone/agentcomms/actions/workflows/go-sast-codeql.yaml/badge.svg?branch=main
+ [go-sast-url]: https://github.com/plexusone/agentcomms/actions/workflows/go-sast-codeql.yaml
+ [goreport-svg]: https://goreportcard.com/badge/github.com/plexusone/agentcomms
+ [goreport-url]: https://goreportcard.com/report/github.com/plexusone/agentcomms
+ [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/plexusone/agentcomms
+ [docs-godoc-url]: https://pkg.go.dev/github.com/plexusone/agentcomms
+ [viz-svg]: https://img.shields.io/badge/visualizaton-Go-blue.svg
+ [viz-url]: https://mango-dune-07a8b7110.1.azurestaticapps.net/?repo=plexusone%2Fagentcomms
+ [loc-svg]: https://tokei.rs/b1/github/plexusone/agentcomms
+ [repo-url]: https://github.com/plexusone/agentcomms
+ [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
+ [license-url]: https://github.com/plexusone/agentcomms/blob/master/LICENSE
+
 **[Documentation](https://plexusone.github.io/agentcomms/)** | **[Getting Started](https://plexusone.github.io/agentcomms/getting-started/)** | **[MCP Tools](https://plexusone.github.io/agentcomms/mcp-tools/)**
 
 An MCP plugin that enables voice calls and chat messaging for AI coding assistants. Start a task, walk away. Your phone rings when the AI is done, stuck, or needs a decision. Or get notified via Discord, Telegram, or WhatsApp.
@@ -637,20 +654,3 @@ Built with the plexusone stack:
 - [omnivoice-twilio](https://github.com/plexusone/omnivoice-twilio) - Twilio provider
 - [mcpkit](https://github.com/plexusone/mcpkit) - MCP server runtime
 - [assistantkit](https://github.com/plexusone/assistantkit) - Multi-tool plugin configuration
-
- [go-ci-svg]: https://github.com/plexusone/agentcomms/actions/workflows/go-ci.yaml/badge.svg?branch=main
- [go-ci-url]: https://github.com/plexusone/agentcomms/actions/workflows/go-ci.yaml
- [go-lint-svg]: https://github.com/plexusone/agentcomms/actions/workflows/go-lint.yaml/badge.svg?branch=main
- [go-lint-url]: https://github.com/plexusone/agentcomms/actions/workflows/go-lint.yaml
- [go-sast-svg]: https://github.com/plexusone/agentcomms/actions/workflows/go-sast-codeql.yaml/badge.svg?branch=main
- [go-sast-url]: https://github.com/plexusone/agentcomms/actions/workflows/go-sast-codeql.yaml
- [goreport-svg]: https://goreportcard.com/badge/github.com/plexusone/agentcomms
- [goreport-url]: https://goreportcard.com/report/github.com/plexusone/agentcomms
- [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/plexusone/agentcomms
- [docs-godoc-url]: https://pkg.go.dev/github.com/plexusone/agentcomms
- [viz-svg]: https://img.shields.io/badge/visualizaton-Go-blue.svg
- [viz-url]: https://mango-dune-07a8b7110.1.azurestaticapps.net/?repo=plexusone%2Fagentcomms
- [loc-svg]: https://tokei.rs/b1/github/plexusone/agentcomms
- [repo-url]: https://github.com/plexusone/agentcomms
- [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
- [license-url]: https://github.com/plexusone/agentcomms/blob/master/LICENSE
