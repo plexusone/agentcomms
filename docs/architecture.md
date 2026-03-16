@@ -134,6 +134,75 @@ Event
 └── timestamp
 ```
 
+## Multi-Agent Communication
+
+AgentComms supports multiple AI agents coordinating with each other.
+
+### Architecture
+
+```
+┌────────────────┐                           ┌────────────────┐
+│   Agent A      │                           │   Agent B      │
+│   (Claude)     │                           │   (Claude)     │
+│                │                           │                │
+│ send_agent_msg │                           │ [from: A] ... │
+└───────┬────────┘                           └───────▲────────┘
+        │                                            │
+        │ MCP Tool                                   │ tmux adapter
+        ▼                                            │
+┌───────────────────────────────────────────────────────────────┐
+│                          Daemon                                │
+│  ┌─────────────────────────────────────────────────────────┐  │
+│  │                        Router                            │  │
+│  │  ┌─────────────┐              ┌─────────────┐           │  │
+│  │  │ AgentActor A│              │ AgentActor B│──────────────│
+│  │  └─────────────┘              └─────────────┘           │  │
+│  └─────────────────────────────────────────────────────────┘  │
+│  ┌─────────────────────────────────────────────────────────┐  │
+│  │                     Event Store                          │  │
+│  │   source_agent_id: "agent_a"                            │  │
+│  │   agent_id: "agent_b"                                   │  │
+│  │   type: "agent_message"                                 │  │
+│  └─────────────────────────────────────────────────────────┘  │
+└───────────────────────────────────────────────────────────────┘
+```
+
+### Agent-to-Agent Message Flow
+
+1. Agent A calls `send_agent_message(to: "agent_b", message: "...")`
+2. MCP tool sends `agent_message` IPC request to daemon
+3. Daemon creates event with `source_agent_id` = "agent_a"
+4. Router dispatches to Agent B's actor
+5. Actor formats message with source prefix: `[from: agent_a] ...`
+6. Message sent to Agent B's tmux pane
+7. Agent B sees the message in their terminal
+
+### Agent Status Tracking
+
+Agents have two states:
+
+- **online**: Registered with the router and processing events
+- **offline**: Not currently active
+
+Status is updated automatically:
+
+- When `RegisterAgent` is called → online
+- When `UnregisterAgent` is called → offline
+- When daemon stops → all agents offline
+
+### Discovery
+
+Agents can discover each other using `list_agents`:
+
+```json
+{
+  "agents": [
+    {"id": "backend", "type": "tmux", "status": "online"},
+    {"id": "frontend", "type": "tmux", "status": "online"}
+  ]
+}
+```
+
 ## IPC: Unix Socket
 
 The daemon exposes a JSON-RPC style API over Unix socket.
@@ -157,6 +226,7 @@ Response: {"id": "...", "result": {...}} or {"id": "...", "error": {...}}
 | `events` | Get agent events |
 | `reply` | Send to chat channel |
 | `channels` | List channel mappings |
+| `agent_message` | Send message between agents |
 
 ## Project Structure
 

@@ -306,6 +306,106 @@ Check if the agentcomms daemon is running.
 }
 ```
 
+## Multi-Agent Tools
+
+These tools enable agent-to-agent communication.
+
+!!! note "Requires Daemon"
+    These tools require the agentcomms daemon to be running.
+    Start it with `agentcomms daemon`.
+
+### list_agents
+
+List all available agents and their status.
+
+**Input:**
+
+```json
+{
+  "include_offline": false
+}
+```
+
+**Output:**
+
+```json
+{
+  "agents": [
+    {
+      "id": "backend",
+      "type": "tmux",
+      "status": "online",
+      "target": "tmux:dev:0"
+    },
+    {
+      "id": "frontend",
+      "type": "tmux",
+      "status": "online",
+      "target": "tmux:dev:1"
+    }
+  ]
+}
+```
+
+**Parameters:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `include_offline` | boolean | false | Whether to include offline agents |
+
+**When to use:**
+
+- Discovering available agents to collaborate with
+- Checking if a specific agent is online before sending a message
+- Understanding the multi-agent system topology
+
+### send_agent_message
+
+Send a message to another agent.
+
+**Input:**
+
+```json
+{
+  "to_agent_id": "backend",
+  "message": "Can you help me with the API implementation?"
+}
+```
+
+**Output:**
+
+```json
+{
+  "event_id": "evt_01ABC123",
+  "delivered": true,
+  "to_agent_id": "backend"
+}
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `to_agent_id` | string | yes | The destination agent ID |
+| `message` | string | yes | The message to send |
+
+The source agent is automatically set to `AGENTCOMMS_AGENT_ID` (or "default").
+
+**When to use:**
+
+- Delegating tasks to specialized agents
+- Requesting help from another agent
+- Coordinating work across multiple agents
+- Sharing information between agents
+
+**Message format at destination:**
+
+Messages arrive at the destination agent prefixed with the source:
+
+```
+[from: frontend] Can you help me with the API implementation?
+```
+
 ## Agent ID Resolution
 
 The inbound tools need to know which agent to query. Resolution order:

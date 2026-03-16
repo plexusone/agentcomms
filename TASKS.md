@@ -100,6 +100,61 @@ Migrated from split configuration (env vars + YAML) to a single unified JSON con
 - `docs/getting-started.md` - Updated setup instructions
 - `docs/cli.md` - Added config init documentation
 
+### Phase 7: Multi-Agent Support ✅
+
+Enabled multiple AI agents to coordinate via AgentComms.
+
+#### Features
+
+- Agent status tracking (online/offline lifecycle)
+- Source agent field in events for agent-to-agent messages
+- `list_agents` MCP tool - discover available agents
+- `send_agent_message` MCP tool - send message to another agent
+- `agent_message` IPC method for cross-agent routing
+- Agent message formatting with source prefix: `[from: agent_a] ...`
+
+#### Tasks
+
+- [x] 7.1. Add `source_agent_id` field to Event schema
+  - Distinguishes human→agent vs agent→agent messages
+  - Generated via `go generate ./ent`
+
+- [x] 7.2. Implement agent status tracking
+  - Router tracks online status during RegisterAgent/UnregisterAgent
+  - AgentStatuses() method returns map of agent→status
+  - Database updated with status changes
+
+- [x] 7.3. Add daemon IPC method `agent_message`
+  - Creates event with source_agent_id and agent_id
+  - Routes to destination agent's actor
+
+- [x] 7.4. Add MCP tools
+  - `list_agents` - lists agents with status
+  - `send_agent_message` - sends to another agent
+
+- [x] 7.5. Update actor to handle agent messages
+  - Formats messages with source prefix
+  - Delivers to tmux pane via adapter
+
+- [x] 7.6. Add tests
+  - TestServerAgentMessage - IPC method
+  - TestRouterAgentStatuses - status tracking
+  - Unit tests for new types
+
+- [x] 7.7. Update documentation
+  - docs/mcp-tools.md - new tools
+  - docs/architecture.md - multi-agent flow
+
+#### Files Modified
+
+- `ent/schema/event.go` - Added source_agent_id field
+- `internal/router/router.go` - Status tracking, AgentStatuses()
+- `internal/router/actor.go` - handleAgentMessage()
+- `internal/daemon/server.go` - handleAgentMessage()
+- `internal/daemon/protocol.go` - AgentMessageParams, AgentMessageResult
+- `internal/daemon/client.go` - AgentMessage()
+- `pkg/tools/inbound.go` - list_agents, send_agent_message
+
 ## In Progress
 
 None
@@ -128,11 +183,6 @@ Claude Code ←── check_messages (MCP tool) ←── Daemon Client
 - Return newest first or oldest first (configurable)
 
 ## Future
-
-### Phase 7: Multi-Agent Support
-- Multiple agents in config
-- Agent status tracking
-- Cross-agent messaging
 
 ### Phase 9: Additional Transports
 - Slack integration
