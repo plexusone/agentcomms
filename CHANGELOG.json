@@ -6,6 +6,53 @@
   "commitConvention": "conventional",
   "releases": [
     {
+      "version": "v0.3.0",
+      "date": "2026-03-16",
+      "highlights": [
+        { "description": "Multi-agent communication: agents can discover each other and send messages for task delegation and coordination" },
+        { "description": "Unified JSON configuration: single config.json replaces split env vars + YAML configuration" },
+        { "description": "Inbound message polling: MCP tools for agents to check for human messages during long tasks" },
+        { "description": "MkDocs documentation site with comprehensive guides" }
+      ],
+      "added": [
+        { "description": "Multi-agent support with agent discovery and cross-agent messaging", "commit": "9cd0653" },
+        { "description": "`list_agents` MCP tool - discover available agents and their status", "commit": "9cd0653" },
+        { "description": "`send_agent_message` MCP tool - send message to another agent", "commit": "9cd0653" },
+        { "description": "`agent_message` IPC method for daemon cross-agent routing", "commit": "86d673b" },
+        { "description": "Agent status tracking (online/offline) in router", "commit": "ce90593" },
+        { "description": "`source_agent_id` field in Event schema for agent-to-agent messages", "commit": "4e2b1be" },
+        { "description": "`check_messages` MCP tool - poll for human messages", "commit": "e2c2cae" },
+        { "description": "`get_agent_events` MCP tool - get all events with pagination", "commit": "e2c2cae" },
+        { "description": "`daemon_status` MCP tool - check if daemon is running", "commit": "e2c2cae" },
+        { "description": "Unified JSON configuration with environment variable substitution", "commit": "84fc12b" },
+        { "description": "`agentcomms config init` command to generate configuration", "commit": "49a8727" },
+        { "description": "`agentcomms config validate` command to validate configuration", "commit": "84fc12b" },
+        { "description": "Daemon infrastructure for Human → Agent communication", "commit": "408f576" },
+        { "description": "Actor-style router with per-agent goroutines", "commit": "408f576" },
+        { "description": "tmux adapter for sending messages to agent terminals", "commit": "408f576" },
+        { "description": "Event store with SQLite database via Ent ORM", "commit": "fc800cc" },
+        { "description": "CLI commands: daemon, status, agents, send, interrupt, events, reply, channels", "commit": "f959064" }
+      ],
+      "documentation": [
+        { "description": "MkDocs documentation site at plexusone.github.io/agentcomms", "commit": "179b3de" },
+        { "description": "Getting Started, CLI, MCP Tools, Configuration, and Architecture guides", "commit": "179b3de" },
+        { "description": "Multi-agent communication documentation", "commit": "55b31e3" },
+        { "description": "FEAT_INBOUND design documents (PRD, TRD, Implementation Plan)", "commit": "fe76dd4" },
+        { "description": "Updated README with inbound features and daemon CLI", "commit": "a477e73" }
+      ],
+      "chore": [
+        { "description": "Update TASKS.md with unified JSON config completion", "commit": "1399085" },
+        { "description": "Update dependencies and add task tracking", "commit": "68588e2" }
+      ],
+      "dependencies": [
+        { "description": "Pin tablewriter v0.0.5 for ent v0.14.5 compatibility", "commit": "62a27c4" },
+        { "description": "Add entgo.io/ent v0.14.5 for database ORM", "commit": "fc800cc" },
+        { "description": "Add modernc.org/sqlite v1.46.1 for pure Go SQLite", "commit": "fc800cc" },
+        { "description": "Update modelcontextprotocol/go-sdk to v1.4.1", "commit": "0c13625" },
+        { "description": "Update assistantkit to v0.12.0", "commit": "8ac8e78" }
+      ]
+    },
+    {
       "version": "v0.2.0",
       "date": "2026-03-07",
       "highlights": [

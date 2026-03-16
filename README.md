@@ -533,6 +533,48 @@ Returns:
 }
 ```
 
+### Multi-Agent Tools
+
+These tools enable agent-to-agent communication for task delegation and coordination.
+
+#### list_agents
+
+List all available agents and their status.
+
+```json
+{
+  "include_offline": false
+}
+```
+
+Returns:
+
+```json
+{
+  "agents": [
+    {"id": "backend", "type": "tmux", "status": "online", "target": "tmux:dev:0"},
+    {"id": "frontend", "type": "tmux", "status": "online", "target": "tmux:dev:1"}
+  ]
+}
+```
+
+#### send_agent_message
+
+Send a message to another agent.
+
+```json
+{
+  "to_agent_id": "backend",
+  "message": "Can you help me with the API implementation?"
+}
+```
+
+Messages arrive at the destination agent with source prefix:
+
+```
+[from: frontend] Can you help me with the API implementation?
+```
+
 ## Use Cases
 
 **Phone calls are ideal for:**
