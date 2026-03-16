@@ -129,6 +129,37 @@ type DaemonStatusOutput struct {
 	Providers []string  `json:"providers,omitempty"`
 }
 
+// ListAgentsInput is the input for the list_agents tool.
+type ListAgentsInput struct {
+	IncludeOffline bool `json:"include_offline,omitempty"`
+}
+
+// ListAgentsOutput is the output of the list_agents tool.
+type ListAgentsOutput struct {
+	Agents []AgentSummary `json:"agents"`
+}
+
+// AgentSummary contains summary information about an agent.
+type AgentSummary struct {
+	ID     string `json:"id"`
+	Type   string `json:"type"`
+	Status string `json:"status"`
+	Target string `json:"target,omitempty"`
+}
+
+// SendAgentMessageInput is the input for the send_agent_message tool.
+type SendAgentMessageInput struct {
+	ToAgentID string `json:"to_agent_id"`
+	Message   string `json:"message"`
+}
+
+// SendAgentMessageOutput is the output of the send_agent_message tool.
+type SendAgentMessageOutput struct {
+	EventID   string `json:"event_id"`
+	Delivered bool   `json:"delivered"`
+	ToAgentID string `json:"to_agent_id"`
+}
+
 // RegisterInboundTools registers inbound message MCP tools with the runtime.
 func RegisterInboundTools(rt *mcpkit.Runtime, manager *InboundManager) {
 	// check_messages - Check for new messages from humans
@@ -302,6 +333,93 @@ func RegisterInboundTools(rt *mcpkit.Runtime, manager *InboundManager) {
 			StartedAt: status.StartedAt,
 			Agents:    status.Agents,
 			Providers: status.Providers,
+		}, nil
+	})
+
+	// list_agents - List all available agents and their status
+	mcpkit.AddTool(rt, &mcp.Tool{
+		Name:        "list_agents",
+		Description: "List all available agents registered with the AgentComms daemon and their status. Use this to discover which agents are available for communication and whether they are online or offline.",
+		InputSchema: map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"include_offline": map[string]any{
+					"type":        "boolean",
+					"description": "Whether to include offline agents in the list (default: false, only online agents are returned).",
+					"default":     false,
+				},
+			},
+		},
+	}, func(ctx context.Context, req *mcp.CallToolRequest, in ListAgentsInput) (*mcp.CallToolResult, ListAgentsOutput, error) {
+		if err := manager.ensureConnected(); err != nil {
+			return nil, ListAgentsOutput{}, fmt.Errorf("daemon not running: %w", err)
+		}
+
+		result, err := manager.client.Agents(ctx)
+		if err != nil {
+			return nil, ListAgentsOutput{}, fmt.Errorf("failed to list agents: %w", err)
+		}
+
+		var agents []AgentSummary
+		for _, a := range result.Agents {
+			// Skip offline agents unless explicitly requested
+			if !in.IncludeOffline && a.Status != "online" {
+				continue
+			}
+
+			agents = append(agents, AgentSummary{
+				ID:     a.ID,
+				Type:   a.Type,
+				Status: a.Status,
+				Target: a.Target,
+			})
+		}
+
+		return nil, ListAgentsOutput{
+			Agents: agents,
+		}, nil
+	})
+
+	// send_agent_message - Send a message to another agent
+	mcpkit.AddTool(rt, &mcp.Tool{
+		Name:        "send_agent_message",
+		Description: "Send a message to another agent in the AgentComms system. Use this for agent-to-agent communication, for example to delegate tasks, request help, or coordinate work with other agents.",
+		InputSchema: map[string]any{
+			"type": "object",
+			"properties": map[string]any{
+				"to_agent_id": map[string]any{
+					"type":        "string",
+					"description": "The ID of the destination agent to send the message to.",
+				},
+				"message": map[string]any{
+					"type":        "string",
+					"description": "The message text to send to the other agent.",
+				},
+			},
+			"required": []string{"to_agent_id", "message"},
+		},
+	}, func(ctx context.Context, req *mcp.CallToolRequest, in SendAgentMessageInput) (*mcp.CallToolResult, SendAgentMessageOutput, error) {
+		if err := manager.ensureConnected(); err != nil {
+			return nil, SendAgentMessageOutput{}, fmt.Errorf("daemon not running: %w", err)
+		}
+
+		if in.ToAgentID == "" {
+			return nil, SendAgentMessageOutput{}, fmt.Errorf("to_agent_id is required")
+		}
+		if in.Message == "" {
+			return nil, SendAgentMessageOutput{}, fmt.Errorf("message is required")
+		}
+
+		// Use the manager's agent ID as the source
+		result, err := manager.client.AgentMessage(ctx, manager.agentID, in.ToAgentID, in.Message)
+		if err != nil {
+			return nil, SendAgentMessageOutput{}, fmt.Errorf("failed to send agent message: %w", err)
+		}
+
+		return nil, SendAgentMessageOutput{
+			EventID:   result.EventID,
+			Delivered: result.Delivered,
+			ToAgentID: in.ToAgentID,
 		}, nil
 	})
 }

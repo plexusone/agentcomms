@@ -70,3 +70,53 @@ func TestInboundManager_NotConnected(t *testing.T) {
 		manager.Close()
 	}
 }
+
+func TestListAgentsInput(t *testing.T) {
+	// Test default values
+	input := ListAgentsInput{}
+	if input.IncludeOffline {
+		t.Error("expected IncludeOffline to default to false")
+	}
+
+	// Test with include_offline set
+	input = ListAgentsInput{IncludeOffline: true}
+	if !input.IncludeOffline {
+		t.Error("expected IncludeOffline to be true")
+	}
+}
+
+func TestSendAgentMessageInput(t *testing.T) {
+	input := SendAgentMessageInput{
+		ToAgentID: "agent-b",
+		Message:   "Hello!",
+	}
+
+	if input.ToAgentID != "agent-b" {
+		t.Errorf("expected ToAgentID 'agent-b', got %q", input.ToAgentID)
+	}
+	if input.Message != "Hello!" {
+		t.Errorf("expected Message 'Hello!', got %q", input.Message)
+	}
+}
+
+func TestAgentSummary(t *testing.T) {
+	summary := AgentSummary{
+		ID:     "test-agent",
+		Type:   "tmux",
+		Status: "online",
+		Target: "tmux:session:0",
+	}
+
+	if summary.ID != "test-agent" {
+		t.Errorf("expected ID 'test-agent', got %q", summary.ID)
+	}
+	if summary.Type != "tmux" {
+		t.Errorf("expected Type 'tmux', got %q", summary.Type)
+	}
+	if summary.Status != "online" {
+		t.Errorf("expected Status 'online', got %q", summary.Status)
+	}
+	if summary.Target != "tmux:session:0" {
+		t.Errorf("expected Target 'tmux:session:0', got %q", summary.Target)
+	}
+}
