@@ -172,7 +172,7 @@ agentcomms/
 │   │   ├── server.go        # Unix socket server
 │   │   ├── client.go        # Client library
 │   │   ├── protocol.go      # JSON-RPC protocol
-│   │   └── config.go        # YAML configuration
+│   │   └── config.go        # Legacy YAML configuration
 │   ├── router/
 │   │   ├── router.go        # Event dispatcher
 │   │   └── actor.go         # Per-agent actor
@@ -196,7 +196,8 @@ agentcomms/
 │   ├── chat/
 │   │   └── manager.go       # Chat message routing
 │   └── config/
-│       └── config.go        # Configuration
+│       ├── config.go        # Legacy configuration
+│       └── unified.go       # Unified JSON configuration
 └── docs/                    # Documentation
 ```
 
@@ -231,10 +232,19 @@ The Unix socket is created with mode 0600 (owner only).
 
 ### Token Storage
 
-Chat tokens should be stored in:
+Secrets (API keys, tokens) should be stored in environment variables and referenced in the config file using `${VAR}` syntax:
 
-- Environment variables (preferred)
-- Config file with restricted permissions
+```json
+{
+  "chat": {
+    "discord": {
+      "token": "${DISCORD_TOKEN}"
+    }
+  }
+}
+```
+
+The config file (`~/.agentcomms/config.json`) is created with mode 0600 (owner only).
 
 ### Event Data
 

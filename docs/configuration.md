@@ -1,122 +1,114 @@
 # Configuration
 
-AgentComms uses two configuration methods:
+AgentComms uses a unified JSON configuration file that combines all settings in one place.
 
-1. **Environment variables** - For the MCP server (OUTBOUND)
-2. **YAML config file** - For the daemon (INBOUND)
+## Quick Start
 
-## MCP Server Configuration (Environment)
-
-The MCP server is configured via environment variables.
-
-### Voice Settings
+Generate a configuration file:
 
 ```bash
-# Twilio credentials (required for voice)
-AGENTCOMMS_PHONE_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-AGENTCOMMS_PHONE_AUTH_TOKEN=your_auth_token
-AGENTCOMMS_PHONE_NUMBER=+15551234567       # Your Twilio number
-AGENTCOMMS_USER_PHONE_NUMBER=+15559876543  # Recipient phone
+# Generate full config with voice settings
+agentcomms config init
 
-# ngrok (required for voice webhooks)
-NGROK_AUTHTOKEN=your_ngrok_authtoken
-AGENTCOMMS_NGROK_DOMAIN=myapp.ngrok.io     # Optional custom domain
+# Generate minimal config (chat only)
+agentcomms config init --minimal
 
-# Voice provider selection
-AGENTCOMMS_TTS_PROVIDER=elevenlabs   # elevenlabs, deepgram, openai
-AGENTCOMMS_STT_PROVIDER=deepgram     # elevenlabs, deepgram, openai
-
-# Provider API keys
-AGENTCOMMS_ELEVENLABS_API_KEY=xxx    # or ELEVENLABS_API_KEY
-AGENTCOMMS_DEEPGRAM_API_KEY=xxx      # or DEEPGRAM_API_KEY
-AGENTCOMMS_OPENAI_API_KEY=xxx        # or OPENAI_API_KEY
-
-# Optional voice settings
-AGENTCOMMS_TTS_VOICE=Rachel
-AGENTCOMMS_TTS_MODEL=eleven_turbo_v2_5
-AGENTCOMMS_STT_MODEL=nova-2
-AGENTCOMMS_STT_LANGUAGE=en-US
+# Generate to specific path
+agentcomms config init -o /path/to/config.json
 ```
 
-### Chat Settings
+## Configuration File
 
-```bash
-# Discord
-AGENTCOMMS_DISCORD_ENABLED=true
-AGENTCOMMS_DISCORD_TOKEN=your_bot_token    # or DISCORD_TOKEN
-AGENTCOMMS_DISCORD_GUILD_ID=optional_id
-
-# Telegram
-AGENTCOMMS_TELEGRAM_ENABLED=true
-AGENTCOMMS_TELEGRAM_TOKEN=your_bot_token   # or TELEGRAM_BOT_TOKEN
-
-# WhatsApp
-AGENTCOMMS_WHATSAPP_ENABLED=true
-AGENTCOMMS_WHATSAPP_DB_PATH=./whatsapp.db
-```
-
-### Inbound Settings
-
-```bash
-# Agent ID for inbound message tools
-AGENTCOMMS_AGENT_ID=claude
-
-# Server port
-AGENTCOMMS_PORT=3333
-```
-
-## Daemon Configuration (YAML)
-
-The daemon configuration file is located at `~/.agentcomms/config.yaml`.
+The configuration file is located at `~/.agentcomms/config.json`.
 
 ### Full Example
 
-```yaml
-# Logging level: debug, info, warn, error
-log_level: info
-
-# Agent definitions
-agents:
-  # Coding agent receiving messages via tmux
-  - id: claude
-    type: tmux
-    tmux_session: claude-code
-    tmux_pane: "0"
-
-  # Another agent in a different session
-  - id: assistant
-    type: tmux
-    tmux_session: assistant
-    tmux_pane: "0"
-
-# Chat configuration (via omnichat)
-chat:
-  # Discord configuration
-  discord:
-    token: "${DISCORD_TOKEN}"      # Can use env vars
-    guild_id: "YOUR_GUILD_ID"      # Optional: filter to specific server
-
-  # Telegram configuration
-  telegram:
-    token: "${TELEGRAM_BOT_TOKEN}"
-
-  # WhatsApp configuration
-  whatsapp:
-    db_path: "${HOME}/.agentcomms/whatsapp.db"
-
-  # Map chat channels to agents
-  channels:
-    - channel_id: "discord:123456789012345678"
-      agent_id: claude
-
-    - channel_id: "discord:987654321098765432"
-      agent_id: assistant
-
-    - channel_id: "telegram:123456789"
-      agent_id: claude
+```json
+{
+  "version": "1",
+  "server": {
+    "port": 3333,
+    "data_dir": "${HOME}/.agentcomms"
+  },
+  "logging": {
+    "level": "info"
+  },
+  "agents": [
+    {
+      "id": "claude",
+      "type": "tmux",
+      "tmux_session": "claude-code",
+      "tmux_pane": "0"
+    }
+  ],
+  "voice": {
+    "phone": {
+      "provider": "twilio",
+      "account_sid": "${TWILIO_ACCOUNT_SID}",
+      "auth_token": "${TWILIO_AUTH_TOKEN}",
+      "number": "+15551234567",
+      "user_number": "+15559876543"
+    },
+    "tts": {
+      "provider": "elevenlabs",
+      "api_key": "${ELEVENLABS_API_KEY}",
+      "voice": "Rachel",
+      "model": "eleven_turbo_v2_5"
+    },
+    "stt": {
+      "provider": "deepgram",
+      "api_key": "${DEEPGRAM_API_KEY}",
+      "model": "nova-2",
+      "language": "en-US",
+      "silence_duration_ms": 800
+    },
+    "ngrok": {
+      "auth_token": "${NGROK_AUTHTOKEN}"
+    },
+    "transcript_timeout_ms": 180000
+  },
+  "chat": {
+    "discord": {
+      "enabled": true,
+      "token": "${DISCORD_TOKEN}",
+      "guild_id": ""
+    },
+    "telegram": {
+      "enabled": false,
+      "token": "${TELEGRAM_BOT_TOKEN}"
+    },
+    "whatsapp": {
+      "enabled": false,
+      "db_path": "${HOME}/.agentcomms/whatsapp.db"
+    },
+    "channels": [
+      {
+        "channel_id": "discord:YOUR_CHANNEL_ID",
+        "agent_id": "claude"
+      }
+    ]
+  }
+}
 ```
 
-### Agent Configuration
+## Configuration Sections
+
+### Server
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `port` | int | 3333 | Server port for MCP |
+| `data_dir` | string | `~/.agentcomms` | Data directory path |
+
+### Logging
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `level` | string | `info` | Log level: debug, info, warn, error |
+
+### Agents
+
+Define AI agents that receive messages via tmux.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
@@ -125,13 +117,56 @@ chat:
 | `tmux_session` | string | For tmux | tmux session name |
 | `tmux_pane` | string | No | tmux pane (default: "0") |
 
-### Chat Provider Configuration
+### Voice
+
+Voice calling configuration (optional, omit if not using voice).
+
+#### Phone
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `provider` | string | No | Phone provider: `twilio` (default) |
+| `account_sid` | string | Yes | Twilio account SID |
+| `auth_token` | string | Yes | Twilio auth token |
+| `number` | string | Yes | Your Twilio phone number (E.164 format) |
+| `user_number` | string | Yes | Recipient phone number (E.164 format) |
+
+#### TTS (Text-to-Speech)
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `provider` | string | `elevenlabs` | Provider: elevenlabs, deepgram, openai |
+| `api_key` | string | Required | Provider API key |
+| `voice` | string | `Rachel` | Voice ID (provider-specific) |
+| `model` | string | `eleven_turbo_v2_5` | Model ID (provider-specific) |
+
+#### STT (Speech-to-Text)
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `provider` | string | `deepgram` | Provider: elevenlabs, deepgram, openai |
+| `api_key` | string | Required | Provider API key |
+| `model` | string | `nova-2` | Model ID (provider-specific) |
+| `language` | string | `en-US` | BCP-47 language code |
+| `silence_duration_ms` | int | 800 | Silence duration to detect end of speech |
+
+#### Ngrok
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `auth_token` | string | Yes | Ngrok auth token |
+| `domain` | string | No | Custom ngrok domain |
+
+### Chat
+
+Chat provider configuration for Discord, Telegram, WhatsApp.
 
 #### Discord
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `token` | string | Yes | Discord bot token |
+| `enabled` | bool | No | Enable Discord integration |
+| `token` | string | When enabled | Discord bot token |
 | `guild_id` | string | No | Filter to specific server |
 
 Get your bot token from [Discord Developer Portal](https://discord.com/developers/applications).
@@ -140,7 +175,8 @@ Get your bot token from [Discord Developer Portal](https://discord.com/developer
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `token` | string | Yes | Telegram bot token |
+| `enabled` | bool | No | Enable Telegram integration |
+| `token` | string | When enabled | Telegram bot token |
 
 Get your bot token from [@BotFather](https://t.me/botfather).
 
@@ -148,11 +184,14 @@ Get your bot token from [@BotFather](https://t.me/botfather).
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `db_path` | string | Yes | SQLite database path for session |
+| `enabled` | bool | No | Enable WhatsApp integration |
+| `db_path` | string | When enabled | SQLite database path for session |
 
 WhatsApp requires scanning a QR code on first connection.
 
-### Channel Mapping
+#### Channel Mappings
+
+Map chat channels to agents.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
@@ -167,14 +206,19 @@ Channel ID format:
 
 ## Environment Variable Substitution
 
-The YAML config supports environment variable substitution:
+The JSON config supports environment variable substitution using `${VAR}` or `$VAR` syntax:
 
-```yaml
-chat:
-  discord:
-    token: "${DISCORD_TOKEN}"      # Uses $DISCORD_TOKEN
-    guild_id: "${DISCORD_GUILD}"   # Uses $DISCORD_GUILD
+```json
+{
+  "chat": {
+    "discord": {
+      "token": "${DISCORD_TOKEN}"
+    }
+  }
+}
 ```
+
+Use this pattern for secrets rather than hardcoding them in the config file.
 
 ## Validating Configuration
 
@@ -186,12 +230,20 @@ agentcomms config validate
 
 This checks:
 
-- YAML syntax
+- JSON syntax
 - Required fields
 - Agent configuration
 - Tmux session existence
 - Chat provider tokens
 - Channel mapping references
+
+## Viewing Configuration
+
+Display the current configuration:
+
+```bash
+agentcomms config show
+```
 
 ## Data Directory
 
@@ -199,10 +251,22 @@ The daemon stores data in `~/.agentcomms/`:
 
 ```
 ~/.agentcomms/
-├── config.yaml    # Configuration file
+├── config.json    # Configuration file
 ├── data.db        # SQLite database
 ├── daemon.sock    # Unix socket for IPC
 └── whatsapp.db    # WhatsApp session (if used)
+```
+
+## Legacy YAML Configuration
+
+YAML configuration (`config.yaml`) is still supported for backward compatibility but is deprecated. Consider migrating to JSON:
+
+```bash
+# Generate new JSON config
+agentcomms config init
+
+# Edit to match your YAML settings
+# Then remove the YAML file
 ```
 
 ## Provider Cost Estimates

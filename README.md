@@ -131,58 +131,61 @@ go build -o agentcomms ./cmd/agentcomms
 
 ## Configuration
 
-### Environment Variables
+AgentComms uses a unified JSON configuration file that combines all settings.
+
+### Quick Setup
 
 ```bash
-# ===== Voice (optional) =====
+# Generate configuration file
+./agentcomms config init
 
-# Twilio credentials
-export AGENTCOMMS_PHONE_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-export AGENTCOMMS_PHONE_AUTH_TOKEN=your_auth_token
-export AGENTCOMMS_PHONE_NUMBER=+15551234567      # Your Twilio number
-export AGENTCOMMS_USER_PHONE_NUMBER=+15559876543  # Your personal phone
+# Or generate minimal config (chat only, no voice)
+./agentcomms config init --minimal
 
-# Voice provider selection (default: elevenlabs for TTS, deepgram for STT)
-export AGENTCOMMS_TTS_PROVIDER=elevenlabs  # "elevenlabs", "deepgram", or "openai"
-export AGENTCOMMS_STT_PROVIDER=deepgram    # "elevenlabs", "deepgram", or "openai"
-
-# API keys (based on selected providers)
-export AGENTCOMMS_ELEVENLABS_API_KEY=your_elevenlabs_key  # or ELEVENLABS_API_KEY
-export AGENTCOMMS_DEEPGRAM_API_KEY=your_deepgram_key      # or DEEPGRAM_API_KEY
-export AGENTCOMMS_OPENAI_API_KEY=your_openai_key          # or OPENAI_API_KEY
-
-# ngrok (required for voice)
+# Set environment variables for secrets
+export DISCORD_TOKEN=your_discord_bot_token
+export TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+export TWILIO_AUTH_TOKEN=your_auth_token
+export ELEVENLABS_API_KEY=your_elevenlabs_key
+export DEEPGRAM_API_KEY=your_deepgram_key
 export NGROK_AUTHTOKEN=your_ngrok_authtoken
 
-# Optional voice settings
-export AGENTCOMMS_TTS_VOICE=Rachel           # ElevenLabs voice
-export AGENTCOMMS_TTS_MODEL=eleven_turbo_v2_5
-export AGENTCOMMS_STT_MODEL=nova-2
-export AGENTCOMMS_STT_LANGUAGE=en-US
-
-# ===== Chat (optional) =====
-
-# Discord
-export AGENTCOMMS_DISCORD_ENABLED=true
-export AGENTCOMMS_DISCORD_TOKEN=your_discord_bot_token  # or DISCORD_TOKEN
-export AGENTCOMMS_DISCORD_GUILD_ID=optional_guild_id
-
-# Telegram
-export AGENTCOMMS_TELEGRAM_ENABLED=true
-export AGENTCOMMS_TELEGRAM_TOKEN=your_telegram_bot_token  # or TELEGRAM_BOT_TOKEN
-
-# WhatsApp
-export AGENTCOMMS_WHATSAPP_ENABLED=true
-export AGENTCOMMS_WHATSAPP_DB_PATH=./whatsapp.db
-
-# ===== Server =====
-export AGENTCOMMS_PORT=3333
-export AGENTCOMMS_NGROK_DOMAIN=myapp.ngrok.io  # Optional custom domain
+# Validate configuration
+./agentcomms config validate
 ```
 
-### Legacy Environment Variables
+### Configuration File
 
-For backwards compatibility, `AGENTCALL_*` variables are also supported with `AGENTCOMMS_*` taking precedence.
+The config file at `~/.agentcomms/config.json` supports environment variable substitution:
+
+```json
+{
+  "version": "1",
+  "server": { "port": 3333 },
+  "agents": [
+    { "id": "claude", "type": "tmux", "tmux_session": "claude-code" }
+  ],
+  "voice": {
+    "phone": {
+      "account_sid": "${TWILIO_ACCOUNT_SID}",
+      "auth_token": "${TWILIO_AUTH_TOKEN}",
+      "number": "+15551234567",
+      "user_number": "+15559876543"
+    },
+    "tts": { "provider": "elevenlabs", "api_key": "${ELEVENLABS_API_KEY}" },
+    "stt": { "provider": "deepgram", "api_key": "${DEEPGRAM_API_KEY}" },
+    "ngrok": { "auth_token": "${NGROK_AUTHTOKEN}" }
+  },
+  "chat": {
+    "discord": { "enabled": true, "token": "${DISCORD_TOKEN}" },
+    "channels": [
+      { "channel_id": "discord:YOUR_CHANNEL_ID", "agent_id": "claude" }
+    ]
+  }
+}
+```
+
+See [Configuration Guide](https://plexusone.github.io/agentcomms/configuration/) for full documentation.
 
 ## Usage
 
@@ -240,9 +243,9 @@ INFO daemon started
 
 **Data storage:** `~/.agentcomms/`
 
+- `config.json` - Unified configuration file
 - `data.db` - SQLite database (events, agents)
 - `daemon.sock` - Unix socket for CLI/API
-- `config.yaml` - Daemon configuration
 
 ### Daemon CLI Commands
 
@@ -279,48 +282,19 @@ Once the daemon is running, use these CLI commands to interact with it:
 
 ### Daemon Configuration
 
-Create `~/.agentcomms/config.yaml`:
-
-```yaml
-# Logging level: debug, info, warn, error
-log_level: info
-
-# Agent definitions
-agents:
-  - id: claude
-    type: tmux
-    tmux_session: claude-code  # Your tmux session name
-    tmux_pane: "0"             # Pane number (default: 0)
-
-# Chat configuration (via omnichat)
-chat:
-  # Discord (optional)
-  discord:
-    token: "${DISCORD_TOKEN}"
-    guild_id: "YOUR_GUILD_ID"  # Optional filter
-
-  # Telegram (optional)
-  # telegram:
-  #   token: "${TELEGRAM_BOT_TOKEN}"
-
-  # WhatsApp (optional)
-  # whatsapp:
-  #   db_path: "${HOME}/.agentcomms/whatsapp.db"
-
-  # Map chat channels to agents
-  channels:
-    - channel_id: "discord:YOUR_CHANNEL_ID"
-      agent_id: claude
-```
-
-Copy the example config:
+Generate and edit the configuration:
 
 ```bash
-mkdir -p ~/.agentcomms
-cp examples/config.yaml ~/.agentcomms/config.yaml
-# Edit with your settings
+# Generate config file
+./agentcomms config init
+
+# Edit ~/.agentcomms/config.json with your settings
+
+# Validate configuration
 ./agentcomms config validate
 ```
+
+See the [Configuration Guide](https://plexusone.github.io/agentcomms/configuration/) for full details.
 
 ### Multi-Tool Support
 
@@ -363,13 +337,13 @@ Add to `~/.claude/settings.json` or `.claude/settings.json`:
     "agentcomms": {
       "command": "/path/to/agentcomms",
       "env": {
-        "AGENTCOMMS_PHONE_ACCOUNT_SID": "ACxxx",
-        "AGENTCOMMS_PHONE_AUTH_TOKEN": "xxx",
-        "AGENTCOMMS_PHONE_NUMBER": "+15551234567",
-        "AGENTCOMMS_USER_PHONE_NUMBER": "+15559876543",
+        "TWILIO_ACCOUNT_SID": "ACxxx",
+        "TWILIO_AUTH_TOKEN": "xxx",
         "NGROK_AUTHTOKEN": "xxx",
-        "AGENTCOMMS_DISCORD_ENABLED": "true",
-        "AGENTCOMMS_DISCORD_TOKEN": "xxx"
+        "DISCORD_TOKEN": "xxx",
+        "ELEVENLABS_API_KEY": "xxx",
+        "DEEPGRAM_API_KEY": "xxx",
+        "AGENTCOMMS_AGENT_ID": "claude"
       }
     }
   }
@@ -596,11 +570,12 @@ agentcomms/
 │   ├── chat/
 │   │   └── manager.go       # Chat message routing
 │   ├── config/
-│   │   └── config.go        # Configuration
+│   │   ├── config.go        # Legacy configuration
+│   │   └── unified.go       # Unified JSON configuration
 │   └── tools/
 │       └── tools.go         # MCP tool definitions
 ├── examples/
-│   └── config.yaml          # Example daemon configuration
+│   └── config.json          # Example JSON configuration
 ├── docs/
 │   └── design/              # Architecture documentation
 │       ├── FEAT_INBOUND_PRD.md

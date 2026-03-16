@@ -67,6 +67,9 @@ AgentComms enables AI coding assistants like Claude Code to communicate with hum
 # Build
 go build -o agentcomms ./cmd/agentcomms
 
+# Generate configuration
+./agentcomms config init
+
 # Run MCP server (for AI → Human)
 ./agentcomms serve
 

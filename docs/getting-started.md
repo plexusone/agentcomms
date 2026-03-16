@@ -17,51 +17,74 @@ go mod tidy
 go build -o agentcomms ./cmd/agentcomms
 ```
 
-## Environment Variables
+## Configuration
 
-### Voice Configuration
+AgentComms uses a single JSON configuration file for all settings.
+
+### 1. Generate Configuration
 
 ```bash
-# Twilio credentials
-export AGENTCOMMS_PHONE_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-export AGENTCOMMS_PHONE_AUTH_TOKEN=your_auth_token
-export AGENTCOMMS_PHONE_NUMBER=+15551234567      # Your Twilio number
-export AGENTCOMMS_USER_PHONE_NUMBER=+15559876543  # Your personal phone
+# Full config with voice settings
+./agentcomms config init
 
-# Voice provider selection
-export AGENTCOMMS_TTS_PROVIDER=elevenlabs  # "elevenlabs", "deepgram", or "openai"
-export AGENTCOMMS_STT_PROVIDER=deepgram    # "elevenlabs", "deepgram", or "openai"
+# Minimal config (chat only, no voice)
+./agentcomms config init --minimal
+```
 
-# API keys (based on selected providers)
-export AGENTCOMMS_ELEVENLABS_API_KEY=your_elevenlabs_key
-export AGENTCOMMS_DEEPGRAM_API_KEY=your_deepgram_key
-export AGENTCOMMS_OPENAI_API_KEY=your_openai_key
+This creates `~/.agentcomms/config.json`.
 
-# ngrok (required for voice)
+### 2. Set Environment Variables for Secrets
+
+```bash
+# Discord token
+export DISCORD_TOKEN=your_discord_bot_token
+
+# Telegram token (if using)
+export TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+
+# Voice providers (if using voice)
+export TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+export TWILIO_AUTH_TOKEN=your_auth_token
+export ELEVENLABS_API_KEY=your_elevenlabs_key
+export DEEPGRAM_API_KEY=your_deepgram_key
 export NGROK_AUTHTOKEN=your_ngrok_authtoken
 ```
 
-### Chat Configuration
+### 3. Edit Configuration
 
-```bash
-# Discord
-export AGENTCOMMS_DISCORD_ENABLED=true
-export AGENTCOMMS_DISCORD_TOKEN=your_discord_bot_token
+Edit `~/.agentcomms/config.json`:
 
-# Telegram
-export AGENTCOMMS_TELEGRAM_ENABLED=true
-export AGENTCOMMS_TELEGRAM_TOKEN=your_telegram_bot_token
-
-# WhatsApp
-export AGENTCOMMS_WHATSAPP_ENABLED=true
-export AGENTCOMMS_WHATSAPP_DB_PATH=./whatsapp.db
+```json
+{
+  "version": "1",
+  "agents": [
+    {
+      "id": "claude",
+      "type": "tmux",
+      "tmux_session": "claude-code",
+      "tmux_pane": "0"
+    }
+  ],
+  "chat": {
+    "discord": {
+      "enabled": true,
+      "token": "${DISCORD_TOKEN}",
+      "guild_id": "YOUR_GUILD_ID"
+    },
+    "channels": [
+      {
+        "channel_id": "discord:YOUR_CHANNEL_ID",
+        "agent_id": "claude"
+      }
+    ]
+  }
+}
 ```
 
-### Inbound Configuration
+### 4. Validate Configuration
 
 ```bash
-# Agent ID for MCP tools
-export AGENTCOMMS_AGENT_ID=claude
+./agentcomms config validate
 ```
 
 ## Running the MCP Server (OUTBOUND)
@@ -86,42 +109,6 @@ MCP server ready
 ## Running the Daemon (INBOUND)
 
 The daemon enables humans to send messages to AI agents.
-
-### 1. Create Configuration
-
-```bash
-mkdir -p ~/.agentcomms
-cp examples/config.yaml ~/.agentcomms/config.yaml
-```
-
-Edit `~/.agentcomms/config.yaml`:
-
-```yaml
-log_level: info
-
-agents:
-  - id: claude
-    type: tmux
-    tmux_session: claude-code
-    tmux_pane: "0"
-
-chat:
-  discord:
-    token: "${DISCORD_TOKEN}"
-    guild_id: "YOUR_GUILD_ID"
-
-  channels:
-    - channel_id: "discord:YOUR_CHANNEL_ID"
-      agent_id: claude
-```
-
-### 2. Validate Configuration
-
-```bash
-./agentcomms config validate
-```
-
-### 3. Start the Daemon
 
 ```bash
 ./agentcomms daemon
@@ -149,13 +136,12 @@ Add to `~/.claude/settings.json`:
     "agentcomms": {
       "command": "/path/to/agentcomms",
       "env": {
-        "AGENTCOMMS_PHONE_ACCOUNT_SID": "ACxxx",
-        "AGENTCOMMS_PHONE_AUTH_TOKEN": "xxx",
-        "AGENTCOMMS_PHONE_NUMBER": "+15551234567",
-        "AGENTCOMMS_USER_PHONE_NUMBER": "+15559876543",
+        "TWILIO_ACCOUNT_SID": "ACxxx",
+        "TWILIO_AUTH_TOKEN": "xxx",
         "NGROK_AUTHTOKEN": "xxx",
-        "AGENTCOMMS_DISCORD_ENABLED": "true",
-        "AGENTCOMMS_DISCORD_TOKEN": "xxx",
+        "DISCORD_TOKEN": "xxx",
+        "ELEVENLABS_API_KEY": "xxx",
+        "DEEPGRAM_API_KEY": "xxx",
         "AGENTCOMMS_AGENT_ID": "claude"
       }
     }

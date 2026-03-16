@@ -155,6 +155,33 @@ telegram:987654321        telegram   claude
 
 ## Configuration Commands
 
+### config init
+
+Generate a new configuration file.
+
+```bash
+# Full config with voice settings
+agentcomms config init
+
+# Minimal config (chat only)
+agentcomms config init --minimal
+
+# Generate to specific path
+agentcomms config init -o /path/to/config.json
+```
+
+Output:
+
+```
+Configuration file created: /Users/you/.agentcomms/config.json
+
+Next steps:
+  1. Edit the configuration file to set your values
+  2. Set environment variables for secrets (DISCORD_TOKEN, etc.)
+  3. Validate with: agentcomms config validate
+  4. Start the daemon: agentcomms daemon
+```
+
 ### config validate
 
 Validate the configuration file.
@@ -165,9 +192,10 @@ agentcomms config validate
 
 Checks:
 
-- YAML syntax
+- JSON syntax
 - Required fields
 - Agent configuration
+- Voice provider configuration
 - Tmux session existence
 - Chat provider configuration
 - Channel mappings
@@ -175,10 +203,16 @@ Checks:
 Output:
 
 ```
-Validating configuration: /Users/you/.agentcomms/config.yaml
+Validating configuration: /Users/you/.agentcomms/config.json
 
+Server port: 3333
 Agents: 1 configured
   - claude (type: tmux)
+
+Voice: enabled
+  Phone provider: twilio
+  TTS provider: elevenlabs
+  STT provider: deepgram
 
 Chat providers: [discord]
 Channel mappings: 1
@@ -201,7 +235,7 @@ The daemon stores data in `~/.agentcomms/`:
 
 | File | Description |
 |------|-------------|
-| `config.yaml` | Daemon configuration |
+| `config.json` | Configuration file (unified JSON) |
 | `data.db` | SQLite database (events, agents) |
 | `daemon.sock` | Unix socket for CLI/API |
 
