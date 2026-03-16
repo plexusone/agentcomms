@@ -78,6 +78,28 @@ Created comprehensive documentation site using MkDocs.
 - Search functionality
 - Links to existing design documents
 
+### Unified JSON Configuration ✅
+
+Migrated from split configuration (env vars + YAML) to a single unified JSON config.
+
+#### Features
+
+- Single `config.json` file combines MCP server + daemon config
+- Environment variable substitution (`${VAR}` syntax) for secrets
+- `agentcomms config init` command to generate template
+- Backward compatible with legacy YAML config
+- Full validation with helpful error messages
+
+#### Files Created/Modified
+
+- `pkg/config/unified.go` - UnifiedConfig struct with JSON tags
+- `pkg/config/unified_test.go` - Unit tests
+- `examples/config.json` - Example JSON config
+- `cmd/agentcomms/commands.go` - Added config init command
+- `docs/configuration.md` - Updated for JSON config
+- `docs/getting-started.md` - Updated setup instructions
+- `docs/cli.md` - Added config init documentation
+
 ## In Progress
 
 None
