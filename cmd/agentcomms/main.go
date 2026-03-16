@@ -1,13 +1,18 @@
-// Package main is the entry point for the agentcomms MCP server.
+// Package main is the entry point for the agentcomms CLI.
 //
-// agentcomms is a Claude Code MCP plugin that enables voice calls and chat messaging.
-// It showcases the plexusone stack:
-//   - omnivoice: Voice abstraction layer (TTS, STT, Transport, CallSystem interfaces)
-//   - omnichat: Chat messaging abstraction (Discord, Telegram, WhatsApp)
-//   - omnivoice-twilio: Twilio implementation of omnivoice interfaces
-//   - mcpkit: MCP server runtime with ngrok integration
+// agentcomms provides two modes:
+//   - serve: MCP server for AI assistants (OUTBOUND communication)
+//   - daemon: Background service for human-to-agent messaging (INBOUND communication)
 //
 // Usage:
+//
+//	# Run MCP server (spawned by AI assistant)
+//	agentcomms serve
+//
+//	# Run daemon (background service)
+//	agentcomms daemon
+//
+// Environment variables for MCP server:
 //
 //	# Voice calling
 //	export AGENTCOMMS_PHONE_ACCOUNT_SID=your_twilio_sid
@@ -19,8 +24,6 @@
 //	# Chat (optional)
 //	export AGENTCOMMS_DISCORD_ENABLED=true
 //	export AGENTCOMMS_DISCORD_TOKEN=your_discord_token
-//
-//	./agentcomms
 package main
 
 import (
@@ -35,24 +38,72 @@ import (
 
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 	mcpkit "github.com/plexusone/mcpkit/runtime"
+	"github.com/spf13/cobra"
 
+	"github.com/plexusone/agentcomms/internal/daemon"
 	"github.com/plexusone/agentcomms/pkg/chat"
 	"github.com/plexusone/agentcomms/pkg/config"
 	"github.com/plexusone/agentcomms/pkg/tools"
 	"github.com/plexusone/agentcomms/pkg/voice"
 )
 
+// version is set at build time.
+var version = "dev"
+
 // logger is the package-level logger.
 var logger = slog.Default()
 
 func main() {
-	if err := run(); err != nil {
-		logger.Error("fatal error", "error", err)
+	if err := rootCmd.Execute(); err != nil {
 		os.Exit(1)
 	}
 }
 
-func run() error {
+var rootCmd = &cobra.Command{
+	Use:   "agentcomms",
+	Short: "Agent communication platform",
+	Long: `AgentComms enables bidirectional communication between AI agents and humans.
+
+  - serve:  MCP server for OUTBOUND communication (agent → human)
+  - daemon: Background service for INBOUND communication (human → agent)`,
+	Version: version,
+	// Default to serve for backwards compatibility
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return runServe()
+	},
+}
+
+var serveCmd = &cobra.Command{
+	Use:   "serve",
+	Short: "Run the MCP server (OUTBOUND communication)",
+	Long:  `Starts the MCP server that AI assistants connect to for voice calls and chat messaging.`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return runServe()
+	},
+}
+
+var daemonCmd = &cobra.Command{
+	Use:   "daemon",
+	Short: "Run the daemon (INBOUND communication)",
+	Long: `Starts the background daemon that listens for human messages and routes them to agents.
+
+The daemon:
+  - Connects to Discord/Twilio to receive messages
+  - Routes messages to agents via tmux or process adapters
+  - Stores all events in SQLite for replay and debugging
+  - Exposes a Unix socket API for CLI and MCP server integration`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return runDaemon()
+	},
+}
+
+func init() {
+	rootCmd.AddCommand(serveCmd)
+	rootCmd.AddCommand(daemonCmd)
+}
+
+// runServe runs the MCP server (existing functionality).
+func runServe() error {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
@@ -174,6 +225,30 @@ func run() error {
 	}
 
 	return nil
+}
+
+// runDaemon runs the background daemon for INBOUND communication.
+func runDaemon() error {
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	// Handle shutdown signals
+	sigCh := make(chan os.Signal, 1)
+	signal.Notify(sigCh, syscall.SIGINT, syscall.SIGTERM)
+	go func() {
+		<-sigCh
+		logger.Info("received shutdown signal")
+		cancel()
+	}()
+
+	// Create daemon with default config
+	cfg := daemon.DefaultConfig()
+	cfg.Logger = logger
+
+	d := daemon.New(cfg)
+
+	// Start daemon (blocks until context cancelled)
+	return d.Start(ctx)
 }
 
 // setupTwilioWebhooks sets up HTTP handlers for Twilio webhooks.
