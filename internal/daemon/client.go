@@ -241,6 +241,21 @@ func (c *Client) Channels(_ context.Context) (*ChannelsResult, error) {
 	return &result, nil
 }
 
+// AgentMessage sends a message from one agent to another.
+func (c *Client) AgentMessage(_ context.Context, fromAgentID, toAgentID, message string) (*AgentMessageResult, error) {
+	params := AgentMessageParams{
+		FromAgentID: fromAgentID,
+		ToAgentID:   toAgentID,
+		Message:     message,
+	}
+
+	var result AgentMessageResult
+	if err := c.call(MethodAgentMessage, params, &result); err != nil {
+		return nil, err
+	}
+	return &result, nil
+}
+
 // IsDaemonRunning checks if the daemon is running by attempting to connect.
 func IsDaemonRunning(socketPath string) bool {
 	conn, err := net.Dial("unix", socketPath)

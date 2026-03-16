@@ -47,14 +47,15 @@ const (
 
 // Method names.
 const (
-	MethodPing      = "ping"
-	MethodStatus    = "status"
-	MethodAgents    = "agents"
-	MethodSend      = "send"
-	MethodInterrupt = "interrupt"
-	MethodEvents    = "events"
-	MethodReply     = "reply"
-	MethodChannels  = "channels"
+	MethodPing         = "ping"
+	MethodStatus       = "status"
+	MethodAgents       = "agents"
+	MethodSend         = "send"
+	MethodInterrupt    = "interrupt"
+	MethodEvents       = "events"
+	MethodReply        = "reply"
+	MethodChannels     = "channels"
+	MethodAgentMessage = "agent_message"
 )
 
 // PingResult is the response for the ping method.
@@ -80,6 +81,7 @@ type AgentInfo struct {
 	ID     string `json:"id"`
 	Type   string `json:"type"`
 	Target string `json:"target"` // e.g., "tmux:session:pane"
+	Status string `json:"status"` // "online" or "offline"
 }
 
 // SendParams are the parameters for the send method.
@@ -159,6 +161,25 @@ type ChannelInfo struct {
 	ChannelID string `json:"channel_id"`
 	AgentID   string `json:"agent_id"`
 	Provider  string `json:"provider"`
+}
+
+// AgentMessageParams are the parameters for the agent_message method.
+// This sends a message FROM one agent TO another agent.
+type AgentMessageParams struct {
+	// FromAgentID is the source agent sending the message.
+	FromAgentID string `json:"from_agent_id"`
+
+	// ToAgentID is the destination agent to receive the message.
+	ToAgentID string `json:"to_agent_id"`
+
+	// Message is the text content to send.
+	Message string `json:"message"`
+}
+
+// AgentMessageResult is the response for the agent_message method.
+type AgentMessageResult struct {
+	EventID   string `json:"event_id"`
+	Delivered bool   `json:"delivered"`
 }
 
 // NewRequest creates a new request with the given method and params.

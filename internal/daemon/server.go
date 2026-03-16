@@ -246,6 +246,8 @@ func (s *Server) handleRequest(ctx context.Context, req *Request) *Response {
 		return s.handleReply(ctx, req)
 	case MethodChannels:
 		return s.handleChannels(req)
+	case MethodAgentMessage:
+		return s.handleAgentMessage(ctx, req)
 	default:
 		return NewErrorResponse(req.ID, ErrCodeMethodNotFound, "method not found: "+req.Method)
 	}
@@ -273,6 +275,7 @@ func (s *Server) handleStatus(req *Request) *Response {
 // handleAgents handles the agents method.
 func (s *Server) handleAgents(req *Request) *Response {
 	agentIDs := s.router.Agents()
+	agentStatuses := s.router.AgentStatuses()
 	agents := make([]AgentInfo, 0, len(agentIDs))
 
 	for _, id := range agentIDs {
@@ -282,8 +285,9 @@ func (s *Server) handleAgents(req *Request) *Response {
 		}
 
 		info := AgentInfo{
-			ID:   id,
-			Type: agentCfg.Type,
+			ID:     id,
+			Type:   agentCfg.Type,
+			Status: agentStatuses[id],
 		}
 
 		if agentCfg.Type == "tmux" {
@@ -552,5 +556,66 @@ func (s *Server) handleChannels(req *Request) *Response {
 	}
 
 	resp, _ := NewResponse(req.ID, ChannelsResult{Channels: channels})
+	return resp
+}
+
+// handleAgentMessage handles the agent_message method.
+// This sends a message from one agent to another.
+func (s *Server) handleAgentMessage(ctx context.Context, req *Request) *Response {
+	var params AgentMessageParams
+	if err := req.ParseParams(&params); err != nil {
+		return NewErrorResponse(req.ID, ErrCodeInvalidParams, "invalid params: "+err.Error())
+	}
+
+	if params.FromAgentID == "" {
+		return NewErrorResponse(req.ID, ErrCodeInvalidParams, "from_agent_id is required")
+	}
+	if params.ToAgentID == "" {
+		return NewErrorResponse(req.ID, ErrCodeInvalidParams, "to_agent_id is required")
+	}
+	if params.Message == "" {
+		return NewErrorResponse(req.ID, ErrCodeInvalidParams, "message is required")
+	}
+
+	// Check if destination agent exists
+	if !s.router.HasAgent(params.ToAgentID) {
+		return NewErrorResponse(req.ID, ErrCodeNotFound, "agent not found: "+params.ToAgentID)
+	}
+
+	// Create event with source_agent_id for agent-to-agent messaging
+	evt, err := s.client.Event.Create().
+		SetID(events.NewID()).
+		SetAgentID(params.ToAgentID).
+		SetSourceAgentID(params.FromAgentID).
+		SetChannelID("agent:" + params.FromAgentID).
+		SetType(event.TypeAgentMessage).
+		SetRole(event.RoleAgent).
+		SetPayload(map[string]any{
+			"text":   params.Message,
+			"source": "agent",
+		}).
+		Save(ctx)
+
+	if err != nil {
+		s.logger.Error("failed to create agent message event", "error", err)
+		return NewErrorResponse(req.ID, ErrCodeInternal, "failed to create event")
+	}
+
+	// Dispatch to router
+	if err := s.router.Dispatch(params.ToAgentID, evt); err != nil {
+		s.logger.Error("failed to dispatch agent message", "error", err)
+		return NewErrorResponse(req.ID, ErrCodeInternal, "failed to dispatch event")
+	}
+
+	s.logger.Info("dispatched agent message",
+		"from", params.FromAgentID,
+		"to", params.ToAgentID,
+		"event_id", evt.ID,
+	)
+
+	resp, _ := NewResponse(req.ID, AgentMessageResult{
+		EventID:   evt.ID,
+		Delivered: true,
+	})
 	return resp
 }

@@ -343,7 +343,7 @@ func (d *Daemon) shutdown() error {
 
 	// Stop router
 	if d.router != nil {
-		d.router.Stop()
+		d.router.Stop(context.Background())
 	}
 
 	if d.client != nil {

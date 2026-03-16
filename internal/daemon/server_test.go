@@ -329,3 +329,118 @@ func TestServerReplyAndChannels(t *testing.T) {
 		t.Error("server did not stop in time")
 	}
 }
+
+func TestServerAgentMessage(t *testing.T) {
+	// Create test dependencies
+	client := newTestEntClient(t)
+	r := router.New(client, nil)
+	mockAdapter := &testMockAdapter{}
+
+	daemonCfg := &DaemonConfig{
+		Agents: []AgentConfig{
+			{ID: "agent-a", Type: "tmux", TmuxSession: "test-a"},
+			{ID: "agent-b", Type: "tmux", TmuxSession: "test-b"},
+		},
+	}
+
+	// Create temporary socket path
+	tmpDir := t.TempDir()
+	socketPath := filepath.Join(tmpDir, "test.sock")
+
+	// Create and start server
+	server := NewServer(ServerConfig{
+		SocketPath: socketPath,
+		Client:     client,
+		Router:     r,
+		DaemonCfg:  daemonCfg,
+		Providers:  []string{},
+	})
+
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	// Register agent-b to receive messages
+	if err := r.RegisterAgent(ctx, "agent-b", mockAdapter); err != nil {
+		t.Fatalf("failed to register agent: %v", err)
+	}
+
+	// Start server in background
+	serverErr := make(chan error, 1)
+	go func() {
+		serverErr <- server.Start(ctx)
+	}()
+
+	// Wait for server to start
+	time.Sleep(100 * time.Millisecond)
+
+	// Create client
+	daemonClient := NewClient(socketPath)
+	if err := daemonClient.Connect(); err != nil {
+		t.Fatalf("failed to connect: %v", err)
+	}
+	defer daemonClient.Close()
+
+	// Test sending agent message
+	t.Run("AgentMessage", func(t *testing.T) {
+		result, err := daemonClient.AgentMessage(ctx, "agent-a", "agent-b", "Hello from agent-a!")
+		if err != nil {
+			t.Fatalf("AgentMessage() error = %v", err)
+		}
+
+		if result.EventID == "" {
+			t.Error("expected non-empty event ID")
+		}
+		if !result.Delivered {
+			t.Error("expected Delivered=true")
+		}
+
+		// Wait for async processing
+		time.Sleep(100 * time.Millisecond)
+
+		// Verify message was sent to agent-b
+		if len(mockAdapter.sent) != 1 {
+			t.Fatalf("expected 1 message sent, got %d", len(mockAdapter.sent))
+		}
+		expectedMsg := "[from: agent-a] Hello from agent-a!"
+		if mockAdapter.sent[0] != expectedMsg {
+			t.Errorf("expected message %q, got %q", expectedMsg, mockAdapter.sent[0])
+		}
+	})
+
+	// Test sending to non-existent agent
+	t.Run("AgentMessageNotFound", func(t *testing.T) {
+		_, err := daemonClient.AgentMessage(ctx, "agent-a", "nonexistent", "Hello")
+		if err == nil {
+			t.Error("expected error for non-existent agent")
+		}
+	})
+
+	// Stop server
+	cancel()
+	select {
+	case <-serverErr:
+		// Server stopped
+	case <-time.After(2 * time.Second):
+		t.Error("server did not stop in time")
+	}
+}
+
+// testMockAdapter is a simple mock adapter for testing.
+type testMockAdapter struct {
+	sent      []string
+	interrupt int
+}
+
+func (m *testMockAdapter) Send(msg string) error {
+	m.sent = append(m.sent, msg)
+	return nil
+}
+
+func (m *testMockAdapter) Interrupt() error {
+	m.interrupt++
+	return nil
+}
+
+func (m *testMockAdapter) Close() error {
+	return nil
+}
