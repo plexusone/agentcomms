@@ -13,7 +13,7 @@ require (
 	github.com/plexusone/omnivoice-twilio v0.2.0
 	github.com/spf13/cobra v1.10.2
 	gopkg.in/yaml.v3 v3.0.1
-	modernc.org/sqlite v1.46.1
+	modernc.org/sqlite v1.47.0
 )
 
 require (
