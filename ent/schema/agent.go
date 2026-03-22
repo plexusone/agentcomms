@@ -5,6 +5,9 @@ import (
 	"entgo.io/ent"
 	"entgo.io/ent/schema/field"
 	"entgo.io/ent/schema/index"
+
+	"github.com/plexusone/agentcomms/ent/privacy"
+	"github.com/plexusone/agentcomms/ent/rule"
 )
 
 // Agent holds the schema definition for the Agent entity.
@@ -48,4 +51,17 @@ func (Agent) Indexes() []ent.Index {
 // Edges of the Agent.
 func (Agent) Edges() []ent.Edge {
 	return nil
+}
+
+// Policy returns the privacy policy for the Agent.
+// Filters all queries and mutations by tenant_id from context.
+func (Agent) Policy() ent.Policy {
+	return privacy.Policy{
+		Query: privacy.QueryPolicy{
+			rule.FilterTenantRule(),
+		},
+		Mutation: privacy.MutationPolicy{
+			rule.FilterTenantRule(),
+		},
+	}
 }

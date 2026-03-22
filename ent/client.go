@@ -316,7 +316,8 @@ func (c *AgentClient) GetX(ctx context.Context, id string) *Agent {
 
 // Hooks returns the client hooks.
 func (c *AgentClient) Hooks() []Hook {
-	return c.hooks.Agent
+	hooks := c.hooks.Agent
+	return append(hooks[:len(hooks):len(hooks)], agent.Hooks[:]...)
 }
 
 // Interceptors returns the client interceptors.
@@ -449,7 +450,8 @@ func (c *EventClient) GetX(ctx context.Context, id string) *Event {
 
 // Hooks returns the client hooks.
 func (c *EventClient) Hooks() []Hook {
-	return c.hooks.Event
+	hooks := c.hooks.Event
+	return append(hooks[:len(hooks):len(hooks)], event.Hooks[:]...)
 }
 
 // Interceptors returns the client interceptors.

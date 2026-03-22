@@ -78,7 +78,9 @@ func (_c *AgentCreate) Mutation() *AgentMutation {
 
 // Save creates the Agent in the database.
 func (_c *AgentCreate) Save(ctx context.Context) (*Agent, error) {
-	_c.defaults()
+	if err := _c.defaults(); err != nil {
+		return nil, err
+	}
 	return withHooks(ctx, _c.sqlSave, _c.mutation, _c.hooks)
 }
 
@@ -105,7 +107,7 @@ func (_c *AgentCreate) ExecX(ctx context.Context) {
 }
 
 // defaults sets the default values of the builder before save.
-func (_c *AgentCreate) defaults() {
+func (_c *AgentCreate) defaults() error {
 	if _, ok := _c.mutation.TenantID(); !ok {
 		v := agent.DefaultTenantID
 		_c.mutation.SetTenantID(v)
@@ -114,6 +116,7 @@ func (_c *AgentCreate) defaults() {
 		v := agent.DefaultStatus
 		_c.mutation.SetStatus(v)
 	}
+	return nil
 }
 
 // check runs all checks and user-defined validators on the builder.

@@ -2,7 +2,61 @@
 
 package runtime
 
-// The schema-stitching logic is generated in github.com/plexusone/agentcomms/ent/runtime.go
+import (
+	"context"
+	"time"
+
+	"github.com/plexusone/agentcomms/ent/agent"
+	"github.com/plexusone/agentcomms/ent/event"
+	"github.com/plexusone/agentcomms/ent/schema"
+
+	"entgo.io/ent"
+	"entgo.io/ent/privacy"
+)
+
+// The init function reads all schema descriptors with runtime code
+// (default values, validators, hooks and policies) and stitches it
+// to their package variables.
+func init() {
+	agent.Policy = privacy.NewPolicies(schema.Agent{})
+	agent.Hooks[0] = func(next ent.Mutator) ent.Mutator {
+		return ent.MutateFunc(func(ctx context.Context, m ent.Mutation) (ent.Value, error) {
+			if err := agent.Policy.EvalMutation(ctx, m); err != nil {
+				return nil, err
+			}
+			return next.Mutate(ctx, m)
+		})
+	}
+	agentFields := schema.Agent{}.Fields()
+	_ = agentFields
+	// agentDescTenantID is the schema descriptor for tenant_id field.
+	agentDescTenantID := agentFields[1].Descriptor()
+	// agent.DefaultTenantID holds the default value on creation for the tenant_id field.
+	agent.DefaultTenantID = agentDescTenantID.Default.(string)
+	event.Policy = privacy.NewPolicies(schema.Event{})
+	event.Hooks[0] = func(next ent.Mutator) ent.Mutator {
+		return ent.MutateFunc(func(ctx context.Context, m ent.Mutation) (ent.Value, error) {
+			if err := event.Policy.EvalMutation(ctx, m); err != nil {
+				return nil, err
+			}
+			return next.Mutate(ctx, m)
+		})
+	}
+	eventFields := schema.Event{}.Fields()
+	_ = eventFields
+	// eventDescTenantID is the schema descriptor for tenant_id field.
+	eventDescTenantID := eventFields[1].Descriptor()
+	// event.DefaultTenantID holds the default value on creation for the tenant_id field.
+	event.DefaultTenantID = eventDescTenantID.Default.(string)
+	// eventDescTimestamp is the schema descriptor for timestamp field.
+	eventDescTimestamp := eventFields[6].Descriptor()
+	// event.DefaultTimestamp holds the default value on creation for the timestamp field.
+	event.DefaultTimestamp = eventDescTimestamp.Default.(func() time.Time)
+	// eventDescSourceAgentID is the schema descriptor for source_agent_id field.
+	eventDescSourceAgentID := eventFields[9].Descriptor()
+	// event.DefaultSourceAgentID holds the default value on creation for the source_agent_id field.
+	event.DefaultSourceAgentID = eventDescSourceAgentID.Default.(string)
+}
 
 const (
 	Version = "v0.14.5"                                         // Version of ent codegen.
