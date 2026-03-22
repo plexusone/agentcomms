@@ -12,6 +12,7 @@ import (
 	_ "modernc.org/sqlite"
 
 	"github.com/plexusone/agentcomms/ent"
+	_ "github.com/plexusone/agentcomms/ent/runtime" // Required for Ent privacy policies
 	"github.com/plexusone/agentcomms/internal/router"
 )
 

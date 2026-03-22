@@ -13,8 +13,10 @@ import (
 
 	"github.com/plexusone/agentcomms/ent"
 	"github.com/plexusone/agentcomms/ent/event"
+	_ "github.com/plexusone/agentcomms/ent/runtime" // Required for Ent privacy policies
 	"github.com/plexusone/agentcomms/internal/bridge"
 	"github.com/plexusone/agentcomms/internal/events"
+	"github.com/plexusone/agentcomms/internal/tenant"
 )
 
 // newTestClient creates a test Ent client with an in-memory SQLite database.
@@ -75,7 +77,7 @@ func TestRouterDispatch(t *testing.T) {
 		t.Fatalf("failed to create adapter: %v", err)
 	}
 
-	ctx := context.Background()
+	ctx := tenant.WithTenantID(context.Background(), "local")
 
 	// Register agent
 	if err := r.RegisterAgent(ctx, "test-agent", adapter); err != nil {
@@ -85,6 +87,7 @@ func TestRouterDispatch(t *testing.T) {
 	// Create test event
 	evt, err := client.Event.Create().
 		SetID(events.NewID()).
+		SetTenantID("local").
 		SetAgentID("test-agent").
 		SetChannelID("test:channel").
 		SetType(event.TypeHumanMessage).
@@ -121,7 +124,7 @@ func TestRouterRegisterUnregister(t *testing.T) {
 	client := newTestClient(t)
 
 	r := New(client, nil)
-	ctx := context.Background()
+	ctx := tenant.WithTenantID(context.Background(), "local")
 
 	// Create mock adapter
 	adapter := &mockAdapter{}
@@ -180,7 +183,7 @@ func (m *mockAdapter) Close() error {
 func TestRouterAgentStatuses(t *testing.T) {
 	client := newTestClient(t)
 	r := New(client, nil)
-	ctx := context.Background()
+	ctx := tenant.WithTenantID(context.Background(), "local")
 
 	// Initially no agents
 	statuses := r.AgentStatuses()
