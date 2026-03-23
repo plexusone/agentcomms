@@ -10,9 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://plexusone.github.io/agentcomms/design/FEAT_OUTBOUND_PRD/">
+        <link rel="canonical" href="https://plexusone.github.io/agentcomms/releases/v0.4.0/">
       
       
+        <link rel="prev" href="../../architecture/">
+      
+      
+        <link rel="next" href="../v0.3.0/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>FEAT_OUTBOUND: Agent-to-Human Communication - AgentComms</title>
+        <title>v0.4.0 - AgentComms</title>
       
     
     
@@ -72,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#feat_outbound-agent-to-human-communication" class="md-skip">
+        <a href="#release-notes-v040" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FEAT_OUTBOUND: Agent-to-Human Communication
+              v0.4.0
             
           </span>
         </div>
@@ -294,11 +298,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../releases/v0.4.0/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -318,7 +324,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../FEAT_INBOUND_PRD/" class="md-tabs__link">
+        <a href="../../design/FEAT_INBOUND_PRD/" class="md-tabs__link">
           
   
   
@@ -612,28 +618,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -646,7 +655,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Releases
@@ -657,10 +666,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../releases/v0.4.0/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    v0.4.0
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -671,6 +702,188 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Highlights
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      New Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-row-level-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      PostgreSQL + Row-Level Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sms-chat-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      SMS Chat Provider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webhook Server
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Changes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tenant-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tenant Context
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Abstraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ent-privacy-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ent Privacy Policies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrade-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upgrade Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upgrade Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-postgresql-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      For PostgreSQL Migration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-sms-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      For SMS Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full Changelog
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -683,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.3.0/" class="md-nav__link">
+      <a href="../v0.3.0/" class="md-nav__link">
         
   
   
@@ -706,7 +919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.2.0/" class="md-nav__link">
+      <a href="../v0.2.0/" class="md-nav__link">
         
   
   
@@ -729,7 +942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.1.0/" class="md-nav__link">
+      <a href="../v0.1.0/" class="md-nav__link">
         
   
   
@@ -804,7 +1017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../FEAT_INBOUND_PRD/" class="md-nav__link">
+      <a href="../../design/FEAT_INBOUND_PRD/" class="md-nav__link">
         
   
   
@@ -827,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../FEAT_INBOUND_TRD/" class="md-nav__link">
+      <a href="../../design/FEAT_INBOUND_TRD/" class="md-nav__link">
         
   
   
@@ -850,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../FEAT_INBOUND_PLAN/" class="md-nav__link">
+      <a href="../../design/FEAT_INBOUND_PLAN/" class="md-nav__link">
         
   
   
@@ -909,37 +1122,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#status" class="md-nav__link">
+  <a href="#highlights" class="md-nav__link">
     <span class="md-ellipsis">
-      Status
+      Highlights
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#capabilities" class="md-nav__link">
+  <a href="#new-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Capabilities
+      New Features
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Capabilities">
+    <nav class="md-nav" aria-label="New Features">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#voice-twilio" class="md-nav__link">
+  <a href="#postgresql-row-level-security" class="md-nav__link">
     <span class="md-ellipsis">
-      Voice (Twilio)
+      PostgreSQL + Row-Level Security
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#chat-discord-telegram-whatsapp" class="md-nav__link">
+  <a href="#sms-chat-provider" class="md-nav__link">
     <span class="md-ellipsis">
-      Chat (Discord, Telegram, WhatsApp)
+      SMS Chat Provider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webhook Server
     </span>
   </a>
   
@@ -951,45 +1173,102 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
+  <a href="#architecture-changes" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture
+      Architecture Changes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tenant-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tenant Context
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Abstraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ent-privacy-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ent Privacy Policies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
+  <a href="#dependencies" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Cases
+      Dependencies
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+  <a href="#upgrade-guide" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuration
+      Upgrade Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upgrade Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-postgresql-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      For PostgreSQL Migration
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#for-sms-integration" class="md-nav__link">
     <span class="md-ellipsis">
-      Limitations
+      For SMS Integration
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#full-changelog" class="md-nav__link">
     <span class="md-ellipsis">
-      References
+      Full Changelog
     </span>
   </a>
   
@@ -1014,119 +1293,170 @@
   
 
 
-<h1 id="feat_outbound-agent-to-human-communication">FEAT_OUTBOUND: Agent-to-Human Communication<a class="headerlink" href="#feat_outbound-agent-to-human-communication" title="Permanent link">&para;</a></h1>
+<h1 id="release-notes-v040">Release Notes: v0.4.0<a class="headerlink" href="#release-notes-v040" title="Permanent link">&para;</a></h1>
+<p><strong>Release Date:</strong> 2026-03-22</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Enable AI agents to contact humans through communication channels (Discord, WhatsApp, Twilio voice/SMS) via MCP tools.</p>
-<p><strong>Direction terminology:</strong></p>
+<p>AgentComms v0.4.0 adds PostgreSQL support with Row-Level Security for multi-tenancy, SMS as a chat transport, and a webhook server for inbound Twilio/Telnyx callbacks.</p>
+<h2 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>OUTBOUND</strong> (this feature): Agent → MCP → Channel → Human</li>
-<li><strong>INBOUND</strong> (planned): Human → Channel → AgentBridge → Agent</li>
+<li><strong>PostgreSQL with Multi-Tenancy</strong>: Database abstraction supporting both SQLite and PostgreSQL with RLS-based tenant isolation</li>
+<li><strong>SMS Chat Provider</strong>: Send and receive SMS messages through Twilio or Telnyx</li>
+<li><strong>Webhook Server</strong>: HTTP server for receiving inbound SMS and voice status callbacks</li>
+<li><strong>Updated Dependencies</strong>: omnichat v0.4.0 (Slack, Gmail) and omnivoice v0.7.0</li>
 </ul>
-<h2 id="status">Status<a class="headerlink" href="#status" title="Permanent link">&para;</a></h2>
-<p><strong>Implemented</strong> - This is the current functionality of AgentComms.</p>
-<h2 id="capabilities">Capabilities<a class="headerlink" href="#capabilities" title="Permanent link">&para;</a></h2>
-<h3 id="voice-twilio">Voice (Twilio)<a class="headerlink" href="#voice-twilio" title="Permanent link">&para;</a></h3>
-<p>MCP tools for phone calls:</p>
+<h2 id="new-features">New Features<a class="headerlink" href="#new-features" title="Permanent link">&para;</a></h2>
+<h3 id="postgresql-row-level-security">PostgreSQL + Row-Level Security<a class="headerlink" href="#postgresql-row-level-security" title="Permanent link">&para;</a></h3>
+<p>Multi-tenant deployments can now use PostgreSQL with Row-Level Security for database-level isolation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;database&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;postgres&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;dsn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;postgres://user:pass@localhost:5432/agentcomms?sslmode=disable&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;multi_tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">&quot;use_rls&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</code></pre></div>
+<p>Two-layer isolation:</p>
+<ol>
+<li><strong>Application-level</strong> - Ent privacy rules filter all queries by <code>tenant_id</code></li>
+<li><strong>Database-level</strong> - PostgreSQL RLS policies enforce isolation at the database</li>
+</ol>
+<h3 id="sms-chat-provider">SMS Chat Provider<a class="headerlink" href="#sms-chat-provider" title="Permanent link">&para;</a></h3>
+<p>SMS is now available as a chat transport alongside Discord, Slack, Telegram, WhatsApp, and Gmail:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;chat&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;sms&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>SMS uses your configured phone provider (Twilio or Telnyx) and integrates with the existing channel mapping system.</p>
+<h3 id="webhook-server">Webhook Server<a class="headerlink" href="#webhook-server" title="Permanent link">&para;</a></h3>
+<p>A dedicated webhook server receives callbacks from Twilio and Telnyx:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;webhook&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3334</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
-<th>Tool</th>
+<th>Endpoint</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>initiate_call</code></td>
-<td>Call the user, speak a message, receive response</td>
+<td><code>/webhook/twilio/sms</code></td>
+<td>Incoming SMS from Twilio</td>
 </tr>
 <tr>
-<td><code>continue_call</code></td>
-<td>Continue conversation within active call</td>
+<td><code>/webhook/twilio/voice</code></td>
+<td>Voice status callbacks</td>
 </tr>
 <tr>
-<td><code>speak_to_user</code></td>
-<td>Speak without waiting for response</td>
+<td><code>/webhook/telnyx/sms</code></td>
+<td>Incoming SMS from Telnyx</td>
 </tr>
 <tr>
-<td><code>end_call</code></td>
-<td>End call with optional final message</td>
+<td><code>/webhook/telnyx/voice</code></td>
+<td>Voice status callbacks</td>
+</tr>
+<tr>
+<td><code>/health</code></td>
+<td>Health check</td>
 </tr>
 </tbody>
 </table>
-<h3 id="chat-discord-telegram-whatsapp">Chat (Discord, Telegram, WhatsApp)<a class="headerlink" href="#chat-discord-telegram-whatsapp" title="Permanent link">&para;</a></h3>
-<p>MCP tools for messaging:</p>
+<h2 id="architecture-changes">Architecture Changes<a class="headerlink" href="#architecture-changes" title="Permanent link">&para;</a></h2>
+<h3 id="tenant-context">Tenant Context<a class="headerlink" href="#tenant-context" title="Permanent link">&para;</a></h3>
+<p>New <code>internal/tenant</code> package manages tenant context propagation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nx">ctx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">tenant</span><span class="p">.</span><span class="nx">WithTenantID</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tenant-123&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nx">tenantID</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">tenant</span><span class="p">.</span><span class="nx">FromContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span><span class="w">  </span><span class="c1">// Returns &quot;local&quot; if not set</span>
+</code></pre></div>
+<h3 id="database-abstraction">Database Abstraction<a class="headerlink" href="#database-abstraction" title="Permanent link">&para;</a></h3>
+<p>The <code>internal/database</code> package provides driver-agnostic database operations:</p>
+<ul>
+<li><code>database.Open(cfg)</code> - Opens SQLite or PostgreSQL based on config</li>
+<li><code>ApplyRLSPolicies(db)</code> - Creates RLS policies for PostgreSQL</li>
+<li>PostgreSQL driver wrapper sets <code>app.current_tenant</code> per transaction</li>
+</ul>
+<h3 id="ent-privacy-policies">Ent Privacy Policies<a class="headerlink" href="#ent-privacy-policies" title="Permanent link">&para;</a></h3>
+<p>Agent and Event schemas now include privacy policies for tenant filtering:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">Agent</span><span class="p">)</span><span class="w"> </span><span class="nx">Policy</span><span class="p">()</span><span class="w"> </span><span class="nx">ent</span><span class="p">.</span><span class="nx">Policy</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">privacy</span><span class="p">.</span><span class="nx">Policy</span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="nx">Query</span><span class="p">:</span><span class="w"> </span><span class="nx">privacy</span><span class="p">.</span><span class="nx">QueryPolicy</span><span class="p">{</span><span class="nx">rule</span><span class="p">.</span><span class="nx">FilterTenantRule</span><span class="p">()},</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="nx">Mutation</span><span class="p">:</span><span class="w"> </span><span class="nx">privacy</span><span class="p">.</span><span class="nx">MutationPolicy</span><span class="p">{</span><span class="nx">rule</span><span class="p">.</span><span class="nx">FilterTenantRule</span><span class="p">()},</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../configuration/">Configuration Guide</a> - Database and webhook configuration</li>
+<li><a href="../../slack-setup/">Slack Setup</a> - Slack integration guide</li>
+<li><a href="../../gmail-setup/">Gmail Setup</a> - Gmail integration guide</li>
+</ul>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Tool</th>
-<th>Description</th>
+<th>Package</th>
+<th>Version</th>
+<th>Change</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>send_message</code></td>
-<td>Send message to a chat channel</td>
+<td>omnichat</td>
+<td>v0.4.0</td>
+<td>Slack, Gmail providers</td>
 </tr>
 <tr>
-<td><code>list_channels</code></td>
-<td>List available channels and status</td>
+<td>omnivoice</td>
+<td>v0.7.0</td>
+<td>Updated voice stack</td>
 </tr>
 <tr>
-<td><code>get_messages</code></td>
-<td>Retrieve recent messages from a channel</td>
+<td>lib/pq</td>
+<td>v1.12.0</td>
+<td>PostgreSQL driver</td>
+</tr>
+<tr>
+<td>modernc.org/sqlite</td>
+<td>v1.47.0</td>
+<td>Updated SQLite driver</td>
 </tr>
 </tbody>
 </table>
-<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Agent Runtime (Claude Code, etc.)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  │
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  ▼
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>MCP Client
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  │
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  ▼
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>AgentComms MCP Server
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  │
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  ├── Voice Manager (Twilio)
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  │     ├── TTS (ElevenLabs / OpenAI)
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  │     └── STT (Deepgram / OpenAI)
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>  │
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  └── Chat Manager
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        ├── Discord
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        ├── Telegram
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        └── WhatsApp
-</code></pre></div>
-<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h2>
+<h2 id="upgrade-guide">Upgrade Guide<a class="headerlink" href="#upgrade-guide" title="Permanent link">&para;</a></h2>
+<p>This release is backwards compatible. Existing SQLite deployments continue to work without changes.</p>
+<h3 id="for-postgresql-migration">For PostgreSQL Migration<a class="headerlink" href="#for-postgresql-migration" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Task completion notification</strong>: Agent calls/messages when done</li>
-<li><strong>Blocker escalation</strong>: Agent contacts human when stuck</li>
-<li><strong>Decision requests</strong>: Agent asks for input on choices</li>
-<li><strong>Status updates</strong>: Periodic progress reports</li>
+<li>Create a PostgreSQL database</li>
+<li>Update <code>config.json</code> with database settings:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;database&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;postgres&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">&quot;dsn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;postgres://user:pass@localhost:5432/agentcomms?sslmode=require&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">&quot;multi_tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">&quot;use_rls&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
+</code></pre></div></li>
+<li>Start the daemon - schema migrations run automatically</li>
+<li>RLS policies are applied after schema creation</li>
 </ol>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>Environment variables:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Voice (Twilio)</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">AGENTCOMMS_PHONE_ACCOUNT_SID</span><span class="o">=</span>...
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nv">AGENTCOMMS_PHONE_AUTH_TOKEN</span><span class="o">=</span>...
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nv">AGENTCOMMS_PHONE_NUMBER</span><span class="o">=</span>+15551234567
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nv">AGENTCOMMS_USER_PHONE_NUMBER</span><span class="o">=</span>+15559876543
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nv">NGROK_AUTHTOKEN</span><span class="o">=</span>...
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># Chat (Discord)</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nv">AGENTCOMMS_DISCORD_ENABLED</span><span class="o">=</span><span class="nb">true</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nv">AGENTCOMMS_DISCORD_TOKEN</span><span class="o">=</span>...
-</code></pre></div>
-<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
+<h3 id="for-sms-integration">For SMS Integration<a class="headerlink" href="#for-sms-integration" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Pull-based</strong>: Agent must initiate tool calls; no push notifications</li>
-<li><strong>Single direction</strong>: Human cannot interrupt or respond asynchronously</li>
-<li><strong>No persistence</strong>: Conversations not stored for replay</li>
+<li>Ensure webhook server is enabled</li>
+<li>Configure your Twilio/Telnyx number to send SMS webhooks to your server</li>
+<li>Enable SMS in chat config</li>
 </ol>
-<p>These limitations are addressed by FEAT_INBOUND.</p>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../FEAT_INBOUND_PRD/">FEAT_INBOUND_PRD.md</a> - Human-to-agent communication</li>
-<li><a href="https://spec.modelcontextprotocol.io/">MCP Specification</a></li>
-</ul>
+<h2 id="full-changelog">Full Changelog<a class="headerlink" href="#full-changelog" title="Permanent link">&para;</a></h2>
+<p>See <a href="../../CHANGELOG.md">CHANGELOG.md</a> for the complete list of changes.</p>
 
 
 

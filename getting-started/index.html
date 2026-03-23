@@ -304,7 +304,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../releases/v0.3.0/" class="md-tabs__link">
+        <a href="../releases/v0.4.0/" class="md-tabs__link">
           
   
   
@@ -758,6 +758,52 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slack-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slack Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gmail-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gmail Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -831,6 +877,29 @@
             Releases
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../releases/v0.4.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    v0.4.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1282,12 +1351,19 @@
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Telegram token (if using)</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TELEGRAM_BOT_TOKEN</span><span class="o">=</span>your_telegram_bot_token
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Voice providers (if using voice)</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TWILIO_ACCOUNT_SID</span><span class="o">=</span>ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TWILIO_AUTH_TOKEN</span><span class="o">=</span>your_auth_token
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ELEVENLABS_API_KEY</span><span class="o">=</span>your_elevenlabs_key
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nb">export</span><span class="w"> </span><span class="nv">DEEPGRAM_API_KEY</span><span class="o">=</span>your_deepgram_key
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nb">export</span><span class="w"> </span><span class="nv">NGROK_AUTHTOKEN</span><span class="o">=</span>your_ngrok_authtoken
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Slack tokens (if using)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SLACK_BOT_TOKEN</span><span class="o">=</span>xoxb-your-bot-token
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SLACK_APP_TOKEN</span><span class="o">=</span>xapp-your-app-token
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># Gmail (if using)</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GMAIL_CREDENTIALS_FILE</span><span class="o">=</span>~/.agentcomms/gmail_credentials.json
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1"># Voice providers (if using voice)</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TWILIO_ACCOUNT_SID</span><span class="o">=</span>ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TWILIO_AUTH_TOKEN</span><span class="o">=</span>your_auth_token
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ELEVENLABS_API_KEY</span><span class="o">=</span>your_elevenlabs_key
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="nb">export</span><span class="w"> </span><span class="nv">DEEPGRAM_API_KEY</span><span class="o">=</span>your_deepgram_key
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="nb">export</span><span class="w"> </span><span class="nv">NGROK_AUTHTOKEN</span><span class="o">=</span>your_ngrok_authtoken
 </code></pre></div>
 <h3 id="3-edit-configuration">3. Edit Configuration<a class="headerlink" href="#3-edit-configuration" title="Permanent link">&para;</a></h3>
 <p>Edit <code>~/.agentcomms/config.json</code>:</p>

@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://plexusone.github.io/agentcomms/cli/">
+        <link rel="canonical" href="https://plexusone.github.io/agentcomms/slack-setup/">
       
       
-        <link rel="prev" href="../getting-started/">
+        <link rel="prev" href="../configuration/">
       
       
-        <link rel="next" href="../mcp-tools/">
+        <link rel="next" href="../gmail-setup/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>CLI Commands - AgentComms</title>
+        <title>Slack Setup - AgentComms</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cli-commands" class="md-skip">
+        <a href="#slack-app-setup-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CLI Commands
+              Slack Setup
             
           </span>
         </div>
@@ -265,7 +265,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../cli/" class="md-tabs__link">
           
   
   
@@ -477,32 +477,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    CLI Commands
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
         
   
   
@@ -513,197 +491,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#main-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Main Commands
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Main Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#serve" class="md-nav__link">
-    <span class="md-ellipsis">
-      serve
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#daemon" class="md-nav__link">
-    <span class="md-ellipsis">
-      daemon
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#daemon-interaction-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Daemon Interaction Commands
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Daemon Interaction Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#status" class="md-nav__link">
-    <span class="md-ellipsis">
-      status
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#agents" class="md-nav__link">
-    <span class="md-ellipsis">
-      agents
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#send" class="md-nav__link">
-    <span class="md-ellipsis">
-      send
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#interrupt" class="md-nav__link">
-    <span class="md-ellipsis">
-      interrupt
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#events" class="md-nav__link">
-    <span class="md-ellipsis">
-      events
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reply" class="md-nav__link">
-    <span class="md-ellipsis">
-      reply
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#channels" class="md-nav__link">
-    <span class="md-ellipsis">
-      channels
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration Commands
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#config-init" class="md-nav__link">
-    <span class="md-ellipsis">
-      config init
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#config-validate" class="md-nav__link">
-    <span class="md-ellipsis">
-      config validate
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#config-show" class="md-nav__link">
-    <span class="md-ellipsis">
-      config show
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data Storage
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exit-codes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exit Codes
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -759,10 +546,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../slack-setup/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Slack Setup
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -773,6 +582,209 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-a-slack-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create a Slack App
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-enable-socket-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Enable Socket Mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-configure-bot-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Configure Bot Permissions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-enable-event-subscriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Enable Event Subscriptions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-install-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Install the App
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-invite-bot-to-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Invite Bot to Channels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-configure-agentcomms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Configure AgentComms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 7: Configure AgentComms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-channel-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finding Channel IDs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-the-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing the Integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thread-replies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thread Replies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slack-auth-test-missing_scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      "slack auth test: missing_scope"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bot-doesnt-see-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bot doesn't see messages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slack-app-token-required-for-socket-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      "slack app token required for socket mode"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-drops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connection drops
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Notes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1122,28 +1134,91 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#main-commands" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Main Commands
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Main Commands">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-a-slack-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create a Slack App
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-enable-socket-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Enable Socket Mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-configure-bot-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Configure Bot Permissions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-enable-event-subscriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Enable Event Subscriptions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-install-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Install the App
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-invite-bot-to-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Invite Bot to Channels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-configure-agentcomms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Configure AgentComms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 7: Configure AgentComms">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#serve" class="md-nav__link">
+  <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      serve
+      Environment Variables
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#daemon" class="md-nav__link">
+  <a href="#json-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      daemon
+      JSON Configuration
     </span>
   </a>
   
@@ -1155,73 +1230,73 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#daemon-interaction-commands" class="md-nav__link">
+  <a href="#finding-channel-ids" class="md-nav__link">
     <span class="md-ellipsis">
-      Daemon Interaction Commands
+      Finding Channel IDs
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Daemon Interaction Commands">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-the-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing the Integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thread-replies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thread Replies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#status" class="md-nav__link">
+  <a href="#slack-auth-test-missing_scope" class="md-nav__link">
     <span class="md-ellipsis">
-      status
+      "slack auth test: missing_scope"
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#agents" class="md-nav__link">
+  <a href="#bot-doesnt-see-messages" class="md-nav__link">
     <span class="md-ellipsis">
-      agents
+      Bot doesn't see messages
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#send" class="md-nav__link">
+  <a href="#slack-app-token-required-for-socket-mode" class="md-nav__link">
     <span class="md-ellipsis">
-      send
+      "slack app token required for socket mode"
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#interrupt" class="md-nav__link">
+  <a href="#connection-drops" class="md-nav__link">
     <span class="md-ellipsis">
-      interrupt
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#events" class="md-nav__link">
-    <span class="md-ellipsis">
-      events
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reply" class="md-nav__link">
-    <span class="md-ellipsis">
-      reply
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#channels" class="md-nav__link">
-    <span class="md-ellipsis">
-      channels
+      Connection drops
     </span>
   </a>
   
@@ -1233,60 +1308,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-commands" class="md-nav__link">
+  <a href="#security-notes" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuration Commands
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#config-init" class="md-nav__link">
-    <span class="md-ellipsis">
-      config init
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#config-validate" class="md-nav__link">
-    <span class="md-ellipsis">
-      config validate
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#config-show" class="md-nav__link">
-    <span class="md-ellipsis">
-      config show
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data Storage
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exit-codes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exit Codes
+      Security Notes
     </span>
   </a>
   
@@ -1311,194 +1335,251 @@
   
 
 
-<h1 id="cli-commands">CLI Commands<a class="headerlink" href="#cli-commands" title="Permanent link">&para;</a></h1>
-<p>AgentComms provides a command-line interface for managing the daemon and interacting with agents.</p>
-<h2 id="main-commands">Main Commands<a class="headerlink" href="#main-commands" title="Permanent link">&para;</a></h2>
-<h3 id="serve">serve<a class="headerlink" href="#serve" title="Permanent link">&para;</a></h3>
-<p>Run the MCP server for outbound communication (AI → Human).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>agentcomms<span class="w"> </span>serve
-</code></pre></div>
-<p>This starts the MCP server that AI assistants connect to for voice calls and chat messaging.</p>
-<h3 id="daemon">daemon<a class="headerlink" href="#daemon" title="Permanent link">&para;</a></h3>
-<p>Run the background daemon for inbound communication (Human → AI).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>agentcomms<span class="w"> </span>daemon
-</code></pre></div>
-<p>The daemon:</p>
+<h1 id="slack-app-setup-guide">Slack App Setup Guide<a class="headerlink" href="#slack-app-setup-guide" title="Permanent link">&para;</a></h1>
+<p>This guide walks you through creating a Slack app for use with AgentComms.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>AgentComms uses Slack's <strong>Socket Mode</strong> for real-time messaging, which means:</p>
 <ul>
-<li>Connects to Discord/Telegram/WhatsApp to receive messages</li>
-<li>Routes messages to agents via tmux</li>
-<li>Stores all events in SQLite</li>
-<li>Exposes a Unix socket API for CLI commands</li>
+<li>No public webhook URL required</li>
+<li>Works behind firewalls and NAT</li>
+<li>Requires two tokens: Bot Token and App Token</li>
 </ul>
-<h2 id="daemon-interaction-commands">Daemon Interaction Commands<a class="headerlink" href="#daemon-interaction-commands" title="Permanent link">&para;</a></h2>
-<p>These commands interact with a running daemon.</p>
-<h3 id="status">status<a class="headerlink" href="#status" title="Permanent link">&para;</a></h3>
-<p>Show daemon status.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>agentcomms<span class="w"> </span>status
-</code></pre></div>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Daemon status: running
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  Started: 2024-01-15T09:00:00Z
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  Agents:  1
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  Providers: [discord telegram]
-</code></pre></div>
-<h3 id="agents">agents<a class="headerlink" href="#agents" title="Permanent link">&para;</a></h3>
-<p>List registered agents.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>agentcomms<span class="w"> </span>agents
-</code></pre></div>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ID       TYPE   TARGET
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>claude   tmux   tmux:claude-code:0
-</code></pre></div>
-<h3 id="send">send<a class="headerlink" href="#send" title="Permanent link">&para;</a></h3>
-<p>Send a message to an agent.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>agentcomms<span class="w"> </span>send<span class="w"> </span>&lt;agent-id&gt;<span class="w"> </span>&lt;message&gt;
-</code></pre></div>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>agentcomms<span class="w"> </span>send<span class="w"> </span>claude<span class="w"> </span><span class="s2">&quot;Can you also add unit tests?&quot;</span>
-</code></pre></div>
-<p>The message appears in the agent's tmux pane.</p>
-<h3 id="interrupt">interrupt<a class="headerlink" href="#interrupt" title="Permanent link">&para;</a></h3>
-<p>Send an interrupt signal (Ctrl-C) to an agent.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>agentcomms<span class="w"> </span>interrupt<span class="w"> </span>&lt;agent-id&gt;<span class="w"> </span><span class="o">[</span>--reason<span class="w"> </span>&lt;reason&gt;<span class="o">]</span>
-</code></pre></div>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>agentcomms<span class="w"> </span>interrupt<span class="w"> </span>claude<span class="w"> </span>--reason<span class="w"> </span><span class="s2">&quot;Need to change approach&quot;</span>
-</code></pre></div>
-<h3 id="events">events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h3>
-<p>List recent events for an agent.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>agentcomms<span class="w"> </span>events<span class="w"> </span>&lt;agent-id&gt;<span class="w"> </span><span class="o">[</span>--limit<span class="w"> </span>&lt;n&gt;<span class="o">]</span>
-</code></pre></div>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>agentcomms<span class="w"> </span>events<span class="w"> </span>claude<span class="w"> </span>--limit<span class="w"> </span><span class="m">10</span>
-</code></pre></div>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>TIME                          TYPE            ROLE    STATUS     CHANNEL
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>2024-01-15T10:30:00Z          human_message   human   delivered  discord:123456
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>2024-01-15T10:25:00Z          agent_message   agent   delivered  discord:123456
-</code></pre></div>
-<h3 id="reply">reply<a class="headerlink" href="#reply" title="Permanent link">&para;</a></h3>
-<p>Send a message to a chat channel (outbound from agent).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>agentcomms<span class="w"> </span>reply<span class="w"> </span>&lt;channel-id&gt;<span class="w"> </span>&lt;message&gt;<span class="w"> </span><span class="o">[</span>--agent<span class="w"> </span>&lt;agent-id&gt;<span class="o">]</span>
-</code></pre></div>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>agentcomms<span class="w"> </span>reply<span class="w"> </span>discord:123456789<span class="w"> </span><span class="s2">&quot;Task completed!&quot;</span><span class="w"> </span>--agent<span class="w"> </span>claude
-</code></pre></div>
-<p>Channel ID format: <code>provider:chatid</code></p>
-<ul>
-<li><code>discord:123456789012345678</code></li>
-<li><code>telegram:987654321</code></li>
-<li><code>whatsapp:1234567890@s.whatsapp.net</code></li>
-</ul>
-<h3 id="channels">channels<a class="headerlink" href="#channels" title="Permanent link">&para;</a></h3>
-<p>List mapped chat channels.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>agentcomms<span class="w"> </span>channels
-</code></pre></div>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>CHANNEL                   PROVIDER   AGENT
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>discord:123456789         discord    claude
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>telegram:987654321        telegram   claude
-</code></pre></div>
-<h2 id="configuration-commands">Configuration Commands<a class="headerlink" href="#configuration-commands" title="Permanent link">&para;</a></h2>
-<h3 id="config-init">config init<a class="headerlink" href="#config-init" title="Permanent link">&para;</a></h3>
-<p>Generate a new configuration file.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Full config with voice settings</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>agentcomms<span class="w"> </span>config<span class="w"> </span>init
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Minimal config (chat only)</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>agentcomms<span class="w"> </span>config<span class="w"> </span>init<span class="w"> </span>--minimal
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># Generate to specific path</span>
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>agentcomms<span class="w"> </span>config<span class="w"> </span>init<span class="w"> </span>-o<span class="w"> </span>/path/to/config.json
-</code></pre></div>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Configuration file created: /Users/you/.agentcomms/config.json
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>Next steps:
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>  1. Edit the configuration file to set your values
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>  2. Set environment variables for secrets (DISCORD_TOKEN, etc.)
-<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>  3. Validate with: agentcomms config validate
-<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>  4. Start the daemon: agentcomms daemon
-</code></pre></div>
-<h3 id="config-validate">config validate<a class="headerlink" href="#config-validate" title="Permanent link">&para;</a></h3>
-<p>Validate the configuration file.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>agentcomms<span class="w"> </span>config<span class="w"> </span>validate
-</code></pre></div>
-<p>Checks:</p>
-<ul>
-<li>JSON syntax</li>
-<li>Required fields</li>
-<li>Agent configuration</li>
-<li>Voice provider configuration</li>
-<li>Tmux session existence</li>
-<li>Chat provider configuration</li>
-<li>Channel mappings</li>
-</ul>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Validating configuration: /Users/you/.agentcomms/config.json
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>Server port: 3333
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>Agents: 1 configured
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>  - claude (type: tmux)
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>Voice: enabled
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>  Phone provider: twilio
-<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>  TTS provider: elevenlabs
-<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>  STT provider: deepgram
-<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>
-<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>Chat providers: [discord]
-<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>Channel mappings: 1
-<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>  - discord:123456789 -&gt; claude
-<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>
-<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>Status: VALID
-</code></pre></div>
-<h3 id="config-show">config show<a class="headerlink" href="#config-show" title="Permanent link">&para;</a></h3>
-<p>Display the current configuration file.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>agentcomms<span class="w"> </span>config<span class="w"> </span>show
-</code></pre></div>
-<h2 id="data-storage">Data Storage<a class="headerlink" href="#data-storage" title="Permanent link">&para;</a></h2>
-<p>The daemon stores data in <code>~/.agentcomms/</code>:</p>
+<h2 id="step-1-create-a-slack-app">Step 1: Create a Slack App<a class="headerlink" href="#step-1-create-a-slack-app" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Go to <a href="https://api.slack.com/apps">api.slack.com/apps</a></li>
+<li>Click <strong>Create New App</strong></li>
+<li>Choose <strong>From scratch</strong></li>
+<li>Enter an app name (e.g., "AgentComms Bot")</li>
+<li>Select your workspace</li>
+<li>Click <strong>Create App</strong></li>
+</ol>
+<h2 id="step-2-enable-socket-mode">Step 2: Enable Socket Mode<a class="headerlink" href="#step-2-enable-socket-mode" title="Permanent link">&para;</a></h2>
+<ol>
+<li>In your app settings, go to <strong>Socket Mode</strong> (left sidebar)</li>
+<li>Toggle <strong>Enable Socket Mode</strong> to ON</li>
+<li>You'll be prompted to create an App-Level Token:</li>
+<li>Token Name: <code>agentcomms-socket</code></li>
+<li>Scopes: <code>connections:write</code></li>
+<li>Click <strong>Generate</strong></li>
+<li><strong>Copy the token</strong> (starts with <code>xapp-</code>) - this is your <code>SLACK_APP_TOKEN</code></li>
+</ol>
+<h2 id="step-3-configure-bot-permissions">Step 3: Configure Bot Permissions<a class="headerlink" href="#step-3-configure-bot-permissions" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Go to <strong>OAuth &amp; Permissions</strong> (left sidebar)</li>
+<li>Scroll to <strong>Scopes</strong> &gt; <strong>Bot Token Scopes</strong></li>
+<li>Add these scopes:</li>
+</ol>
 <table>
 <thead>
 <tr>
-<th>File</th>
-<th>Description</th>
+<th>Scope</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>config.json</code></td>
-<td>Configuration file (unified JSON)</td>
+<td><code>chat:write</code></td>
+<td>Send messages to channels</td>
 </tr>
 <tr>
-<td><code>data.db</code></td>
-<td>SQLite database (events, agents)</td>
+<td><code>channels:history</code></td>
+<td>Read messages in public channels</td>
 </tr>
 <tr>
-<td><code>daemon.sock</code></td>
-<td>Unix socket for CLI/API</td>
+<td><code>channels:read</code></td>
+<td>View channel info</td>
+</tr>
+<tr>
+<td><code>groups:history</code></td>
+<td>Read messages in private channels</td>
+</tr>
+<tr>
+<td><code>groups:read</code></td>
+<td>View private channel info</td>
+</tr>
+<tr>
+<td><code>im:history</code></td>
+<td>Read direct messages</td>
+</tr>
+<tr>
+<td><code>im:read</code></td>
+<td>View DM info</td>
+</tr>
+<tr>
+<td><code>im:write</code></td>
+<td>Start DMs with users</td>
+</tr>
+<tr>
+<td><code>mpim:history</code></td>
+<td>Read group DMs</td>
+</tr>
+<tr>
+<td><code>mpim:read</code></td>
+<td>View group DM info</td>
+</tr>
+<tr>
+<td><code>reactions:read</code></td>
+<td>View emoji reactions</td>
+</tr>
+<tr>
+<td><code>users:read</code></td>
+<td>View user info</td>
 </tr>
 </tbody>
 </table>
-<h2 id="exit-codes">Exit Codes<a class="headerlink" href="#exit-codes" title="Permanent link">&para;</a></h2>
+<h2 id="step-4-enable-event-subscriptions">Step 4: Enable Event Subscriptions<a class="headerlink" href="#step-4-enable-event-subscriptions" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Go to <strong>Event Subscriptions</strong> (left sidebar)</li>
+<li>Toggle <strong>Enable Events</strong> to ON</li>
+<li>Under <strong>Subscribe to bot events</strong>, add:</li>
+</ol>
 <table>
 <thead>
 <tr>
-<th>Code</th>
-<th>Meaning</th>
+<th>Event</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0</td>
-<td>Success</td>
+<td><code>message.channels</code></td>
+<td>Messages in public channels</td>
 </tr>
 <tr>
-<td>1</td>
-<td>Error (see error message)</td>
+<td><code>message.groups</code></td>
+<td>Messages in private channels</td>
+</tr>
+<tr>
+<td><code>message.im</code></td>
+<td>Direct messages</td>
+</tr>
+<tr>
+<td><code>message.mpim</code></td>
+<td>Group direct messages</td>
+</tr>
+<tr>
+<td><code>reaction_added</code></td>
+<td>Emoji reactions added</td>
+</tr>
+<tr>
+<td><code>reaction_removed</code></td>
+<td>Emoji reactions removed</td>
+</tr>
+<tr>
+<td><code>member_joined_channel</code></td>
+<td>User joins a channel</td>
+</tr>
+<tr>
+<td><code>member_left_channel</code></td>
+<td>User leaves a channel</td>
 </tr>
 </tbody>
 </table>
+<ol>
+<li>Click <strong>Save Changes</strong></li>
+</ol>
+<h2 id="step-5-install-the-app">Step 5: Install the App<a class="headerlink" href="#step-5-install-the-app" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Go to <strong>Install App</strong> (left sidebar)</li>
+<li>Click <strong>Install to Workspace</strong></li>
+<li>Review permissions and click <strong>Allow</strong></li>
+<li><strong>Copy the Bot User OAuth Token</strong> (starts with <code>xoxb-</code>) - this is your <code>SLACK_BOT_TOKEN</code></li>
+</ol>
+<h2 id="step-6-invite-bot-to-channels">Step 6: Invite Bot to Channels<a class="headerlink" href="#step-6-invite-bot-to-channels" title="Permanent link">&para;</a></h2>
+<p>The bot can only see messages in channels it's been invited to:</p>
+<ol>
+<li>Open the Slack channel where you want AgentComms</li>
+<li>Type <code>/invite @YourBotName</code> or click the channel name &gt; Integrations &gt; Add apps</li>
+</ol>
+<h2 id="step-7-configure-agentcomms">Step 7: Configure AgentComms<a class="headerlink" href="#step-7-configure-agentcomms" title="Permanent link">&para;</a></h2>
+<h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SLACK_BOT_TOKEN</span><span class="o">=</span>xoxb-your-bot-token
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SLACK_APP_TOKEN</span><span class="o">=</span>xapp-your-app-token
+</code></pre></div>
+<p>Or use the <code>AGENTCOMMS_</code> prefix:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">AGENTCOMMS_SLACK_BOT_TOKEN</span><span class="o">=</span>xoxb-your-bot-token
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">AGENTCOMMS_SLACK_APP_TOKEN</span><span class="o">=</span>xapp-your-app-token
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">AGENTCOMMS_SLACK_ENABLED</span><span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+<h3 id="json-configuration">JSON Configuration<a class="headerlink" href="#json-configuration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;chat&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;slack&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;bot_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${SLACK_BOT_TOKEN}&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;app_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${SLACK_APP_TOKEN}&quot;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">&quot;channels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="nt">&quot;channel_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;slack:C0123456789&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="nt">&quot;agent_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude&quot;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="finding-channel-ids">Finding Channel IDs<a class="headerlink" href="#finding-channel-ids" title="Permanent link">&para;</a></h2>
+<p>To get a Slack channel ID:</p>
+<ol>
+<li>Open Slack in a web browser</li>
+<li>Navigate to the channel</li>
+<li>The URL will be: <code>https://app.slack.com/client/TXXXXXXXX/C0123456789</code></li>
+<li>The channel ID is the part starting with <code>C</code> (e.g., <code>C0123456789</code>)</li>
+</ol>
+<p>Or right-click the channel name &gt; View channel details &gt; scroll to the bottom to see the Channel ID.</p>
+<h2 id="testing-the-integration">Testing the Integration<a class="headerlink" href="#testing-the-integration" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Start AgentComms:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./agentcomms<span class="w"> </span>daemon
+</code></pre></div>
+<ol>
+<li>You should see:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>INFO Slack provider registered
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>INFO slack bot connected user_id=U0123456789 team=YourWorkspace
+</code></pre></div>
+<ol>
+<li>Send a message in the configured channel</li>
+<li>Check events:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./agentcomms<span class="w"> </span>events<span class="w"> </span>claude<span class="w"> </span>--limit<span class="w"> </span><span class="m">5</span>
+</code></pre></div>
+<h2 id="thread-replies">Thread Replies<a class="headerlink" href="#thread-replies" title="Permanent link">&para;</a></h2>
+<p>AgentComms supports Slack threads:</p>
+<ul>
+<li>Messages in threads are detected and marked as <code>ChatTypeThread</code></li>
+<li>Use <code>ReplyTo</code> field with the thread timestamp to reply in a thread</li>
+<li>The <code>ReplyTo</code> value is the Slack message timestamp (e.g., <code>1234567890.123456</code>)</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="slack-auth-test-missing_scope">"slack auth test: missing_scope"<a class="headerlink" href="#slack-auth-test-missing_scope" title="Permanent link">&para;</a></h3>
+<p>You're missing required OAuth scopes. Go to <strong>OAuth &amp; Permissions</strong> and add the missing scope, then reinstall the app.</p>
+<h3 id="bot-doesnt-see-messages">Bot doesn't see messages<a class="headerlink" href="#bot-doesnt-see-messages" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Ensure the bot is invited to the channel (<code>/invite @BotName</code>)</li>
+<li>Check that <code>message.channels</code> (or appropriate event) is subscribed</li>
+<li>Verify Socket Mode is enabled</li>
+</ol>
+<h3 id="slack-app-token-required-for-socket-mode">"slack app token required for socket mode"<a class="headerlink" href="#slack-app-token-required-for-socket-mode" title="Permanent link">&para;</a></h3>
+<p>You need both tokens:</p>
+<ul>
+<li><code>SLACK_BOT_TOKEN</code> (xoxb-...) - from OAuth &amp; Permissions</li>
+<li><code>SLACK_APP_TOKEN</code> (xapp-...) - from Socket Mode settings</li>
+</ul>
+<h3 id="connection-drops">Connection drops<a class="headerlink" href="#connection-drops" title="Permanent link">&para;</a></h3>
+<p>Socket Mode connections may drop occasionally. AgentComms will automatically reconnect. If issues persist, check:</p>
+<ol>
+<li>App-level token has <code>connections:write</code> scope</li>
+<li>No firewall blocking outbound WebSocket connections</li>
+</ol>
+<h2 id="security-notes">Security Notes<a class="headerlink" href="#security-notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Never commit tokens to version control</li>
+<li>Use environment variables or a secrets manager</li>
+<li>Rotate tokens if compromised via <strong>OAuth &amp; Permissions</strong> &gt; <strong>Regenerate</strong></li>
+<li>The App Token can be regenerated in <strong>Socket Mode</strong> settings</li>
+</ul>
 
 
 

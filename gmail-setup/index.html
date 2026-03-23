@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://plexusone.github.io/agentcomms/cli/">
+        <link rel="canonical" href="https://plexusone.github.io/agentcomms/gmail-setup/">
       
       
-        <link rel="prev" href="../getting-started/">
+        <link rel="prev" href="../slack-setup/">
       
       
-        <link rel="next" href="../mcp-tools/">
+        <link rel="next" href="../architecture/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>CLI Commands - AgentComms</title>
+        <title>Gmail Setup - AgentComms</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cli-commands" class="md-skip">
+        <a href="#gmail-setup-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CLI Commands
+              Gmail Setup
             
           </span>
         </div>
@@ -265,7 +265,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../cli/" class="md-tabs__link">
           
   
   
@@ -477,32 +477,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    CLI Commands
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
         
   
   
@@ -513,197 +491,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#main-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Main Commands
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Main Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#serve" class="md-nav__link">
-    <span class="md-ellipsis">
-      serve
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#daemon" class="md-nav__link">
-    <span class="md-ellipsis">
-      daemon
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#daemon-interaction-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Daemon Interaction Commands
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Daemon Interaction Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#status" class="md-nav__link">
-    <span class="md-ellipsis">
-      status
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#agents" class="md-nav__link">
-    <span class="md-ellipsis">
-      agents
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#send" class="md-nav__link">
-    <span class="md-ellipsis">
-      send
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#interrupt" class="md-nav__link">
-    <span class="md-ellipsis">
-      interrupt
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#events" class="md-nav__link">
-    <span class="md-ellipsis">
-      events
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reply" class="md-nav__link">
-    <span class="md-ellipsis">
-      reply
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#channels" class="md-nav__link">
-    <span class="md-ellipsis">
-      channels
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration Commands
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#config-init" class="md-nav__link">
-    <span class="md-ellipsis">
-      config init
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#config-validate" class="md-nav__link">
-    <span class="md-ellipsis">
-      config validate
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#config-show" class="md-nav__link">
-    <span class="md-ellipsis">
-      config show
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data Storage
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exit-codes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exit Codes
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -782,10 +569,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../gmail-setup/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Gmail Setup
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -796,6 +605,233 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-a-google-cloud-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create a Google Cloud Project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-enable-the-gmail-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Enable the Gmail API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-configure-oauth-consent-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Configure OAuth Consent Screen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-create-oauth-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Create OAuth Credentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-configure-agentcomms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Configure AgentComms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5: Configure AgentComms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option A: Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-json-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option B: JSON Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-authorize-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Authorize the Application
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sending-emails-via-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sending Emails via MCP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email-subject" class="md-nav__link">
+    <span class="md-ellipsis">
+      Email Subject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html-emails" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTML Emails
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-blocked-agentcomms-has-not-completed-the-google-verification-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Access blocked: AgentComms has not completed the Google verification process"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-has-been-expired-or-revoked" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Token has been expired or revoked"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-required-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Missing required environment variables"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failed-to-read-gmail-credentials-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Failed to read Gmail credentials file"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-quotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Quotas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1122,28 +1158,82 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#main-commands" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Main Commands
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Main Commands">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-a-google-cloud-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create a Google Cloud Project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-enable-the-gmail-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Enable the Gmail API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-configure-oauth-consent-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Configure OAuth Consent Screen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-create-oauth-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Create OAuth Credentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-configure-agentcomms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Configure AgentComms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5: Configure AgentComms">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#serve" class="md-nav__link">
+  <a href="#option-a-environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      serve
+      Option A: Environment Variables
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#daemon" class="md-nav__link">
+  <a href="#option-b-json-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      daemon
+      Option B: JSON Configuration
     </span>
   </a>
   
@@ -1155,73 +1245,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#daemon-interaction-commands" class="md-nav__link">
+  <a href="#step-6-authorize-the-application" class="md-nav__link">
     <span class="md-ellipsis">
-      Daemon Interaction Commands
+      Step 6: Authorize the Application
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Daemon Interaction Commands">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#status" class="md-nav__link">
+  <a href="#sending-emails-via-mcp" class="md-nav__link">
     <span class="md-ellipsis">
-      status
+      Sending Emails via MCP
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#agents" class="md-nav__link">
+  <a href="#email-subject" class="md-nav__link">
     <span class="md-ellipsis">
-      agents
+      Email Subject
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#send" class="md-nav__link">
+  <a href="#html-emails" class="md-nav__link">
     <span class="md-ellipsis">
-      send
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#interrupt" class="md-nav__link">
-    <span class="md-ellipsis">
-      interrupt
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#events" class="md-nav__link">
-    <span class="md-ellipsis">
-      events
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reply" class="md-nav__link">
-    <span class="md-ellipsis">
-      reply
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#channels" class="md-nav__link">
-    <span class="md-ellipsis">
-      channels
+      HTML Emails
     </span>
   </a>
   
@@ -1233,37 +1296,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-commands" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuration Commands
+      Troubleshooting
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configuration Commands">
+    <nav class="md-nav" aria-label="Troubleshooting">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#config-init" class="md-nav__link">
+  <a href="#access-blocked-agentcomms-has-not-completed-the-google-verification-process" class="md-nav__link">
     <span class="md-ellipsis">
-      config init
+      "Access blocked: AgentComms has not completed the Google verification process"
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#config-validate" class="md-nav__link">
+  <a href="#token-has-been-expired-or-revoked" class="md-nav__link">
     <span class="md-ellipsis">
-      config validate
+      "Token has been expired or revoked"
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#config-show" class="md-nav__link">
+  <a href="#missing-required-environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      config show
+      "Missing required environment variables"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failed-to-read-gmail-credentials-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Failed to read Gmail credentials file"
     </span>
   </a>
   
@@ -1275,18 +1347,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-storage" class="md-nav__link">
+  <a href="#security-notes" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Storage
+      Security Notes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exit-codes" class="md-nav__link">
+  <a href="#api-quotas" class="md-nav__link">
     <span class="md-ellipsis">
-      Exit Codes
+      API Quotas
     </span>
   </a>
   
@@ -1311,194 +1383,193 @@
   
 
 
-<h1 id="cli-commands">CLI Commands<a class="headerlink" href="#cli-commands" title="Permanent link">&para;</a></h1>
-<p>AgentComms provides a command-line interface for managing the daemon and interacting with agents.</p>
-<h2 id="main-commands">Main Commands<a class="headerlink" href="#main-commands" title="Permanent link">&para;</a></h2>
-<h3 id="serve">serve<a class="headerlink" href="#serve" title="Permanent link">&para;</a></h3>
-<p>Run the MCP server for outbound communication (AI → Human).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>agentcomms<span class="w"> </span>serve
-</code></pre></div>
-<p>This starts the MCP server that AI assistants connect to for voice calls and chat messaging.</p>
-<h3 id="daemon">daemon<a class="headerlink" href="#daemon" title="Permanent link">&para;</a></h3>
-<p>Run the background daemon for inbound communication (Human → AI).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>agentcomms<span class="w"> </span>daemon
-</code></pre></div>
-<p>The daemon:</p>
+<h1 id="gmail-setup-guide">Gmail Setup Guide<a class="headerlink" href="#gmail-setup-guide" title="Permanent link">&para;</a></h1>
+<p>This guide walks through setting up Gmail as a chat provider in AgentComms.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>AgentComms uses the Gmail API with OAuth 2.0 for authentication. This allows sending emails programmatically from your Gmail account without needing to enable "less secure apps" or use app-specific passwords.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Connects to Discord/Telegram/WhatsApp to receive messages</li>
-<li>Routes messages to agents via tmux</li>
-<li>Stores all events in SQLite</li>
-<li>Exposes a Unix socket API for CLI commands</li>
+<li>A Google account</li>
+<li>Access to Google Cloud Console</li>
 </ul>
-<h2 id="daemon-interaction-commands">Daemon Interaction Commands<a class="headerlink" href="#daemon-interaction-commands" title="Permanent link">&para;</a></h2>
-<p>These commands interact with a running daemon.</p>
-<h3 id="status">status<a class="headerlink" href="#status" title="Permanent link">&para;</a></h3>
-<p>Show daemon status.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>agentcomms<span class="w"> </span>status
+<h2 id="step-1-create-a-google-cloud-project">Step 1: Create a Google Cloud Project<a class="headerlink" href="#step-1-create-a-google-cloud-project" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Go to <a href="https://console.cloud.google.com/">Google Cloud Console</a></li>
+<li>Click "Select a project" dropdown at the top</li>
+<li>Click "New Project"</li>
+<li>Enter a project name (e.g., "AgentComms")</li>
+<li>Click "Create"</li>
+</ol>
+<h2 id="step-2-enable-the-gmail-api">Step 2: Enable the Gmail API<a class="headerlink" href="#step-2-enable-the-gmail-api" title="Permanent link">&para;</a></h2>
+<ol>
+<li>In the Cloud Console, go to <strong>APIs &amp; Services</strong> &gt; <strong>Library</strong></li>
+<li>Search for "Gmail API"</li>
+<li>Click on "Gmail API"</li>
+<li>Click <strong>Enable</strong></li>
+</ol>
+<h2 id="step-3-configure-oauth-consent-screen">Step 3: Configure OAuth Consent Screen<a class="headerlink" href="#step-3-configure-oauth-consent-screen" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Go to <strong>APIs &amp; Services</strong> &gt; <strong>OAuth consent screen</strong></li>
+<li>Select <strong>External</strong> (or Internal if using Google Workspace)</li>
+<li>Click <strong>Create</strong></li>
+<li>Fill in the required fields:</li>
+<li><strong>App name</strong>: AgentComms</li>
+<li><strong>User support email</strong>: Your email</li>
+<li><strong>Developer contact email</strong>: Your email</li>
+<li>Click <strong>Save and Continue</strong></li>
+<li>On the "Scopes" page, click <strong>Add or Remove Scopes</strong></li>
+<li>Find and select <code>https://www.googleapis.com/auth/gmail.send</code></li>
+<li>Click <strong>Update</strong>, then <strong>Save and Continue</strong></li>
+<li>Add yourself as a test user (required for external apps in testing)</li>
+<li>Click <strong>Save and Continue</strong>, then <strong>Back to Dashboard</strong></li>
+</ol>
+<h2 id="step-4-create-oauth-credentials">Step 4: Create OAuth Credentials<a class="headerlink" href="#step-4-create-oauth-credentials" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Go to <strong>APIs &amp; Services</strong> &gt; <strong>Credentials</strong></li>
+<li>Click <strong>Create Credentials</strong> &gt; <strong>OAuth client ID</strong></li>
+<li>Select <strong>Desktop app</strong> as the application type</li>
+<li>Enter a name (e.g., "AgentComms CLI")</li>
+<li>Click <strong>Create</strong></li>
+<li>Click <strong>Download JSON</strong> to download your credentials</li>
+<li>Save the file as <code>~/.agentcomms/gmail_credentials.json</code></li>
+</ol>
+<h2 id="step-5-configure-agentcomms">Step 5: Configure AgentComms<a class="headerlink" href="#step-5-configure-agentcomms" title="Permanent link">&para;</a></h2>
+<h3 id="option-a-environment-variables">Option A: Environment Variables<a class="headerlink" href="#option-a-environment-variables" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Enable Gmail</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">AGENTCOMMS_GMAIL_ENABLED</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Path to credentials file (required)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">AGENTCOMMS_GMAIL_CREDENTIALS_FILE</span><span class="o">=</span>~/.agentcomms/gmail_credentials.json
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Path to store OAuth token (optional, defaults to ~/.agentcomms/gmail_token.json)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">AGENTCOMMS_GMAIL_TOKEN_FILE</span><span class="o">=</span>~/.agentcomms/gmail_token.json
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># From address (optional, defaults to &quot;me&quot; for authenticated user)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nb">export</span><span class="w"> </span><span class="nv">AGENTCOMMS_GMAIL_FROM_ADDRESS</span><span class="o">=</span>me
 </code></pre></div>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Daemon status: running
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  Started: 2024-01-15T09:00:00Z
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  Agents:  1
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  Providers: [discord telegram]
+<h3 id="option-b-json-configuration">Option B: JSON Configuration<a class="headerlink" href="#option-b-json-configuration" title="Permanent link">&para;</a></h3>
+<p>Add to <code>~/.agentcomms/config.json</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;chat&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;gmail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">&quot;credentials_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${HOME}/.agentcomms/gmail_credentials.json&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">&quot;token_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${HOME}/.agentcomms/gmail_token.json&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">&quot;from_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;me&quot;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="agents">agents<a class="headerlink" href="#agents" title="Permanent link">&para;</a></h3>
-<p>List registered agents.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>agentcomms<span class="w"> </span>agents
+<h2 id="step-6-authorize-the-application">Step 6: Authorize the Application<a class="headerlink" href="#step-6-authorize-the-application" title="Permanent link">&para;</a></h2>
+<p>On first run, AgentComms will open a browser window for OAuth authorization:</p>
+<ol>
+<li>Start AgentComms: <code>agentcomms daemon</code></li>
+<li>A browser window opens to Google's OAuth consent screen</li>
+<li>Sign in with your Google account</li>
+<li>Review the permissions and click <strong>Allow</strong></li>
+<li>The browser shows "Authorization successful" and you can close it</li>
+<li>AgentComms stores the token in your token file</li>
+</ol>
+<p>After authorization, AgentComms won't need browser access again unless the token expires or is revoked.</p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<h3 id="sending-emails-via-mcp">Sending Emails via MCP<a class="headerlink" href="#sending-emails-via-mcp" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;send_message&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gmail&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&quot;chat_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;recipient@example.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello from AgentComms!&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">&quot;subject&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test Email&quot;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
 </code></pre></div>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ID       TYPE   TARGET
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>claude   tmux   tmux:claude-code:0
+<h3 id="email-subject">Email Subject<a class="headerlink" href="#email-subject" title="Permanent link">&para;</a></h3>
+<p>The email subject can be set in several ways:</p>
+<ol>
+<li>
+<p><strong>Metadata field</strong> (recommended):
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;subject&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Your Subject Here&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>First line of content</strong>: If no subject is provided, the first line of the content is used</p>
+</li>
+<li>
+<p><strong>Default</strong>: Falls back to "Message from AgentComms"</p>
+</li>
+</ol>
+<h3 id="html-emails">HTML Emails<a class="headerlink" href="#html-emails" title="Permanent link">&para;</a></h3>
+<p>Set the format to HTML for rich content:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;send_message&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gmail&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nt">&quot;chat_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;recipient@example.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;h1&gt;Hello&lt;/h1&gt;&lt;p&gt;This is &lt;strong&gt;HTML&lt;/strong&gt; content.&lt;/p&gt;&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;html&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="nt">&quot;subject&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HTML Test&quot;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="send">send<a class="headerlink" href="#send" title="Permanent link">&para;</a></h3>
-<p>Send a message to an agent.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>agentcomms<span class="w"> </span>send<span class="w"> </span>&lt;agent-id&gt;<span class="w"> </span>&lt;message&gt;
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="access-blocked-agentcomms-has-not-completed-the-google-verification-process">"Access blocked: AgentComms has not completed the Google verification process"<a class="headerlink" href="#access-blocked-agentcomms-has-not-completed-the-google-verification-process" title="Permanent link">&para;</a></h3>
+<p>This is normal for apps in testing mode. Solutions:</p>
+<ol>
+<li>Add your email as a test user in OAuth consent screen</li>
+<li>Or publish the app (requires verification for broader access)</li>
+</ol>
+<h3 id="token-has-been-expired-or-revoked">"Token has been expired or revoked"<a class="headerlink" href="#token-has-been-expired-or-revoked" title="Permanent link">&para;</a></h3>
+<p>Delete the token file and re-authorize:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>rm<span class="w"> </span>~/.agentcomms/gmail_token.json
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>agentcomms<span class="w"> </span>daemon<span class="w">  </span><span class="c1"># Will prompt for re-authorization</span>
 </code></pre></div>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>agentcomms<span class="w"> </span>send<span class="w"> </span>claude<span class="w"> </span><span class="s2">&quot;Can you also add unit tests?&quot;</span>
+<h3 id="missing-required-environment-variables">"Missing required environment variables"<a class="headerlink" href="#missing-required-environment-variables" title="Permanent link">&para;</a></h3>
+<p>Ensure <code>AGENTCOMMS_GMAIL_CREDENTIALS_FILE</code> points to a valid credentials JSON file.</p>
+<h3 id="failed-to-read-gmail-credentials-file">"Failed to read Gmail credentials file"<a class="headerlink" href="#failed-to-read-gmail-credentials-file" title="Permanent link">&para;</a></h3>
+<p>Check that the file exists and is readable:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cat<span class="w"> </span>~/.agentcomms/gmail_credentials.json
 </code></pre></div>
-<p>The message appears in the agent's tmux pane.</p>
-<h3 id="interrupt">interrupt<a class="headerlink" href="#interrupt" title="Permanent link">&para;</a></h3>
-<p>Send an interrupt signal (Ctrl-C) to an agent.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>agentcomms<span class="w"> </span>interrupt<span class="w"> </span>&lt;agent-id&gt;<span class="w"> </span><span class="o">[</span>--reason<span class="w"> </span>&lt;reason&gt;<span class="o">]</span>
-</code></pre></div>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>agentcomms<span class="w"> </span>interrupt<span class="w"> </span>claude<span class="w"> </span>--reason<span class="w"> </span><span class="s2">&quot;Need to change approach&quot;</span>
-</code></pre></div>
-<h3 id="events">events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h3>
-<p>List recent events for an agent.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>agentcomms<span class="w"> </span>events<span class="w"> </span>&lt;agent-id&gt;<span class="w"> </span><span class="o">[</span>--limit<span class="w"> </span>&lt;n&gt;<span class="o">]</span>
-</code></pre></div>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>agentcomms<span class="w"> </span>events<span class="w"> </span>claude<span class="w"> </span>--limit<span class="w"> </span><span class="m">10</span>
-</code></pre></div>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>TIME                          TYPE            ROLE    STATUS     CHANNEL
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>2024-01-15T10:30:00Z          human_message   human   delivered  discord:123456
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>2024-01-15T10:25:00Z          agent_message   agent   delivered  discord:123456
-</code></pre></div>
-<h3 id="reply">reply<a class="headerlink" href="#reply" title="Permanent link">&para;</a></h3>
-<p>Send a message to a chat channel (outbound from agent).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>agentcomms<span class="w"> </span>reply<span class="w"> </span>&lt;channel-id&gt;<span class="w"> </span>&lt;message&gt;<span class="w"> </span><span class="o">[</span>--agent<span class="w"> </span>&lt;agent-id&gt;<span class="o">]</span>
-</code></pre></div>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>agentcomms<span class="w"> </span>reply<span class="w"> </span>discord:123456789<span class="w"> </span><span class="s2">&quot;Task completed!&quot;</span><span class="w"> </span>--agent<span class="w"> </span>claude
-</code></pre></div>
-<p>Channel ID format: <code>provider:chatid</code></p>
-<ul>
-<li><code>discord:123456789012345678</code></li>
-<li><code>telegram:987654321</code></li>
-<li><code>whatsapp:1234567890@s.whatsapp.net</code></li>
-</ul>
-<h3 id="channels">channels<a class="headerlink" href="#channels" title="Permanent link">&para;</a></h3>
-<p>List mapped chat channels.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>agentcomms<span class="w"> </span>channels
-</code></pre></div>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>CHANNEL                   PROVIDER   AGENT
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>discord:123456789         discord    claude
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>telegram:987654321        telegram   claude
-</code></pre></div>
-<h2 id="configuration-commands">Configuration Commands<a class="headerlink" href="#configuration-commands" title="Permanent link">&para;</a></h2>
-<h3 id="config-init">config init<a class="headerlink" href="#config-init" title="Permanent link">&para;</a></h3>
-<p>Generate a new configuration file.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Full config with voice settings</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>agentcomms<span class="w"> </span>config<span class="w"> </span>init
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Minimal config (chat only)</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>agentcomms<span class="w"> </span>config<span class="w"> </span>init<span class="w"> </span>--minimal
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># Generate to specific path</span>
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>agentcomms<span class="w"> </span>config<span class="w"> </span>init<span class="w"> </span>-o<span class="w"> </span>/path/to/config.json
-</code></pre></div>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Configuration file created: /Users/you/.agentcomms/config.json
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>Next steps:
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>  1. Edit the configuration file to set your values
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>  2. Set environment variables for secrets (DISCORD_TOKEN, etc.)
-<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>  3. Validate with: agentcomms config validate
-<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>  4. Start the daemon: agentcomms daemon
-</code></pre></div>
-<h3 id="config-validate">config validate<a class="headerlink" href="#config-validate" title="Permanent link">&para;</a></h3>
-<p>Validate the configuration file.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>agentcomms<span class="w"> </span>config<span class="w"> </span>validate
-</code></pre></div>
-<p>Checks:</p>
-<ul>
-<li>JSON syntax</li>
-<li>Required fields</li>
-<li>Agent configuration</li>
-<li>Voice provider configuration</li>
-<li>Tmux session existence</li>
-<li>Chat provider configuration</li>
-<li>Channel mappings</li>
-</ul>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Validating configuration: /Users/you/.agentcomms/config.json
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>Server port: 3333
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>Agents: 1 configured
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>  - claude (type: tmux)
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>Voice: enabled
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>  Phone provider: twilio
-<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>  TTS provider: elevenlabs
-<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>  STT provider: deepgram
-<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>
-<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>Chat providers: [discord]
-<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>Channel mappings: 1
-<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>  - discord:123456789 -&gt; claude
-<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>
-<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>Status: VALID
-</code></pre></div>
-<h3 id="config-show">config show<a class="headerlink" href="#config-show" title="Permanent link">&para;</a></h3>
-<p>Display the current configuration file.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>agentcomms<span class="w"> </span>config<span class="w"> </span>show
-</code></pre></div>
-<h2 id="data-storage">Data Storage<a class="headerlink" href="#data-storage" title="Permanent link">&para;</a></h2>
-<p>The daemon stores data in <code>~/.agentcomms/</code>:</p>
+<p>The file should contain JSON with <code>installed</code> or <code>web</code> key containing <code>client_id</code> and <code>client_secret</code>.</p>
+<h2 id="security-notes">Security Notes<a class="headerlink" href="#security-notes" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Never commit credentials</strong>: Add <code>gmail_credentials.json</code> and <code>gmail_token.json</code> to <code>.gitignore</code></p>
+</li>
+<li>
+<p><strong>Token storage</strong>: The OAuth token file contains refresh tokens. Protect it like a password.</p>
+</li>
+<li>
+<p><strong>Scope limitation</strong>: AgentComms only requests <code>gmail.send</code> scope, which cannot read your emails.</p>
+</li>
+<li>
+<p><strong>Revoke access</strong>: You can revoke AgentComms access at any time from <a href="https://myaccount.google.com/permissions">Google Account Security</a>.</p>
+</li>
+</ol>
+<h2 id="api-quotas">API Quotas<a class="headerlink" href="#api-quotas" title="Permanent link">&para;</a></h2>
+<p>Gmail API has usage limits:</p>
 <table>
 <thead>
 <tr>
-<th>File</th>
-<th>Description</th>
+<th>Quota</th>
+<th>Limit</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>config.json</code></td>
-<td>Configuration file (unified JSON)</td>
+<td>Messages sent per day</td>
+<td>500 (personal), 2000 (Workspace)</td>
 </tr>
 <tr>
-<td><code>data.db</code></td>
-<td>SQLite database (events, agents)</td>
-</tr>
-<tr>
-<td><code>daemon.sock</code></td>
-<td>Unix socket for CLI/API</td>
+<td>Requests per minute</td>
+<td>250</td>
 </tr>
 </tbody>
 </table>
-<h2 id="exit-codes">Exit Codes<a class="headerlink" href="#exit-codes" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>Success</td>
-</tr>
-<tr>
-<td>1</td>
-<td>Error (see error message)</td>
-</tr>
-</tbody>
-</table>
+<p>For higher limits, consider using a Google Workspace account.</p>
 
 
 
