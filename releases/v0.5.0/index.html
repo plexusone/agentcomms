@@ -10,9 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://plexusone.github.io/agentcomms/design/FEAT_OUTBOUND_PRD/">
+        <link rel="canonical" href="https://plexusone.github.io/agentcomms/releases/v0.5.0/">
       
       
+        <link rel="prev" href="../../architecture/">
+      
+      
+        <link rel="next" href="../v0.4.0/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>FEAT_OUTBOUND: Agent-to-Human Communication - AgentComms</title>
+        <title>v0.5.0 - AgentComms</title>
       
     
     
@@ -72,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#feat_outbound-agent-to-human-communication" class="md-skip">
+        <a href="#release-notes-v050" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FEAT_OUTBOUND: Agent-to-Human Communication
+              v0.5.0
             
           </span>
         </div>
@@ -294,11 +298,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../releases/v0.5.0/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -318,7 +324,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../FEAT_INBOUND_PRD/" class="md-tabs__link">
+        <a href="../../design/FEAT_INBOUND_PRD/" class="md-tabs__link">
           
   
   
@@ -635,28 +641,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -669,7 +678,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Releases
@@ -680,10 +689,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../releases/v0.5.0/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    v0.5.0
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -694,6 +725,146 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Highlights
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      New Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#irc-chat-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      IRC Chat Provider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chat-id-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chat ID Format
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Platforms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrade-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upgrade Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upgrade Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-irc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding IRC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full Changelog
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -706,7 +877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.4.0/" class="md-nav__link">
+      <a href="../v0.4.0/" class="md-nav__link">
         
   
   
@@ -729,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.3.0/" class="md-nav__link">
+      <a href="../v0.3.0/" class="md-nav__link">
         
   
   
@@ -752,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.2.0/" class="md-nav__link">
+      <a href="../v0.2.0/" class="md-nav__link">
         
   
   
@@ -775,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v0.1.0/" class="md-nav__link">
+      <a href="../v0.1.0/" class="md-nav__link">
         
   
   
@@ -850,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../FEAT_INBOUND_PRD/" class="md-nav__link">
+      <a href="../../design/FEAT_INBOUND_PRD/" class="md-nav__link">
         
   
   
@@ -873,7 +1044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../FEAT_INBOUND_TRD/" class="md-nav__link">
+      <a href="../../design/FEAT_INBOUND_TRD/" class="md-nav__link">
         
   
   
@@ -896,7 +1067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../FEAT_INBOUND_PLAN/" class="md-nav__link">
+      <a href="../../design/FEAT_INBOUND_PLAN/" class="md-nav__link">
         
   
   
@@ -955,37 +1126,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#status" class="md-nav__link">
+  <a href="#highlights" class="md-nav__link">
     <span class="md-ellipsis">
-      Status
+      Highlights
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#capabilities" class="md-nav__link">
+  <a href="#new-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Capabilities
+      New Features
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Capabilities">
+    <nav class="md-nav" aria-label="New Features">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#voice-twilio" class="md-nav__link">
+  <a href="#irc-chat-provider" class="md-nav__link">
     <span class="md-ellipsis">
-      Voice (Twilio)
+      IRC Chat Provider
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#chat-discord-telegram-whatsapp" class="md-nav__link">
+  <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      Chat (Discord, Telegram, WhatsApp)
+      Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chat-id-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chat ID Format
     </span>
   </a>
   
@@ -997,45 +1177,60 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
+  <a href="#supported-platforms" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture
+      Supported Platforms
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
+  <a href="#documentation" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Cases
+      Documentation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+  <a href="#dependencies" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuration
+      Dependencies
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
+  <a href="#upgrade-guide" class="md-nav__link">
     <span class="md-ellipsis">
-      Limitations
+      Upgrade Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upgrade Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-irc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding IRC
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#full-changelog" class="md-nav__link">
     <span class="md-ellipsis">
-      References
+      Full Changelog
     </span>
   </a>
   
@@ -1060,119 +1255,152 @@
   
 
 
-<h1 id="feat_outbound-agent-to-human-communication">FEAT_OUTBOUND: Agent-to-Human Communication<a class="headerlink" href="#feat_outbound-agent-to-human-communication" title="Permanent link">&para;</a></h1>
+<h1 id="release-notes-v050">Release Notes: v0.5.0<a class="headerlink" href="#release-notes-v050" title="Permanent link">&para;</a></h1>
+<p><strong>Release Date:</strong> 2026-03-28</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Enable AI agents to contact humans through communication channels (Discord, WhatsApp, Twilio voice/SMS) via MCP tools.</p>
-<p><strong>Direction terminology:</strong></p>
+<p>AgentComms v0.5.0 adds IRC as a bidirectional chat provider, enabling AI agents to communicate through IRC channels and direct messages.</p>
+<h2 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>OUTBOUND</strong> (this feature): Agent → MCP → Channel → Human</li>
-<li><strong>INBOUND</strong> (planned): Human → Channel → AgentBridge → Agent</li>
+<li><strong>IRC Chat Provider</strong>: Connect to IRC servers for channel and DM messaging with TLS and NickServ authentication</li>
 </ul>
-<h2 id="status">Status<a class="headerlink" href="#status" title="Permanent link">&para;</a></h2>
-<p><strong>Implemented</strong> - This is the current functionality of AgentComms.</p>
-<h2 id="capabilities">Capabilities<a class="headerlink" href="#capabilities" title="Permanent link">&para;</a></h2>
-<h3 id="voice-twilio">Voice (Twilio)<a class="headerlink" href="#voice-twilio" title="Permanent link">&para;</a></h3>
-<p>MCP tools for phone calls:</p>
+<h2 id="new-features">New Features<a class="headerlink" href="#new-features" title="Permanent link">&para;</a></h2>
+<h3 id="irc-chat-provider">IRC Chat Provider<a class="headerlink" href="#irc-chat-provider" title="Permanent link">&para;</a></h3>
+<p>Full IRC integration using <a href="https://github.com/ergochat/irc-go">ergochat/irc-go</a>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;chat&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;irc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;irc.libera.chat:6697&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;nick&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agentbot&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${IRC_PASSWORD}&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&quot;channels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;#mychannel&quot;</span><span class="p">],</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;use_tls&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">}</span>
+</code></pre></div>
+<p>Features:</p>
+<ul>
+<li><strong>TLS Support</strong> - Secure connections enabled by default</li>
+<li><strong>NickServ Authentication</strong> - Password-based nickname registration</li>
+<li><strong>Multi-Channel</strong> - Join multiple channels on connect</li>
+<li><strong>Channel &amp; DM Messaging</strong> - Send to <code>#channel</code> or <code>nickname</code></li>
+<li><strong>Event Handling</strong> - JOIN, PART, QUIT events</li>
+</ul>
+<h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">AGENTCOMMS_IRC_ENABLED</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">AGENTCOMMS_IRC_SERVER</span><span class="o">=</span>irc.libera.chat:6697
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nv">AGENTCOMMS_IRC_NICK</span><span class="o">=</span>agentbot
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nv">AGENTCOMMS_IRC_PASSWORD</span><span class="o">=</span>nickserv_password
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nv">AGENTCOMMS_IRC_CHANNELS</span><span class="o">=</span><span class="c1">#channel1,#channel2</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nv">AGENTCOMMS_IRC_USE_TLS</span><span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+<h3 id="chat-id-format">Chat ID Format<a class="headerlink" href="#chat-id-format" title="Permanent link">&para;</a></h3>
+<p>IRC chat IDs follow the format:</p>
+<ul>
+<li>Channels: <code>irc:#channelname</code></li>
+<li>Direct messages: <code>irc:nickname</code></li>
+</ul>
+<h2 id="supported-platforms">Supported Platforms<a class="headerlink" href="#supported-platforms" title="Permanent link">&para;</a></h2>
+<p>AgentComms now supports 7 chat providers:</p>
 <table>
 <thead>
 <tr>
-<th>Tool</th>
-<th>Description</th>
+<th>Provider</th>
+<th>Package</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>initiate_call</code></td>
-<td>Call the user, speak a message, receive response</td>
+<td>Discord</td>
+<td>omnichat/providers/discord</td>
 </tr>
 <tr>
-<td><code>continue_call</code></td>
-<td>Continue conversation within active call</td>
+<td>Telegram</td>
+<td>omnichat/providers/telegram</td>
 </tr>
 <tr>
-<td><code>speak_to_user</code></td>
-<td>Speak without waiting for response</td>
+<td>WhatsApp</td>
+<td>omnichat/providers/whatsapp</td>
 </tr>
 <tr>
-<td><code>end_call</code></td>
-<td>End call with optional final message</td>
+<td>Slack</td>
+<td>omnichat/providers/slack</td>
+</tr>
+<tr>
+<td>Gmail</td>
+<td>omnichat/providers/email/gmail</td>
+</tr>
+<tr>
+<td>SMS</td>
+<td>agentcomms/pkg/chat/sms</td>
+</tr>
+<tr>
+<td>IRC</td>
+<td>omnichat/providers/irc</td>
 </tr>
 </tbody>
 </table>
-<h3 id="chat-discord-telegram-whatsapp">Chat (Discord, Telegram, WhatsApp)<a class="headerlink" href="#chat-discord-telegram-whatsapp" title="Permanent link">&para;</a></h3>
-<p>MCP tools for messaging:</p>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../irc-setup/">IRC Setup Guide</a> - Server connection, NickServ, TLS configuration</li>
+<li><a href="../../configuration/">Configuration Guide</a> - IRC configuration options</li>
+</ul>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Tool</th>
-<th>Description</th>
+<th>Package</th>
+<th>Version</th>
+<th>Change</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>send_message</code></td>
-<td>Send message to a chat channel</td>
+<td>omnichat</td>
+<td>v0.5.0</td>
+<td>IRC provider</td>
 </tr>
 <tr>
-<td><code>list_channels</code></td>
-<td>List available channels and status</td>
-</tr>
-<tr>
-<td><code>get_messages</code></td>
-<td>Retrieve recent messages from a channel</td>
+<td>irc-go</td>
+<td>v0.6.0</td>
+<td>IRC client library (indirect)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Agent Runtime (Claude Code, etc.)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  │
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  ▼
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>MCP Client
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  │
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  ▼
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>AgentComms MCP Server
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  │
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  ├── Voice Manager (Twilio)
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  │     ├── TTS (ElevenLabs / OpenAI)
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  │     └── STT (Deepgram / OpenAI)
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>  │
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  └── Chat Manager
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        ├── Discord
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        ├── Telegram
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        └── WhatsApp
-</code></pre></div>
-<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h2>
+<h2 id="upgrade-guide">Upgrade Guide<a class="headerlink" href="#upgrade-guide" title="Permanent link">&para;</a></h2>
+<p>This release is backwards compatible.</p>
+<h3 id="adding-irc">Adding IRC<a class="headerlink" href="#adding-irc" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Task completion notification</strong>: Agent calls/messages when done</li>
-<li><strong>Blocker escalation</strong>: Agent contacts human when stuck</li>
-<li><strong>Decision requests</strong>: Agent asks for input on choices</li>
-<li><strong>Status updates</strong>: Periodic progress reports</li>
+<li>
+<p>Update agentcomms:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>go<span class="w"> </span>get<span class="w"> </span>github.com/plexusone/agentcomms@v0.5.0
+</code></pre></div></p>
+</li>
+<li>
+<p>Add IRC configuration to <code>config.json</code>:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;chat&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;irc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">      </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="nt">&quot;server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;irc.libera.chat:6697&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">      </span><span class="nt">&quot;nick&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;myagentbot&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">      </span><span class="nt">&quot;channels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;#mychannel&quot;</span><span class="p">],</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">      </span><span class="nt">&quot;use_tls&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Optionally register your nickname with NickServ and set the password</p>
+</li>
+<li>
+<p>Start the daemon - the bot will connect and join configured channels</p>
+</li>
 </ol>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>Environment variables:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Voice (Twilio)</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">AGENTCOMMS_PHONE_ACCOUNT_SID</span><span class="o">=</span>...
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nv">AGENTCOMMS_PHONE_AUTH_TOKEN</span><span class="o">=</span>...
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nv">AGENTCOMMS_PHONE_NUMBER</span><span class="o">=</span>+15551234567
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nv">AGENTCOMMS_USER_PHONE_NUMBER</span><span class="o">=</span>+15559876543
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nv">NGROK_AUTHTOKEN</span><span class="o">=</span>...
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># Chat (Discord)</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nv">AGENTCOMMS_DISCORD_ENABLED</span><span class="o">=</span><span class="nb">true</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nv">AGENTCOMMS_DISCORD_TOKEN</span><span class="o">=</span>...
-</code></pre></div>
-<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Pull-based</strong>: Agent must initiate tool calls; no push notifications</li>
-<li><strong>Single direction</strong>: Human cannot interrupt or respond asynchronously</li>
-<li><strong>No persistence</strong>: Conversations not stored for replay</li>
-</ol>
-<p>These limitations are addressed by FEAT_INBOUND.</p>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../FEAT_INBOUND_PRD/">FEAT_INBOUND_PRD.md</a> - Human-to-agent communication</li>
-<li><a href="https://spec.modelcontextprotocol.io/">MCP Specification</a></li>
-</ul>
+<h2 id="full-changelog">Full Changelog<a class="headerlink" href="#full-changelog" title="Permanent link">&para;</a></h2>
+<p>See <a href="../../CHANGELOG.md">CHANGELOG.md</a> for the complete list of changes.</p>
 
 
 

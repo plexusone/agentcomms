@@ -304,7 +304,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../releases/v0.4.0/" class="md-tabs__link">
+        <a href="../releases/v0.5.0/" class="md-tabs__link">
           
   
   
@@ -785,6 +785,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#irc" class="md-nav__link">
+    <span class="md-ellipsis">
+      IRC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sms" class="md-nav__link">
     <span class="md-ellipsis">
       SMS
@@ -945,6 +954,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../irc-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IRC Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1018,6 +1050,29 @@
             Releases
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../releases/v0.5.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    v0.5.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1475,6 +1530,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#irc" class="md-nav__link">
+    <span class="md-ellipsis">
+      IRC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sms" class="md-nav__link">
     <span class="md-ellipsis">
       SMS
@@ -1683,14 +1747,22 @@
 <a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="w">      </span><span class="nt">&quot;token_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${HOME}/.agentcomms/gmail_token.json&quot;</span><span class="p">,</span>
 <a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a><span class="w">      </span><span class="nt">&quot;from_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;me&quot;</span>
 <a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a><span class="w">    </span><span class="nt">&quot;channels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a><span class="w">      </span><span class="p">{</span>
-<a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a><span class="w">        </span><span class="nt">&quot;channel_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;discord:YOUR_CHANNEL_ID&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="w">        </span><span class="nt">&quot;agent_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude&quot;</span>
-<a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a><span class="w">    </span><span class="p">]</span>
-<a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a><span class="p">}</span>
+<a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a><span class="w">    </span><span class="nt">&quot;irc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a><span class="w">      </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a><span class="w">      </span><span class="nt">&quot;server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;irc.libera.chat:6697&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="w">      </span><span class="nt">&quot;nick&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agentbot&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a><span class="w">      </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${IRC_PASSWORD}&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a><span class="w">      </span><span class="nt">&quot;channels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;#mychannel&quot;</span><span class="p">],</span>
+<a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a><span class="w">      </span><span class="nt">&quot;use_tls&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a><span class="w">    </span><span class="nt">&quot;channels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a><span class="w">        </span><span class="nt">&quot;channel_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;discord:YOUR_CHANNEL_ID&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a><span class="w">        </span><span class="nt">&quot;agent_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude&quot;</span>
+<a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a><span class="p">}</span>
 </code></pre></div>
 <h2 id="configuration-sections">Configuration Sections<a class="headerlink" href="#configuration-sections" title="Permanent link">&para;</a></h2>
 <h3 id="server">Server<a class="headerlink" href="#server" title="Permanent link">&para;</a></h3>
@@ -2152,6 +2224,56 @@
 </tbody>
 </table>
 <p>Gmail uses OAuth 2.0 for authentication. On first run, you'll need to complete the OAuth flow in your browser. See the <a href="../gmail-setup/">Gmail Setup Guide</a> for detailed instructions.</p>
+<h4 id="irc">IRC<a class="headerlink" href="#irc" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enabled</code></td>
+<td>bool</td>
+<td>No</td>
+<td>Enable IRC integration</td>
+</tr>
+<tr>
+<td><code>server</code></td>
+<td>string</td>
+<td>When enabled</td>
+<td>IRC server address (e.g., <code>irc.libera.chat:6697</code>)</td>
+</tr>
+<tr>
+<td><code>nick</code></td>
+<td>string</td>
+<td>When enabled</td>
+<td>Bot nickname</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>No</td>
+<td>NickServ password for authentication</td>
+</tr>
+<tr>
+<td><code>channels</code></td>
+<td>array</td>
+<td>No</td>
+<td>List of channels to join on connect</td>
+</tr>
+<tr>
+<td><code>use_tls</code></td>
+<td>bool</td>
+<td>No</td>
+<td>Use TLS for connection (default: true)</td>
+</tr>
+</tbody>
+</table>
+<p>See the <a href="../irc-setup/">IRC Setup Guide</a> for detailed instructions.</p>
 <h4 id="sms">SMS<a class="headerlink" href="#sms" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
@@ -2278,6 +2400,7 @@
 <li>WhatsApp: <code>whatsapp:JID</code></li>
 <li>Slack: <code>slack:CHANNEL_ID</code></li>
 <li>Gmail: <code>gmail:EMAIL_ADDRESS</code></li>
+<li>IRC: <code>irc:#channel</code> or <code>irc:nickname</code> (for DMs)</li>
 </ul>
 <h2 id="environment-variable-substitution">Environment Variable Substitution<a class="headerlink" href="#environment-variable-substitution" title="Permanent link">&para;</a></h2>
 <p>The JSON config supports environment variable substitution using <code>${VAR}</code> or <code>$VAR</code> syntax:</p>
