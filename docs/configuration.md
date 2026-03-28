@@ -92,6 +92,14 @@ The configuration file is located at `~/.agentcomms/config.json`.
       "token_file": "${HOME}/.agentcomms/gmail_token.json",
       "from_address": "me"
     },
+    "irc": {
+      "enabled": false,
+      "server": "irc.libera.chat:6697",
+      "nick": "agentbot",
+      "password": "${IRC_PASSWORD}",
+      "channels": ["#mychannel"],
+      "use_tls": true
+    },
     "channels": [
       {
         "channel_id": "discord:YOUR_CHANNEL_ID",
@@ -274,6 +282,19 @@ Slack uses Socket Mode, which means no public webhook URL is required. See the [
 
 Gmail uses OAuth 2.0 for authentication. On first run, you'll need to complete the OAuth flow in your browser. See the [Gmail Setup Guide](gmail-setup.md) for detailed instructions.
 
+#### IRC
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `enabled` | bool | No | Enable IRC integration |
+| `server` | string | When enabled | IRC server address (e.g., `irc.libera.chat:6697`) |
+| `nick` | string | When enabled | Bot nickname |
+| `password` | string | No | NickServ password for authentication |
+| `channels` | array | No | List of channels to join on connect |
+| `use_tls` | bool | No | Use TLS for connection (default: true) |
+
+See the [IRC Setup Guide](irc-setup.md) for detailed instructions.
+
 #### SMS
 
 | Field | Type | Required | Description |
@@ -338,6 +359,7 @@ Channel ID format:
 - WhatsApp: `whatsapp:JID`
 - Slack: `slack:CHANNEL_ID`
 - Gmail: `gmail:EMAIL_ADDRESS`
+- IRC: `irc:#channel` or `irc:nickname` (for DMs)
 
 ## Environment Variable Substitution
 

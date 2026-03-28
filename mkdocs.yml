@@ -49,6 +49,7 @@ nav:
       - Configuration: configuration.md
       - Slack Setup: slack-setup.md
       - Gmail Setup: gmail-setup.md
+      - IRC Setup: irc-setup.md
   - Architecture: architecture.md
   - Releases:
       - v0.4.0: releases/v0.4.0.md
