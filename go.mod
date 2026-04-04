@@ -11,7 +11,7 @@ require (
 	github.com/plexusone/mcpkit v0.4.0
 	github.com/plexusone/omnichat v0.5.0
 	github.com/plexusone/omnivoice v0.7.0
-	github.com/plexusone/omnivoice-core v0.6.0
+	github.com/plexusone/omnivoice-core v0.7.0
 	github.com/plexusone/omnivoice-twilio v0.3.0
 	github.com/spf13/cobra v1.10.2
 	gopkg.in/yaml.v3 v3.0.1
