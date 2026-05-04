@@ -317,8 +317,8 @@ github.com/grokify/gogithub v0.11.0 h1:FvOZNckksQdcArkVhOsYbipgsHlZLd2W2cAPWHo1j
 github.com/grokify/gogithub v0.11.0/go.mod h1:vUbtncFnChOr/l5x2uT9FBRqg1Wz2N8mwueISNCwGuA=
 github.com/grokify/gogoogle v0.9.0 h1:dgTxOIGT8uoEyEhzI6E/Yck+78l+Mz1NmNSAltCeepY=
 github.com/grokify/gogoogle v0.9.0/go.mod h1:7F07kr9uu8LI+cLdigmRP8SzOTRcczAnUS3QJCw/3NY=
-github.com/grokify/mogo v0.74.1 h1:oODNqQFBWD4lNEdr5gq0eDMVUUyP26bOEboK9UZycnw=
-github.com/grokify/mogo v0.74.1/go.mod h1:RC7/sy7MsyZSwJesNohN2EkGvgSFeSLvzOw4c/dGdSo=
+github.com/grokify/mogo v0.74.3 h1:TAnb0VCcb6JRuLl8UMSfSO4NJViG/zo5fcBQkrXER5g=
+github.com/grokify/mogo v0.74.3/go.mod h1:x9ty6X/jQmKdQ9WjClMQp90JY4ajFD03K+lDkc+4FPs=
 github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0/go.mod h1:8NvIoxWQoOIhqOTXgfV/d3M/q6VIi02HzZEHgUlZvzk=
 github.com/grpc-ecosystem/grpc-gateway v1.16.0/go.mod h1:BDjrQk3hbvj6Nolgz8mAMFbcEtjT1g+wF4CSlocrBnw=
 github.com/hashicorp/consul/api v1.12.0/go.mod h1:6pVBMo0ebnYdt2S3H87XhekM/HHrUoTD2XXb/VrZVy0=
@@ -484,8 +484,8 @@ github.com/plexusone/omnichat v0.6.0 h1:MhMkYsk46jpHk5YaXo3LA8eK8WDW46foieAgFRCs
 github.com/plexusone/omnichat v0.6.0/go.mod h1:0Y0ca7gs/ptHcw+uEcNM4VuFUiEnVVJFAIqOselnBEs=
 github.com/plexusone/omnivoice v0.7.2 h1:lBrL0C4O7OJLUEWG/4viio0K7QJpDuW7OrVvLdBiVB4=
 github.com/plexusone/omnivoice v0.7.2/go.mod h1:sRQweMdBIuC2kY3gtBohjALxBVBn9uQ/C2mo+BrYR2I=
-github.com/plexusone/omnivoice-core v0.8.0 h1:vmxP3RFqSe2SQajD3ZsxEjwZg4y7Lv5fMGV4aPZimYI=
-github.com/plexusone/omnivoice-core v0.8.0/go.mod h1:oFa3AOIKDv9lMd7M0cG1HBZOBKK6H9GAVhi7aiR9nYA=
+github.com/plexusone/omnivoice-core v0.9.0 h1:31acEVU+XNlt66/2fXNmgNjYaxQW75Y3y+mRKEspI/0=
+github.com/plexusone/omnivoice-core v0.9.0/go.mod h1:w5uCGNW64K5RDcmgA9Ag9F5tfFEau9K7mQTHdq9NYms=
 github.com/plexusone/omnivoice-deepgram v0.5.0 h1:SWcsYubFP7AZ7AeQUM+MDHo/9c9Ohlb22JJjV2ozZJk=
 github.com/plexusone/omnivoice-deepgram v0.5.0/go.mod h1:g1eSZezr5frupYie73hyiQCdjukSxkGAtTpOOmvy8T0=
 github.com/plexusone/omnivoice-telnyx v0.1.1 h1:4Dt5p7FXXvsTdwaBbvNzYq0p0erOJzXeFYTU2gDDgEM=
@@ -1076,8 +1076,8 @@ google.golang.org/genproto v0.0.0-20220421151946-72621c1f0bd3/go.mod h1:8w6bsBMX
 google.golang.org/genproto v0.0.0-20220429170224-98d788798c3e/go.mod h1:8w6bsBMX6yCPbAVTeqQHvzxW0EIFigd5lZyahWgyfDo=
 google.golang.org/genproto v0.0.0-20220505152158-f39f71e6c8f3/go.mod h1:RAyBrSAP7Fh3Nc84ghnVLDPuV51xc9agzmm4Ph6i0Q4=
 google.golang.org/genproto v0.0.0-20220519153652-3a47de7e79bd/go.mod h1:RAyBrSAP7Fh3Nc84ghnVLDPuV51xc9agzmm4Ph6i0Q4=
-google.golang.org/genproto v0.0.0-20260319201613-d00831a3d3e7 h1:XzmzkmB14QhVhgnawEVsOn6OFsnpyxNPRY9QV01dNB0=
-google.golang.org/genproto v0.0.0-20260319201613-d00831a3d3e7/go.mod h1:L43LFes82YgSonw6iTXTxXUX1OlULt4AQtkik4ULL/I=
+google.golang.org/genproto v0.0.0-20260427160629-7cedc36a6bc4 h1:2iMJZntwvmfgtse+s744JY7v7PgEdSBuFYXucvpOHNM=
+google.golang.org/genproto v0.0.0-20260427160629-7cedc36a6bc4/go.mod h1:v14kaaboYyXQ1Gsu489Q+Hg/oN4B33mWtuOhF1HCeXA=
 google.golang.org/genproto/googleapis/api v0.0.0-20260319201613-d00831a3d3e7 h1:41r6JMbpzBMen0R/4TZeeAmGXSJC7DftGINUodzTkPI=
 google.golang.org/genproto/googleapis/api v0.0.0-20260319201613-d00831a3d3e7/go.mod h1:EIQZ5bFCfRQDV4MhRle7+OgjNtZ6P1PiZBgAKuxXu/Y=
 google.golang.org/genproto/googleapis/rpc v0.0.0-20260414002931-afd174a4e478 h1:RmoJA1ujG+/lRGNfUnOMfhCy5EipVMyvUE+KNbPbTlw=

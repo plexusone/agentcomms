@@ -11,7 +11,7 @@ require (
 	github.com/plexusone/mcpkit v0.4.0
 	github.com/plexusone/omnichat v0.6.0
 	github.com/plexusone/omnivoice v0.7.2
-	github.com/plexusone/omnivoice-core v0.8.0
+	github.com/plexusone/omnivoice-core v0.9.0
 	github.com/plexusone/omnivoice-twilio v0.3.1
 	github.com/spf13/cobra v1.10.2
 	gopkg.in/yaml.v3 v3.0.1
@@ -64,7 +64,7 @@ require (
 	github.com/grokify/goauth v0.23.29 // indirect
 	github.com/grokify/gogithub v0.11.0 // indirect
 	github.com/grokify/gogoogle v0.9.0 // indirect
-	github.com/grokify/mogo v0.74.1 // indirect
+	github.com/grokify/mogo v0.74.3 // indirect
 	github.com/hashicorp/hcl/v2 v2.24.0 // indirect
 	github.com/hokaccha/go-prettyjson v0.0.0-20211117102719-0474bc63780f // indirect
 	github.com/huandu/xstrings v1.5.0 // indirect
