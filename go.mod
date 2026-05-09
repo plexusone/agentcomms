@@ -9,7 +9,7 @@ require (
 	github.com/oklog/ulid/v2 v2.1.1
 	github.com/plexusone/assistantkit v0.12.0
 	github.com/plexusone/mcpkit v0.4.0
-	github.com/plexusone/omnichat v0.6.0
+	github.com/plexusone/omnichat v0.6.1
 	github.com/plexusone/omnivoice v0.8.0
 	github.com/plexusone/omnivoice-core v0.9.0
 	github.com/plexusone/omnivoice-twilio v0.3.1
@@ -90,15 +90,16 @@ require (
 	github.com/plexusone/multi-agent-spec/sdk/go v0.8.0 // indirect
 	github.com/plexusone/ogen-tools v0.2.1 // indirect
 	github.com/plexusone/omni-deepgram v0.6.0 // indirect
+	github.com/plexusone/omni-google v0.4.0 // indirect
 	github.com/plexusone/omni-openai v0.2.1 // indirect
 	github.com/plexusone/omni-telnyx v0.2.0 // indirect
 	github.com/plexusone/twilio-go v0.4.1 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
-	github.com/rs/zerolog v1.35.0 // indirect
+	github.com/rs/zerolog v1.35.1 // indirect
 	github.com/segmentio/asm v1.2.1 // indirect
 	github.com/segmentio/encoding v0.5.4 // indirect
 	github.com/shopspring/decimal v1.4.0 // indirect
-	github.com/slack-go/slack v0.22.0 // indirect
+	github.com/slack-go/slack v0.23.0 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/team-telnyx/telnyx-go/v4 v4.61.0 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
@@ -108,14 +109,14 @@ require (
 	github.com/twilio/twilio-go v1.30.5 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/quicktemplate v1.8.0 // indirect
-	github.com/vektah/gqlparser/v2 v2.5.32 // indirect
+	github.com/vektah/gqlparser/v2 v2.5.33 // indirect
 	github.com/wk8/go-ordered-map/v2 v2.1.8 // indirect
 	github.com/yosida95/uritemplate/v3 v3.0.2 // indirect
 	github.com/zclconf/go-cty v1.18.0 // indirect
 	github.com/zclconf/go-cty-yaml v1.2.0 // indirect
 	go.mau.fi/libsignal v0.2.1 // indirect
 	go.mau.fi/util v0.9.8 // indirect
-	go.mau.fi/whatsmeow v0.0.0-20260416104156-3ff20cd3462a // indirect
+	go.mau.fi/whatsmeow v0.0.0-20260421083005-5b8886176ff7 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.68.0 // indirect
 	go.opentelemetry.io/otel v1.43.0 // indirect
@@ -135,14 +136,14 @@ require (
 	golang.org/x/term v0.42.0 // indirect
 	golang.org/x/text v0.36.0 // indirect
 	golang.org/x/tools v0.44.0 // indirect
-	google.golang.org/api v0.276.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20260414002931-afd174a4e478 // indirect
+	google.golang.org/api v0.277.0 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260427160629-7cedc36a6bc4 // indirect
 	google.golang.org/grpc v1.80.0 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/telebot.v3 v3.3.8 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	k8s.io/klog/v2 v2.140.0 // indirect
-	modernc.org/libc v1.72.0 // indirect
+	modernc.org/libc v1.72.1 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect
 )
